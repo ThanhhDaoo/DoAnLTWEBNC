@@ -1,0 +1,109 @@
+﻿@model GaraMVC.ViewModels.TongQuanViewModel
+
+@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+<div class="container-fluid mt-4">
+    <h2 class="mb-4"><i class="fas fa-tachometer-alt"></i> Dashboard - Tổng quan</h2>
+
+    <!-- Statistics Cards -->
+    <div class="row g-3 mb-4">
+        <div class="col-md-3">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title text-uppercase">Khách hàng</h6>
+                            <h2 class="mb-0">@Model.TongKhachHang</h2>
+                        </div>
+                        <i class="fas fa-users fa-3x opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title text-uppercase">Xe đang quản lý</h6>
+                            <h2 class="mb-0">@Model.TongXe</h2>
+                        </div>
+                        <i class="fas fa-car fa-3x opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title text-uppercase">Dịch vụ</h6>
+                            <h2 class="mb-0">@Model.TongDichVu</h2>
+                        </div>
+                        <i class="fas fa-tools fa-3x opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card bg-warning text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title text-uppercase">Sản phẩm</h6>
+                            <h2 class="mb-0">@Model.TongSanPham</h2>
+                        </div>
+                        <i class="fas fa-box fa-3x opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Revenue Cards -->
+    <div class="row g-3 mb-4">
+        <div class="col-md-6">
+            <div class="card border-primary">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="fas fa-calendar-day"></i> Doanh thu hôm nay</h5>
+                </div>
+                <div class="card-body text-center">
+                    <h1 class="display-4 text-primary">@(((decimal)Model.DoanhThuHomNay).ToString("N0")) đ</h1>
+                    <p class="text-muted">Số hóa đơn: @Model.SoHoaDonHomNay</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card border-success">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0"><i class="fas fa-calendar-alt"></i> Doanh thu tháng này</h5>
+                </div>
+                <div class="card-body text-center">
+                    <h1 class="display-4 text-success">@(((decimal)Model.DoanhThuThangNay).ToString("N0")) đ</h1>
+                    <p class="text-muted">Số hóa đơn: @Model.SoHoaDonThangNay</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert for low stock -->
+    @if (Model.SanPhamSapHet > 0)
+    {
+        <div class="alert alert-danger" role="alert">
+            <i class="fas fa-exclamation-triangle"></i>
+            <strong>Cảnh báo!</strong> Có <strong>@Model.SanPhamSapHet</strong> sản phẩm sắp hết hàng (tồn kho &lt; 10).
+            <a asp-controller="SanPham" asp-action="Index" class="alert-link">Xem ngay</a>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+}

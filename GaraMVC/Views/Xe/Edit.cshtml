@@ -1,0 +1,88 @@
+@model GaraMVC.Models.Xe
+
+@{
+    ViewData["Title"] = "Sửa thông tin xe";
+}
+
+<div class="container-fluid mt-4">
+    <h2 class="mb-4"><i class="fas fa-car"></i> Sửa thông tin xe</h2>
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-warning text-white">
+                    <h5 class="mb-0">Thông tin xe</h5>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Edit" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="MaXe" />
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="BienSo" class="form-label">Biển số <span class="text-danger">*</span></label>
+                                    <input asp-for="BienSo" class="form-control" placeholder="Nhập biển số xe" />
+                                    <span asp-validation-for="BienSo" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="HangXe" class="form-label">Hãng xe <span class="text-danger">*</span></label>
+                                    <input asp-for="HangXe" class="form-control" placeholder="Nhập hãng xe" />
+                                    <span asp-validation-for="HangXe" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="DoiXe" class="form-label">Đời xe <span class="text-danger">*</span></label>
+                                    <input asp-for="DoiXe" class="form-control" placeholder="Nhập đời xe" />
+                                    <span asp-validation-for="DoiXe" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="MauXe" class="form-label">Màu xe</label>
+                                    <input asp-for="MauXe" class="form-control" placeholder="Nhập màu xe" />
+                                    <span asp-validation-for="MauXe" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="MaKH" class="form-label">Khách hàng <span class="text-danger">*</span></label>
+                            <select asp-for="MaKH" class="form-select" asp-items="@(new SelectList(ViewBag.KhachHangs, "MaKH", "TenKH"))">
+                                <option value="">-- Chọn khách hàng --</option>
+                            </select>
+                            <span asp-validation-for="MaKH" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Quay lại
+                            </a>
+                            <button type="submit" class="btn btn-warning">
+                                <i class="fas fa-save"></i> Cập nhật
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

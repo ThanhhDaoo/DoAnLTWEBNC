@@ -1,0 +1,79 @@
+@model GaraMVC.Models.Xe
+
+@{
+    ViewData["Title"] = "Xóa xe";
+}
+
+<div class="container-fluid mt-4">
+    <h2 class="mb-4 text-danger"><i class="fas fa-exclamation-triangle"></i> Xóa xe</h2>
+
+    <div class="alert alert-warning">
+        <h4 class="alert-heading">Cảnh báo!</h4>
+        <p>Bạn có chắc chắn muốn xóa xe này không? Hành động này không thể hoàn tác.</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="mb-0">Thông tin xe sẽ bị xóa</h5>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-3">Mã xe:</dt>
+                        <dd class="col-sm-9">@Model.MaXe</dd>
+
+                        <dt class="col-sm-3">Biển số:</dt>
+                        <dd class="col-sm-9"><span class="badge bg-primary">@Model.BienSo</span></dd>
+
+                        <dt class="col-sm-3">Hãng xe:</dt>
+                        <dd class="col-sm-9">@Model.HangXe</dd>
+
+                        <dt class="col-sm-3">Đời xe:</dt>
+                        <dd class="col-sm-9">@Model.DoiXe</dd>
+
+                        <dt class="col-sm-3">Màu xe:</dt>
+                        <dd class="col-sm-9">@(Model.MauXe ?? "Chưa cập nhật")</dd>
+
+                        <dt class="col-sm-3">Khách hàng:</dt>
+                        <dd class="col-sm-9">
+                            @if (Model.KhachHang != null)
+                            {
+                                @Model.KhachHang.TenKH
+                            }
+                            else
+                            {
+                                <span class="text-muted">N/A</span>
+                            }
+                        </dd>
+                    </dl>
+
+                    <div class="alert alert-danger">
+                        <strong>Lưu ý:</strong> Việc xóa xe có thể ảnh hưởng đến các hóa đơn liên quan.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="mb-0">Xác nhận xóa</h5>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" asp-for="MaXe" />
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-danger btn-lg">
+                                <i class="fas fa-trash"></i> Xác nhận xóa
+                            </button>
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Hủy bỏ
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,143 @@
+@model GaraMVC.Models.YeucauDichVu
+@{
+    ViewData["Title"] = "Chi tiết yêu cầu #" + Model.MaYeuCau;
+}
+
+<div class="container-fluid py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2><i class="fas fa-file-alt"></i> Chi tiết yêu cầu</h2>
+        <a href="@Url.Action("Index")" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Quay lại
+        </a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Thông tin khách hàng</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Họ và tên:</label>
+                            <p>@Model.TenKhachHang</p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Số điện thoại:</label>
+                            <p><a href="tel:@Model.SoDienThoai">@Model.SoDienThoai</a></p>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Địa chỉ:</label>
+                        <p>@Model.DiaChi</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5 class="mb-0">Thông tin dịch vụ</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Tên dịch vụ:</label>
+                            <p>@Model.DichVu?.TenDichVu</p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Ngày hẹn:</label>
+                            <p>@(Model.NgayHen.HasValue ? Model.NgayHen.Value.ToString("dd/MM/yyyy") : "Không có")</p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Giờ hẹn:</label>
+                            <p>@(string.IsNullOrEmpty(Model.GioHen) ? "Không có" : Model.GioHen)</p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Ngày yêu cầu:</label>
+                            <p>@Model.NgayYeuCau.ToString("dd/MM/yyyy HH:mm")</p>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Ghi chú:</label>
+                        <p>@(string.IsNullOrEmpty(Model.GhiChu) ? "Không có" : Model.GhiChu)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Trạng thái</h5>
+                </div>
+                <div class="card-body text-center">
+                    @if (Model.TrangThai == "Mới")
+                    {
+                        <span class="badge bg-primary fs-6 py-2 px-4">Mới</span>
+                    }
+                    else if (Model.TrangThai == "Đang xử lý")
+                    {
+                        <span class="badge bg-warning fs-6 py-2 px-4">Đang xử lý</span>
+                    }
+                    else if (Model.TrangThai == "Hoàn thành")
+                    {
+                        <span class="badge bg-success fs-6 py-2 px-4">Hoàn thành</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary fs-6 py-2 px-4">@Model.TrangThai</span>
+                    }
+
+                    <hr class="my-4">
+
+                    <h6 class="mb-3">Thay đổi trạng thái:</h6>
+                    
+                    @if (Model.TrangThai == "Mới")
+                    {
+                        <form method="post" action="@Url.Action("UpdateStatus", new { id = Model.MaYeuCau, trangThai = "Đang xử lý" })" 
+                              onsubmit="return confirm('Xác nhận bắt đầu xử lý yêu cầu này?');">
+                            <button type="submit" class="btn btn-warning w-100 mb-2">
+                                <i class="fas fa-play"></i> Bắt đầu xử lý
+                            </button>
+                        </form>
+                    }
+                    
+                    @if (Model.TrangThai == "Đang xử lý")
+                    {
+                        <form method="post" action="@Url.Action("UpdateStatus", new { id = Model.MaYeuCau, trangThai = "Hoàn thành" })" 
+                              onsubmit="return confirm('Xác nhận hoàn thành yêu cầu này?');">
+                            <button type="submit" class="btn btn-success w-100 mb-2">
+                                <i class="fas fa-check"></i> Hoàn thành
+                            </button>
+                        </form>
+                    }
+
+                    <form method="post" action="@Url.Action("Delete", new { id = Model.MaYeuCau })" 
+                          onsubmit="return confirm('Bạn có chắc muốn xóa yêu cầu này?');">
+                        <button type="submit" class="btn btn-danger w-100">
+                            <i class="fas fa-trash"></i> Xóa yêu cầu
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            @if (Model.DichVu != null)
+            {
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h6 class="mb-0">Thông tin dịch vụ</h6>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Giá:</strong> @Model.DichVu.Gia.ToString("N0") VNĐ</p>
+                        @if (!string.IsNullOrEmpty(Model.DichVu.MoTa))
+                        {
+                            <p><strong>Mô tả:</strong><br>@Model.DichVu.MoTa</p>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

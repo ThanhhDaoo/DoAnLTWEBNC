@@ -1,0 +1,73 @@
+@model GaraMVC.Models.KhachHang
+
+@{
+    ViewData["Title"] = "Xóa khách hàng";
+}
+
+<div class="container-fluid mt-4">
+    <h2 class="mb-4 text-danger"><i class="fas fa-exclamation-triangle"></i> Xóa khách hàng</h2>
+
+    <div class="alert alert-warning">
+        <h4 class="alert-heading">Cảnh báo!</h4>
+        <p>Bạn có chắc chắn muốn xóa khách hàng này không? Hành động này không thể hoàn tác.</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="mb-0">Thông tin khách hàng sẽ bị xóa</h5>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-3">Mã khách hàng:</dt>
+                        <dd class="col-sm-9">@Model.MaKH</dd>
+
+                        <dt class="col-sm-3">Tên khách hàng:</dt>
+                        <dd class="col-sm-9">@Model.TenKH</dd>
+
+                        <dt class="col-sm-3">Số điện thoại:</dt>
+                        <dd class="col-sm-9">@Model.SDT</dd>
+
+                        <dt class="col-sm-3">Email:</dt>
+                        <dd class="col-sm-9">@(Model.Email ?? "Chưa cập nhật")</dd>
+
+                        <dt class="col-sm-3">Địa chỉ:</dt>
+                        <dd class="col-sm-9">@(Model.DiaChi ?? "Chưa cập nhật")</dd>
+
+                        <dt class="col-sm-3">Ngày đăng ký:</dt>
+                        <dd class="col-sm-9">@Model.NgayDangKy.ToString("dd/MM/yyyy HH:mm")</dd>
+                    </dl>
+
+                    @if (Model.DanhSachXe != null && Model.DanhSachXe.Any())
+                    {
+                        <div class="alert alert-danger">
+                            <strong>Lưu ý:</strong> Khách hàng này có @Model.DanhSachXe.Count() xe. Việc xóa khách hàng có thể ảnh hưởng đến dữ liệu liên quan.
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="mb-0">Xác nhận xóa</h5>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" asp-for="MaKH" />
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-danger btn-lg">
+                                <i class="fas fa-trash"></i> Xác nhận xóa
+                            </button>
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Hủy bỏ
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

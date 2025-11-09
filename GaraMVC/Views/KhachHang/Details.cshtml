@@ -1,0 +1,111 @@
+@model GaraMVC.Models.KhachHang
+
+@{
+    ViewData["Title"] = "Chi tiết khách hàng";
+}
+
+<div class="container-fluid mt-4">
+    <h2 class="mb-4"><i class="fas fa-user"></i> Chi tiết khách hàng</h2>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">Thông tin khách hàng</h5>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-3">Mã khách hàng:</dt>
+                        <dd class="col-sm-9">@Model.MaKH</dd>
+
+                        <dt class="col-sm-3">Tên khách hàng:</dt>
+                        <dd class="col-sm-9">@Model.TenKH</dd>
+
+                        <dt class="col-sm-3">Số điện thoại:</dt>
+                        <dd class="col-sm-9">@Model.SDT</dd>
+
+                        <dt class="col-sm-3">Email:</dt>
+                        <dd class="col-sm-9">@(Model.Email ?? "Chưa cập nhật")</dd>
+
+                        <dt class="col-sm-3">Địa chỉ:</dt>
+                        <dd class="col-sm-9">@(Model.DiaChi ?? "Chưa cập nhật")</dd>
+
+                        <dt class="col-sm-3">Ngày đăng ký:</dt>
+                        <dd class="col-sm-9">@Model.NgayDangKy.ToString("dd/MM/yyyy HH:mm")</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="mb-0">Thao tác</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a asp-action="Edit" asp-route-id="@Model.MaKH" class="btn btn-warning">
+                            <i class="fas fa-edit"></i> Sửa thông tin
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@Model.MaKH" class="btn btn-danger">
+                            <i class="fas fa-trash"></i> Xóa khách hàng
+                        </a>
+                        <a asp-action="Index" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Quay lại danh sách
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (Model.DanhSachXe != null && Model.DanhSachXe.Any())
+    {
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0">Danh sách xe của khách hàng</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Mã xe</th>
+                                        <th>Biển số</th>
+                                        <th>Hãng xe</th>
+                                        <th>Đời xe</th>
+                                        <th>Màu xe</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var xe in Model.DanhSachXe)
+                                    {
+                                        <tr>
+                                            <td>@xe.MaXe</td>
+                                            <td>@xe.BienSo</td>
+                                            <td>@xe.HangXe</td>
+                                            <td>@xe.DoiXe</td>
+                                            <td>@xe.MauXe</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle"></i> Khách hàng này chưa có xe nào.
+                </div>
+            </div>
+        </div>
+    }
+</div>

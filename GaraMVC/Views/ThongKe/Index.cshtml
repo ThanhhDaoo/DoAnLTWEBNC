@@ -1,0 +1,329 @@
+﻿@{
+    ViewData["Title"] = "Thống kê & Báo cáo";
+}
+
+<div class="container-fluid mt-4">
+    <h2 class="mb-4"><i class="fas fa-chart-line"></i> Thống kê & Báo cáo</h2>
+
+    <!-- Date Filter -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <label class="form-label">Từ ngày</label>
+                    <input type="date" id="fromDate" class="form-control" value="@DateTime.Now.AddMonths(-1).ToString("yyyy-MM-dd")">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Đến ngày</label>
+                    <input type="date" id="toDate" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")">
+                </div>
+                <div class="col-md-3 d-flex align-items-end">
+                    <button class="btn btn-primary" id="btnFilter">
+                        <i class="fas fa-filter"></i> Lọc dữ liệu
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Revenue Summary -->
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="fas fa-chart-area"></i> Doanh thu theo ngày</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <div class="p-3 bg-light rounded">
+                                <h6>Tổng doanh thu</h6>
+                                <h3 class="text-primary" id="tongDoanhThu">0 đ</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3 bg-light rounded">
+                                <h6>Tổng hóa đơn</h6>
+                                <h3 class="text-success" id="tongHoaDon">0</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3 bg-light rounded">
+                                <h6>Trung bình / hóa đơn</h6>
+                                <h3 class="text-info" id="trungBinh">0 đ</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <canvas id="doanhThuChart" height="80"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top Statistics -->
+    <div class="row">
+        <!-- Top Customers -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0"><i class="fas fa-users"></i> Top khách hàng</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="topKhachHangChart" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Popular Services -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0"><i class="fas fa-tools"></i> Dịch vụ phổ biến</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="dichVuChart" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Best Selling Products -->
+        <div class="col-md-12 mb-4">
+            <div class="card">
+                <div class="card-header bg-warning text-white">
+                    <h5 class="mb-0"><i class="fas fa-box"></i> Sản phẩm bán chạy</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="sanPhamChart" height="100"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        let doanhThuChart, khachHangChart, dichVuChart, sanPhamChart;
+            // Load data on page load
+            $(document).ready(function() {
+                loadDoanhThu();
+                loadTopKhachHang();
+                loadDichVuPhoBien();
+                loadSanPhamBanChay();
+            });
+
+            // Filter button
+            $('#btnFilter').click(function() {
+                loadDoanhThu();
+            });
+
+            // Load revenue data
+            function loadDoanhThu() {
+                const fromDate = $('#fromDate').val();
+                const toDate = $('#toDate').val();
+
+                $.get('@Url.Action("GetDoanhThu")', { fromDate, toDate }, function(data) {
+                    // Update summary
+                    $('#tongDoanhThu').text(data.tongDoanhThu.toLocaleString() + ' đ');
+                    $('#tongHoaDon').text(data.tongHoaDon);
+                    const avg = data.tongHoaDon > 0 ? (data.tongDoanhThu / data.tongHoaDon) : 0;
+                    $('#trungBinh').text(Math.round(avg).toLocaleString() + ' đ');
+
+                    // Prepare chart data
+                    const labels = data.chiTiet.map(item => {
+                        const date = new Date(item.ngay);
+                        return date.toLocaleDateString('vi-VN');
+                    });
+                    const values = data.chiTiet.map(item => item.tongTien);
+
+                    // Destroy old chart
+                    if (doanhThuChart) {
+                        doanhThuChart.destroy();
+                    }
+
+                    // Create new chart
+                    const ctx = document.getElementById('doanhThuChart').getContext('2d');
+                    doanhThuChart = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Doanh thu (VNĐ)',
+                                data: values,
+                                borderColor: 'rgb(75, 192, 192)',
+                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                tension: 0.4,
+                                fill: true
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    display: true,
+                                    position: 'top'
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(context) {
+                                            return context.parsed.y.toLocaleString() + ' đ';
+                                        }
+                                    }
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    ticks: {
+                                        callback: function(value) {
+                                            return value.toLocaleString() + 'đ';
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                });
+            }
+
+            // Load top customers
+            function loadTopKhachHang() {
+                $.get('@Url.Action("GetTopKhachHang")', { top: 10 }, function(data) {
+                    const labels = data.map(item => item.tenKH);
+                    const values = data.map(item => item.tongChiTieu);
+
+                    if (khachHangChart) {
+                        khachHangChart.destroy();
+                    }
+
+                    const ctx = document.getElementById('topKhachHangChart').getContext('2d');
+                    khachHangChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Tổng chi tiêu (VNĐ)',
+                                data: values,
+                                backgroundColor: 'rgba(54, 162, 235, 0.8)',
+                                borderColor: 'rgba(54, 162, 235, 1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            indexAxis: 'y',
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(context) {
+                                            return context.parsed.x.toLocaleString() + ' đ';
+                                        }
+                                    }
+                                }
+                            },
+                            scales: {
+                                x: {
+                                    beginAtZero: true,
+                                    ticks: {
+                                        callback: function(value) {
+                                            return value.toLocaleString() + 'đ';
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                });
+            }
+
+            // Load popular services
+            function loadDichVuPhoBien() {
+                $.get('@Url.Action("GetDichVuPhoBien")', { top: 5 }, function(data) {
+                    const labels = data.map(item => item.tenDV);
+                    const values = data.map(item => item.soLanSuDung);
+
+                    if (dichVuChart) {
+                        dichVuChart.destroy();
+                    }
+
+                    const ctx = document.getElementById('dichVuChart').getContext('2d');
+                    dichVuChart = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                data: values,
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.8)',
+                                    'rgba(54, 162, 235, 0.8)',
+                                    'rgba(255, 206, 86, 0.8)',
+                                    'rgba(75, 192, 192, 0.8)',
+                                    'rgba(153, 102, 255, 0.8)'
+                                ],
+                                borderWidth: 2
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    position: 'right'
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(context) {
+                                            return context.label + ': ' + context.parsed + ' lần';
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                });
+            }
+
+            // Load best selling products
+            function loadSanPhamBanChay() {
+                $.get('@Url.Action("GetSanPhamBanChay")', { top: 5 }, function(data) {
+                    const labels = data.map(item => item.tenSP);
+                    const values = data.map(item => item.soLuongBan);
+
+                    if (sanPhamChart) {
+                        sanPhamChart.destroy();
+                    }
+
+                    const ctx = document.getElementById('sanPhamChart').getContext('2d');
+                    sanPhamChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Số lượng bán',
+                                data: values,
+                                backgroundColor: 'rgba(255, 159, 64, 0.8)',
+                                borderColor: 'rgba(255, 159, 64, 1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    display: false
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                });
+            }
+    </script>
+}

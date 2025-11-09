@@ -1,0 +1,361 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Gara Ô Tô ABC</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #6c757d;
+            --success-color: #198754;
+            --danger-color: #dc3545;
+            --warning-color: #ffc107;
+            --info-color: #0dcaf0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .service-card, .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .service-card:hover, .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(45deg, #764ba2, #667eea);
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 0 10px; /* Giảm padding trên/dưới để hạn chế khoảng trắng cuối trang */
+        }
+
+        .footer h5 {
+            color: #ecf0f1;
+            margin-bottom: 20px;
+        }
+
+        .footer a {
+            color: #bdc3c7;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: white;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--danger-color);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+        }
+    /* Thêm màu header và bóng đổ menu */
+    .navbar {
+        background: linear-gradient(90deg, #2151b3 0%, #378ad7 100%) !important;
+        box-shadow: 0 2px 8px rgba(33, 81, 179, 0.08);
+        color: white !important;
+    }
+    .navbar .navbar-nav .nav-link {
+        color: #fff !important;
+        font-weight: 500;
+        margin: 0 20px; /* thêm khoảng cách giữa các mục menu */
+        transition: color 0.2s, background 0.2s;
+        border-radius: 6px;
+    }
+    .navbar .navbar-nav .nav-link.active,
+    .navbar .navbar-nav .nav-link:hover,
+    .navbar .navbar-nav .nav-link:focus {
+        background: rgba(255, 255, 255, 0.12) !important;
+        color: #ffe082 !important;
+    }
+    .navbar .navbar-brand {
+        color: #ffe082 !important;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    /* Giảm/khoá margin dưới main và html, body để triệt tiêu trắng cuối trang */
+    main[style] {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    html, body {
+        height: 100%;
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    body {
+        min-height: 100vh;
+        margin-bottom: 0 !important;
+    }
+    .footer {
+        margin-bottom: 0 !important;
+        padding-bottom: 6px !important;
+    }
+    .footer .row [class^="col"] {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+    }
+    .footer ul.list-unstyled li {
+        margin-bottom: 8px;
+    }
+    @@media (max-width: 767.98px) {
+        .footer .row {
+            text-align: center !important;
+        }
+        .footer .row [class^="col"] {
+            align-items: center;
+            text-align: center !important;
+        }
+    }
+    .footer {
+        background: linear-gradient(180deg, #24364a 0%, #213044 80%, #162138 100%);
+        box-shadow: 0 -16px 48px -10px #000a2a44 inset;
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+        border-top: 0.5px solid #5469854d;
+        border-radius: 0 !important;
+    }
+    .footer .row {
+        min-height: 200px;
+        display: flex;
+        align-items: center !important;
+        justify-content: center;
+    }
+    .footer .col-md-4 {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    @@media (max-width: 767.98px) {
+        .footer .row {
+            flex-direction: column !important;
+        }
+        .footer .col-md-4 {
+            margin-bottom: 1.2rem;
+        }
+    }
+    .section-title-footer {
+        color: #ffe082;
+        letter-spacing: 0.5px;
+    }
+    .footer-link {
+        color: #e3e9f7 !important;
+        text-decoration: none;
+        border-radius: 4px;
+        padding: 2px 8px;
+        transition: color .17s, background .17s;
+        font-weight: 500;
+    }
+    .footer-link:hover, .footer-link:focus {
+        color: #ffe082 !important;
+        background: rgba(255,255,255,0.09);
+        text-decoration: none;
+    }
+    .avatar-circle {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        font-weight: bold;
+        width: 32px;
+        height: 32px;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+            <div class="container">
+                <a class="navbar-brand text-primary" asp-controller="Home" asp-action="Index">
+                    <i class="fas fa-car me-2"></i>MTProAuto
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto"> <!-- Đổi me-auto thành mx-auto để căn giữa menu -->
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="DichVu" asp-action="Index">Dịch vụ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="SanPham" asp-action="Index">Sản phẩm</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="LienHe" asp-action="Index">Liên hệ</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item position-relative">
+                            <a class="nav-link" asp-controller="SanPham" asp-action="GioHang">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="cart-badge" id="cartCount">0</span>
+                            </a>
+                        </li>
+                        <!-- User icon and dropdown menu -->
+                        <li class="nav-item dropdown ms-2">
+                            @if (User.Identity != null && User.Identity.IsAuthenticated)
+                            {
+                                var userName = User.Identity.Name ?? "";
+                                var firstChar = userName.Length > 0 ? userName.Substring(0,1).ToUpper() : "U";
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="avatar-circle bg-primary text-white me-2 d-inline-flex justify-content-center align-items-center fw-bold" style="width:32px;height:32px;border-radius:50%;font-size:19px;">@firstChar</span>
+                                <span class="d-none d-sm-inline">@userName</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                <li>
+                                    <form method="post" asp-controller="Account" asp-action="Logout" style="display:inline;">
+                                        <button type="submit" class="dropdown-item">
+                                            <i class="fas fa-sign-out-alt me-2"></i>Đăng xuất
+                                        </button>
+                                    </form>
+                                </li>
+                            </ul>
+                            }
+                            else
+                            {
+                            <a class="nav-link d-flex align-items-center" asp-controller="Account" asp-action="Login">
+                                <i class="fas fa-user-circle fa-lg me-2"></i>
+                                <span class="d-none d-sm-inline">Đăng nhập</span>
+                            </a>
+                            }
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main style="margin-top: 80px;">
+        @RenderBody()
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <!-- Footer flex đều 3 cột, giữa dọc và ngang -->
+            <div class="row gx-4 gy-4 align-items-center justify-content-center" style="min-height: 200px; display: flex;">
+                <div class="col-md-4 d-flex flex-column align-items-center justify-content-center text-center">
+                    <h5 class="fw-bold mb-3" style="color: #ffe082;"><i class="fas fa-car me-2"></i>MTProAuto</h5>
+                    <p class="mb-0" style="color:#dbe6f3;font-size:1.09rem;font-weight:400;">Chuyên cung cấp dịch vụ sửa chữa, bảo dưỡng và phụ tùng ô tô chất lượng cao với đội ngũ kỹ thuật viên chuyên nghiệp.</p>
+                </div>
+                <div class="col-md-4 d-flex flex-column align-items-center justify-content-center text-center">
+                    <h5 class="fw-bold mb-3 section-title-footer">Liên kết nhanh</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><a class="footer-link" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+                        <li class="mb-2"><a class="footer-link" asp-controller="DichVu" asp-action="Index">Dịch vụ</a></li>
+                        <li class="mb-2"><a class="footer-link" asp-controller="SanPham" asp-action="Index">Sản phẩm</a></li>
+                        <li class="mb-2"><a class="footer-link" asp-controller="LienHe" asp-action="Index">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 d-flex flex-column align-items-center justify-content-center text-center">
+                    <h5 class="fw-bold mb-3 section-title-footer">Thông tin liên hệ</h5>
+                    <p class="mb-1"><span style="color:#90caf9;"><i class="fas fa-map-marker-alt me-2"></i></span><span style="color:#e3e9f7">Ngã 4 An Dương Vương, Trần Phú, Quảng Ngãi</span></p>
+                    <p class="mb-1"><span style="color:#90caf9;"><i class="fas fa-phone me-2"></i></span><a href="tel:0384424567" class="footer-link">038 442 4567</a></p>
+                    <p class="mb-0"><span style="color:#90caf9;"><i class="fas fa-envelope me-2"></i></span><a href="mailto:contact@mtproauto.vn" class="footer-link">contact@mtproauto.vn</a></p>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color:#39577b;opacity:0.35">
+            <div class="text-center small" style="color:#aac7e5;">
+                <p class="mb-0">&copy; 2025 MTProAuto. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        // Cập nhật số lượng giỏ hàng
+        function updateCartCount() {
+            $.get('@Url.Action("GetCartCount", "SanPham")', function(data) {
+                $('#cartCount').text(data);
+            });
+        }
+
+        // Gọi khi trang load
+        $(document).ready(function() {
+            updateCartCount();
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

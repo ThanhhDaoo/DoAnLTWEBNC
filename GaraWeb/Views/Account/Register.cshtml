@@ -1,0 +1,76 @@
+@{
+    ViewData["Title"] = "Đăng ký";
+}
+
+<div class="d-flex justify-content-center align-items-center" style="min-height:80vh;">
+    <div class="card shadow rounded p-4" style="max-width: 420px; width:100%; border: none;">
+        <div class="text-center mb-3">
+            <span class="avatar-circle bg-primary text-white mb-2">
+                <i class="fas fa-user-plus fa-lg"></i>
+            </span>
+            <h3 class="fw-bold" style="color:#2151b3">Đăng ký</h3>
+        </div>
+        <form asp-action="Register" method="post" id="registerForm" autocomplete="off">
+            <div class="mb-3 input-group">
+                <span class="input-group-text bg-white"><i class="fas fa-user"></i></span>
+                <input class="form-control" name="Username" placeholder="Tên đăng nhập" required value="@((ViewData.Model != null)?((dynamic)ViewData.Model).Username: "")" />
+            </div>
+            <div class="mb-3 input-group">
+                <span class="input-group-text bg-white"><i class="fas fa-envelope"></i></span>
+                <input type="email" class="form-control" name="Email" placeholder="Email (không bắt buộc)" value="@((ViewData.Model != null)?((dynamic)ViewData.Model).Email: "")" />
+            </div>
+            <div class="mb-3 input-group">
+                <span class="input-group-text bg-white"><i class="fas fa-lock"></i></span>
+                <input type="password" class="form-control" name="Password" id="Password" placeholder="Mật khẩu" required />
+            </div>
+            <div class="mb-3 input-group">
+                <span class="input-group-text bg-white"><i class="fas fa-lock"></i></span>
+                <input type="password" class="form-control" name="ConfirmPassword" id="ConfirmPassword" placeholder="Xác nhận mật khẩu" required />
+            </div>
+            <div class="text-danger mb-2" id="passwordError" style="display:none;"></div>
+            <button type="submit" class="btn btn-success w-100 mb-2">Đăng ký</button>
+            <div class="text-center">
+                <a asp-controller="Account" asp-action="Login" class="small">Đã có tài khoản? Đăng nhập</a>
+            </div>
+        </form>
+        <div class="text-danger mt-2 small">
+            @foreach (var err in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <div>@err.ErrorMessage</div>
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    .avatar-circle {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        width: 54px;
+        height: 54px;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        font-size: 2rem;
+        margin-bottom: .7rem;
+        box-shadow: 0 2px 16px #2151b342;
+    }
+</style>
+<script>
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+        var pwd = document.getElementById("Password").value;
+        var conf = document.getElementById("ConfirmPassword").value;
+        var errorDiv = document.getElementById("passwordError");
+        if (pwd !== conf) {
+            errorDiv.textContent = "Xác nhận mật khẩu không khớp.";
+            errorDiv.style.display = "block";
+            e.preventDefault();
+            return false;
+        } else {
+            errorDiv.style.display = "none";
+        }
+        return true;
+    });
+</script>
+
+

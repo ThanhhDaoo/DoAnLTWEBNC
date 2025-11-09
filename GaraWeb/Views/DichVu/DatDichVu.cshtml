@@ -1,0 +1,89 @@
+@model GaraWeb.Models.DichVu
+@{
+    ViewData["Title"] = "Đặt dịch vụ - " + Model.TenDichVu;
+}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0">Đặt dịch vụ: @Model.TenDichVu</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <input type="hidden" name="id" value="@Model.Id" />
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="tenKhachHang" class="form-label">Họ và tên *</label>
+                                <input type="text" class="form-control" id="tenKhachHang" name="tenKhachHang" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="soDienThoai" class="form-label">Số điện thoại *</label>
+                                <input type="tel" class="form-control" id="soDienThoai" name="soDienThoai" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="diaChi" class="form-label">Địa chỉ *</label>
+                            <textarea class="form-control" id="diaChi" name="diaChi" rows="3" required></textarea>
+                        </div>
+                        <!-- Thêm trường Ngày và Giờ hẹn đến gara -->
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="ngayHen" class="form-label">Ngày đến gara *</label>
+                                <input type="date" class="form-control" id="ngayHen" name="ngayHen" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="gioHen" class="form-label">Giờ hẹn *</label>
+                                <input type="time" class="form-control" id="gioHen" name="gioHen" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ghiChu" class="form-label">Ghi chú</label>
+                            <textarea class="form-control" id="ghiChu" name="ghiChu" rows="3" placeholder="Mô tả chi tiết về vấn đề của xe hoặc yêu cầu đặc biệt..."></textarea>
+                        </div>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="@Url.Action("Index", "DichVu")" class="btn btn-secondary me-md-2">Quay lại</a>
+                            <button type="submit" class="btn btn-primary">Đặt dịch vụ</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Thông tin dịch vụ</h5>
+                </div>
+                <div class="card-body">
+                    <img src="@(string.IsNullOrEmpty(Model.HinhAnh) ? "https://via.placeholder.com/400x250/667eea/ffffff?text=" + Model.TenDichVu : Model.HinhAnh)" 
+                         class="img-fluid rounded mb-3" alt="@Model.TenDichVu">
+                    <h6>@Model.TenDichVu</h6>
+                    <p class="text-muted">@Model.MoTa</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="h5 text-primary mb-0">@Model.Gia.ToString("N0") VNĐ</span>
+                        @if (Model.TrangThai)
+                        {
+                            <span class="badge bg-success">Có sẵn</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">Tạm ngưng</span>
+                        }
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h6 class="mb-0">Thông tin liên hệ</h6>
+                </div>
+                <div class="card-body">
+                    <p><i class="fas fa-phone me-2"></i>038 442 4567</p>
+                    <p><i class="fas fa-envelope me-2"></i>contact@mtproauto.vn</p>
+                    <p><i class="fas fa-map-marker-alt me-2"></i>Trương Định/Ngã 4 An Dương Vương, Trần Phú, Quảng Ngãi</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

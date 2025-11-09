@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Quản lý Gara Ô Tô</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --sidebar-width: 250px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: var(--sidebar-width);
+            background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%);
+            padding-top: 20px;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .sidebar-brand {
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 20px;
+        }
+
+            .sidebar-brand i {
+                font-size: 2rem;
+                display: block;
+                margin-bottom: 10px;
+            }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+            .sidebar-menu li {
+                margin: 0;
+            }
+
+            .sidebar-menu a {
+                display: flex;
+                align-items: center;
+                padding: 15px 25px;
+                color: rgba(255,255,255,0.8);
+                text-decoration: none;
+                transition: all 0.3s;
+            }
+
+                .sidebar-menu a:hover,
+                .sidebar-menu a.active {
+                    background-color: rgba(255,255,255,0.1);
+                    color: white;
+                    border-left: 4px solid #fbbf24;
+                }
+
+                .sidebar-menu a i {
+                    width: 30px;
+                    font-size: 1.2rem;
+                    margin-right: 10px;
+                }
+
+        /* Main Content */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        /* Top Navbar */
+        .top-navbar {
+            background: white;
+            padding: 15px 30px;
+            margin: -20px -20px 20px -20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+            .top-navbar h4 {
+                margin: 0;
+                color: #1e3a8a;
+            }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .user-info img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+            }
+
+        /* Cards */
+        .card {
+            border: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .card-header {
+            border-radius: 10px 10px 0 0 !important;
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        .btn {
+            border-radius: 8px;
+            padding: 8px 20px;
+            font-weight: 500;
+        }
+
+        /* Tables */
+        .table {
+            background: white;
+        }
+
+            .table thead th {
+                border-bottom: 2px solid #dee2e6;
+                font-weight: 600;
+                text-transform: uppercase;
+                font-size: 0.85rem;
+            }
+
+        /* Mobile Responsive */
+      @@media (max-width: 768px) {
+            .sidebar
+
+        {
+            margin-left: calc(-1 * var(--sidebar-width));
+        }
+
+        .main-content {
+            margin-left: 0;
+        }
+
+        .sidebar.show {
+            margin-left: 0;
+        }
+
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <i class="fas fa-car"></i>
+            GARA Ô TÔ
+        </div>
+        <ul class="sidebar-menu">
+            <li>
+                <a asp-controller="Home" asp-action="Index" class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Home" ? "active" : "")">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="KhachHang" asp-action="Index" class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "KhachHang" ? "active" : "")">
+                    <i class="fas fa-users"></i>
+                    <span>Khách hàng</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Xe" asp-action="Index" class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Xe" ? "active" : "")">
+                    <i class="fas fa-car"></i>
+                    <span>Quản lý xe</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="DichVu" asp-action="Index" class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "DichVu" ? "active" : "")">
+                    <i class="fas fa-tools"></i>
+                    <span>Dịch vụ</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Yeucau" asp-action="Index" class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Yeucau" ? "active" : "")">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Yêu cầu dịch vụ</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="LienHe" asp-action="Index" class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "LienHe" ? "active" : "")">
+                    <i class="fas fa-envelope"></i>
+                    <span>Liên hệ</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="SanPham" asp-action="Index" class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "SanPham" ? "active" : "")">
+                    <i class="fas fa-box"></i>
+                    <span>Sản phẩm</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="top-navbar">
+            <h4>@ViewData["Title"]</h4>
+            <div class="user-info">
+                <div>
+                    <div style="font-weight: 600;">Admin User</div>
+                    <small class="text-muted">Quản trị viên</small>
+                </div>
+                <img src="https://ui-avatars.com/api/?name=Admin&background=0d6efd&color=fff" alt="User">
+            </div>
+        </div>
+
+        <main>
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

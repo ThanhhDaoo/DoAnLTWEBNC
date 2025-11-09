@@ -1,0 +1,51 @@
+@model List<GaraWeb.Models.LienHe>
+@{
+    ViewData["Title"] = "Quản lý liên hệ";
+}
+<h2 class="my-4">Quản lý liên hệ khách hàng</h2>
+<table class="table table-bordered table-hover">
+    <thead class="table-primary">
+        <tr>
+            <th>#</th>
+            <th>Họ tên</th>
+            <th>Email</th>
+            <th>Số điện thoại</th>
+            <th>Chủ đề</th>
+            <th>Nội dung</th>
+            <th>Ngày gửi</th>
+            <th>Đã xử lý</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MaLienHe</td>
+                <td>@item.HoTen</td>
+                <td>@item.Email</td>
+                <td>@item.SoDienThoai</td>
+                <td>@item.ChuDe</td>
+                <td>@item.NoiDung</td>
+                <td>@item.NgayGui.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>
+                    <input type="checkbox" class="form-check-input update-status" data-id="@item.MaLienHe" @(item.DaXuLy ? "checked" : "") />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts{
+<script>
+    $(function(){
+        $('.update-status').change(function(){
+            var id = $(this).data('id');
+            var daxuly = $(this).is(':checked');
+            $.post('@Url.Action("UpdateStatus", "AdminLienHe")', { id: id, daxuly: daxuly }, function(res) {
+                if(res.success){
+                    // Optionally, show success notification
+                }
+            });
+        });
+    });
+</script>
+}

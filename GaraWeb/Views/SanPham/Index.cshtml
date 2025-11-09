@@ -1,0 +1,84 @@
+@model List<GaraWeb.Models.SanPham>
+@{
+    ViewData["Title"] = "Sản phẩm";
+}
+
+<div class="container py-5">
+    <div class="section-title">
+        <h2>Sản phẩm của chúng tôi</h2>
+        <p>Phụ tùng và phụ kiện ô tô chính hãng, chất lượng cao</p>
+    </div>
+
+    <div class="row">
+        @foreach (var sanPham in Model)
+        {
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card product-card h-100">
+                    <img src="@(string.IsNullOrEmpty(sanPham.HinhAnh) ? "https://via.placeholder.com/400x250/764ba2/ffffff?text=" + sanPham.TenSanPham : sanPham.HinhAnh)" 
+                         class="card-img-top" alt="@sanPham.TenSanPham" style="height: 250px; object-fit: cover;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">@sanPham.TenSanPham</h5>
+                        <p class="card-text">@sanPham.MoTa</p>
+                        <div class="mt-auto">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="h4 text-primary mb-0">@sanPham.Gia.ToString("N0") VNĐ</span>
+                                @if (sanPham.SoLuongTon > 0)
+                                {
+                                    <span class="badge bg-success">Còn hàng (@sanPham.SoLuongTon)</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-warning">Hết hàng</span>
+                                }
+                            </div>
+                            <div class="d-grid gap-2">
+                                <a href="@Url.Action("ChiTiet", "SanPham", new { id = sanPham.Id })" class="btn btn-outline-primary">
+                                    <i class="fas fa-eye me-2"></i>Xem chi tiết
+                                </a>
+                                @if (sanPham.SoLuongTon > 0)
+                                {
+                                    <button class="btn btn-primary" onclick="addToCart(@sanPham.Id)">
+                                        <i class="fas fa-shopping-cart me-2"></i>Thêm vào giỏ
+                                    </button>
+                                }
+                                else
+                                {
+                                    <button class="btn btn-secondary" disabled>
+                                        <i class="fas fa-times me-2"></i>Không khả dụng
+                                    </button>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="text-center py-5">
+            <i class="fas fa-box fa-3x text-muted mb-3"></i>
+            <h4 class="text-muted">Chưa có sản phẩm nào</h4>
+            <p class="text-muted">Vui lòng quay lại sau.</p>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        function addToCart(sanPhamId) {
+            $.post('@Url.Action("ThemVaoGioHang", "SanPham")', {
+                sanPhamId: sanPhamId,
+                soLuong: 1
+            }, function(data) {
+                if (data.success) {
+                    updateCartCount();
+                    alert('Đã thêm sản phẩm vào giỏ hàng!');
+                } else {
+                    alert('Có lỗi xảy ra: ' + data.message);
+                }
+            });
+        }
+    </script>
+}

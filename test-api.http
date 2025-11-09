@@ -1,0 +1,116 @@
+### Test Gara API Endpoints
+
+### Get all customers
+GET https://localhost:7000/api/KhachHang
+Accept: application/json
+
+###
+
+### Get customer by ID
+GET https://localhost:7000/api/KhachHang/1
+Accept: application/json
+
+###
+
+### Create new customer
+POST https://localhost:7000/api/KhachHang
+Content-Type: application/json
+
+{
+  "tenKH": "Nguyễn Văn Test",
+  "sdt": "0901234567",
+  "diaChi": "Hà Nội",
+  "email": "test@gmail.com"
+}
+
+###
+
+### Get all cars
+GET https://localhost:7000/api/Xe
+Accept: application/json
+
+###
+
+### Get all services
+GET https://localhost:7000/api/DichVu
+Accept: application/json
+
+###
+
+### Get active services
+GET https://localhost:7000/api/DichVu/Active
+Accept: application/json
+
+###
+
+### Get all products
+GET https://localhost:7000/api/SanPham
+Accept: application/json
+
+###
+
+### Get in-stock products
+GET https://localhost:7000/api/SanPham/InStock
+Accept: application/json
+
+###
+
+### Get all invoices
+GET https://localhost:7000/api/HoaDon
+Accept: application/json
+
+###
+
+### Get statistics overview
+GET https://localhost:7000/api/ThongKe/TongQuan
+Accept: application/json
+
+###
+
+### Get monthly revenue
+GET https://localhost:7000/api/ThongKe/DoanhThuTheoThang
+Accept: application/json
+
+###
+
+### Get top services
+GET https://localhost:7000/api/ThongKe/TopDichVu?top=5
+Accept: application/json
+
+###
+
+### Get top products
+GET https://localhost:7000/api/ThongKe/TopSanPham?top=5
+Accept: application/json
+
+###
+
+### Get recent invoices
+GET https://localhost:7000/api/ThongKe/HoaDonGanDay?soLuong=10
+Accept: application/json
+
+###
+
+### Create new invoice
+POST https://localhost:7000/api/HoaDon
+Content-Type: application/json
+
+{
+  "maKH": 1,
+  "maXe": 1,
+  "userId": 1,
+  "hinhThucTT": "Tiền mặt",
+  "dichVus": [
+    {
+      "maDV": 1,
+      "soLuong": 1
+    }
+  ],
+  "sanPhams": [
+    {
+      "maSP": 1,
+      "soLuong": 2
+    }
+  ]
+}
+

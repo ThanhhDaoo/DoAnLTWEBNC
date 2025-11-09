@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "GaraAPI.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "..\\GaraMVC\\GaraMVC.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

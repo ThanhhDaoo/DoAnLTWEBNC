@@ -1,0 +1,345 @@
+﻿@model GaraMVC.ViewModels.HoaDonCreateViewModel
+
+@{
+    ViewData["Title"] = "Tạo hóa đơn mới";
+}
+
+<div class="container-fluid mt-4">
+    <h2 class="mb-4"><i class="fas fa-file-invoice"></i> Tạo hóa đơn mới</h2>
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <form asp-action="Create" method="post" id="hoaDonForm">
+        <div class="row">
+            <!-- Left Column: Customer & Vehicle Info -->
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Thông tin khách hàng & xe</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label">Khách hàng <span class="text-danger">*</span></label>
+                            <select asp-for="MaKH" class="form-select" id="khachHangSelect" required>
+                                <option value="">-- Chọn khách hàng --</option>
+                                @foreach (var kh in Model.KhachHangs)
+                                {
+                                    <option value="@kh.MaKH">@kh.TenKH - @kh.SDT</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Xe <span class="text-danger">*</span></label>
+                            <select asp-for="MaXe" class="form-select" id="xeSelect" required disabled>
+                                <option value="">-- Chọn xe --</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Nhân viên <span class="text-danger">*</span></label>
+                            <input asp-for="UserId" type="hidden" value="1" />
+                            <input type="text" class="form-control" value="Admin" readonly />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Hình thức thanh toán <span class="text-danger">*</span></label>
+                            <select asp-for="HinhThucTT" class="form-select" required>
+                                <option value="">-- Chọn hình thức --</option>
+                                <option value="Tiền mặt">Tiền mặt</option>
+                                <option value="Chuyển khoản">Chuyển khoản</option>
+                                <option value="Thẻ">Thẻ</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle Column: Services -->
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0">Dịch vụ</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label">Chọn dịch vụ</label>
+                            <select class="form-select" id="dichVuSelect">
+                                <option value="">-- Chọn dịch vụ --</option>
+                                @foreach (var dv in Model.DichVus.Where(d => d.TrangThai))
+                                {
+                                    <option value="@dv.Id" data-price="@dv.Gia" data-name="@dv.TenDichVu">
+                                        @dv.TenDichVu - @dv.Gia.ToString("N0")đ
+                                    </option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Số lượng</label>
+                            <input type="number" class="form-control" id="dichVuSoLuong" value="1" min="1">
+                        </div>
+
+                        <button type="button" class="btn btn-success w-100 mb-3" id="btnThemDichVu">
+                            <i class="fas fa-plus"></i> Thêm dịch vụ
+                        </button>
+
+                        <div id="dichVuList">
+                            <!-- Dynamic service list -->
+                        </div>
+
+                        <div class="mt-3 p-2 bg-light">
+                            <strong>Tổng dịch vụ: <span id="tongDichVu">0</span>đ</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Products -->
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-header bg-warning text-white">
+                        <h5 class="mb-0">Sản phẩm</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label">Chọn sản phẩm</label>
+                            <select class="form-select" id="sanPhamSelect">
+                                <option value="">-- Chọn sản phẩm --</option>
+                                @foreach (var sp in Model.SanPhams.Where(s => s.SoLuongTon > 0))
+                                {
+                                    <option value="@sp.Id" data-price="@sp.Gia" data-name="@sp.TenSanPham" data-ton="@sp.SoLuongTon">
+                                        @sp.TenSanPham - @sp.Gia.ToString("N0")đ (Tồn: @sp.SoLuongTon)
+                                    </option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Số lượng</label>
+                            <input type="number" class="form-control" id="sanPhamSoLuong" value="1" min="1">
+                        </div>
+
+                        <button type="button" class="btn btn-success w-100 mb-3" id="btnThemSanPham">
+                            <i class="fas fa-plus"></i> Thêm sản phẩm
+                        </button>
+
+                        <div id="sanPhamList">
+                            <!-- Dynamic product list -->
+                        </div>
+
+                        <div class="mt-3 p-2 bg-light">
+                            <strong>Tổng sản phẩm: <span id="tongSanPham">0</span>đ</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total & Submit -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3>TỔNG CỘNG: <span class="text-primary" id="tongTien">0</span>đ</h3>
+                            <div>
+                                <a asp-action="Index" class="btn btn-secondary btn-lg">
+                                    <i class="fas fa-arrow-left"></i> Hủy
+                                </a>
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-save"></i> Tạo hóa đơn
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden fields for services and products -->
+        <div id="hiddenFields"></div>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        let dichVuIndex = 0;
+        let sanPhamIndex = 0;
+
+        // Load xe when khach hang changes
+        $('#khachHangSelect').change(function() {
+            const maKH = $(this).val();
+            if (maKH) {
+                $.get('@Url.Action("GetXesByKhachHang")', { maKH: maKH }, function(data) {
+                    $('#xeSelect').empty().append('<option value="">-- Chọn xe --</option>');
+                    data.forEach(xe => {
+                        $('#xeSelect').append(`<option value="${xe.maXe}">${xe.bienSo} - ${xe.hangXe}</option>`);
+                    });
+                    $('#xeSelect').prop('disabled', false);
+                });
+            } else {
+                $('#xeSelect').empty().append('<option value="">-- Chọn xe --</option>').prop('disabled', true);
+            }
+        });
+
+        // Add service
+        $('#btnThemDichVu').click(function() {
+            const select = $('#dichVuSelect');
+            const maDV = select.val();
+            const tenDV = select.find(':selected').data('name');
+            const donGia = parseFloat(select.find(':selected').data('price'));
+            const soLuong = parseInt($('#dichVuSoLuong').val());
+
+            if (!maDV) {
+                alert('Vui lòng chọn dịch vụ!');
+                return;
+            }
+
+            const thanhTien = donGia * soLuong;
+
+            const html = `
+                <div class="card mb-2 dich-vu-item" data-index="${dichVuIndex}">
+                    <div class="card-body p-2">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>${tenDV}</strong><br>
+                                <small>${donGia.toLocaleString()}đ × ${soLuong} = ${thanhTien.toLocaleString()}đ</small>
+                            </div>
+                            <button type="button" class="btn btn-sm btn-danger btn-remove-dv">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            $('#dichVuList').append(html);
+
+            // Add hidden fields
+            $('#hiddenFields').append(`
+                <input type="hidden" name="DichVuItems[${dichVuIndex}].MaDV" value="${maDV}" class="dv-input" data-index="${dichVuIndex}">
+                <input type="hidden" name="DichVuItems[${dichVuIndex}].SoLuong" value="${soLuong}" class="dv-input" data-index="${dichVuIndex}">
+            `);
+
+            dichVuIndex++;
+            updateTotal();
+
+            // Reset
+            select.val('');
+            $('#dichVuSoLuong').val(1);
+        });
+
+        // Add product
+        $('#btnThemSanPham').click(function() {
+            const select = $('#sanPhamSelect');
+            const maSP = select.val();
+            const tenSP = select.find(':selected').data('name');
+            const donGia = parseFloat(select.find(':selected').data('price'));
+            const ton = parseInt(select.find(':selected').data('ton'));
+            const soLuong = parseInt($('#sanPhamSoLuong').val());
+
+            if (!maSP) {
+                alert('Vui lòng chọn sản phẩm!');
+                return;
+            }
+
+            if (soLuong > ton) {
+                alert(`Số lượng tồn kho không đủ! (Còn: ${ton})`);
+                return;
+            }
+
+            const thanhTien = donGia * soLuong;
+
+            const html = `
+                <div class="card mb-2 san-pham-item" data-index="${sanPhamIndex}">
+                    <div class="card-body p-2">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>${tenSP}</strong><br>
+                                <small>${donGia.toLocaleString()}đ × ${soLuong} = ${thanhTien.toLocaleString()}đ</small>
+                            </div>
+                            <button type="button" class="btn btn-sm btn-danger btn-remove-sp">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            $('#sanPhamList').append(html);
+
+            // Add hidden fields
+            $('#hiddenFields').append(`
+                <input type="hidden" name="SanPhamItems[${sanPhamIndex}].MaSP" value="${maSP}" class="sp-input" data-index="${sanPhamIndex}">
+                <input type="hidden" name="SanPhamItems[${sanPhamIndex}].SoLuong" value="${soLuong}" class="sp-input" data-index="${sanPhamIndex}">
+            `);
+
+            sanPhamIndex++;
+            updateTotal();
+
+            // Reset
+            select.val('');
+            $('#sanPhamSoLuong').val(1);
+        });
+
+        // Remove service
+        $(document).on('click', '.btn-remove-dv', function() {
+            const card = $(this).closest('.dich-vu-item');
+            const index = card.data('index');
+            card.remove();
+            $(`.dv-input[data-index="${index}"]`).remove();
+            updateTotal();
+        });
+
+        // Remove product
+        $(document).on('click', '.btn-remove-sp', function() {
+            const card = $(this).closest('.san-pham-item');
+            const index = card.data('index');
+            card.remove();
+            $(`.sp-input[data-index="${index}"]`).remove();
+            updateTotal();
+        });
+
+        // Update totals
+        function updateTotal() {
+            let tongDV = 0;
+            let tongSP = 0;
+
+            $('.dich-vu-item').each(function() {
+                const text = $(this).find('small').text();
+                const match = text.match(/= ([\d,]+)đ/);
+                if (match) {
+                    tongDV += parseFloat(match[1].replace(/,/g, ''));
+                }
+            });
+
+            $('.san-pham-item').each(function() {
+                const text = $(this).find('small').text();
+                const match = text.match(/= ([\d,]+)đ/);
+                if (match) {
+                    tongSP += parseFloat(match[1].replace(/,/g, ''));
+                }
+            });
+
+            $('#tongDichVu').text(tongDV.toLocaleString());
+            $('#tongSanPham').text(tongSP.toLocaleString());
+            $('#tongTien').text((tongDV + tongSP).toLocaleString());
+        }
+
+        // Validate before submit
+        $('#hoaDonForm').submit(function(e) {
+            if ($('.dich-vu-item').length === 0 && $('.san-pham-item').length === 0) {
+                e.preventDefault();
+                alert('Vui lòng thêm ít nhất 1 dịch vụ hoặc sản phẩm!');
+                return false;
+            }
+        });
+    </script>
+}
