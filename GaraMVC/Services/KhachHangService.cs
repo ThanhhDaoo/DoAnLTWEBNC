@@ -60,5 +60,17 @@ namespace GaraMVC.Services
             var response = await _httpClient.DeleteAsync($"{_baseUrl}/{id}");
             return response.IsSuccessStatusCode;
         }
+
+        public async Task<KhachHang?> GetBySDTAsync(string sdt)
+        {
+            var response = await _httpClient.GetAsync($"{_baseUrl}/sdt/{sdt}");
+
+            if (!response.IsSuccessStatusCode)
+                return null;
+
+            var content = await response.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<KhachHang>(content,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+        }
     }
 }

@@ -2,67 +2,217 @@
     ViewData["Title"] = "Đăng ký";
 }
 
-<div class="d-flex justify-content-center align-items-center" style="min-height:80vh;">
-    <div class="card shadow rounded p-4" style="max-width: 420px; width:100%; border: none;">
-        <div class="text-center mb-3">
-            <span class="avatar-circle bg-primary text-white mb-2">
-                <i class="fas fa-user-plus fa-lg"></i>
-            </span>
-            <h3 class="fw-bold" style="color:#2151b3">Đăng ký</h3>
+<style>
+    .register-container {
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, rgba(14, 165, 233, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .register-card {
+        position: relative;
+        z-index: 2;
+        max-width: 480px;
+        width: 100%;
+        background: white !important;
+        border-radius: 24px !important;
+        padding: 3rem;
+        box-shadow: var(--shadow-xl);
+        border: 1px solid var(--gray-light) !important;
+    }
+
+    .register-header {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .register-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--gradient-primary) !important;
+        color: white;
+        font-size: 2.5rem;
+        box-shadow: var(--shadow-lg);
+    }
+
+    .register-header h2 {
+        font-weight: 800;
+        color: var(--dark) !important;
+        margin-bottom: 0.5rem;
+    }
+
+    .register-header p {
+        color: var(--gray) !important;
+        font-size: 0.95rem;
+    }
+
+    .input-icon {
+        position: relative;
+        margin-bottom: 1.25rem;
+    }
+
+    .input-icon i {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--gray) !important;
+        z-index: 10;
+        font-size: 1.1rem;
+    }
+
+    .input-icon .form-control {
+        padding-left: 3rem !important;
+        border: 2px solid var(--gray-light) !important;
+        border-radius: 12px !important;
+        padding-top: 0.875rem !important;
+        padding-bottom: 0.875rem !important;
+        font-size: 1rem;
+        transition: all var(--transition-base);
+        background: white !important;
+        color: var(--dark) !important;
+        font-weight: 500;
+    }
+
+    .input-icon .form-control::placeholder {
+        color: var(--gray) !important;
+        font-weight: 400;
+    }
+
+    .input-icon .form-control:focus {
+        border-color: var(--primary) !important;
+        box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1) !important;
+    }
+
+    .btn-register {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+        border-radius: 12px !important;
+        background: var(--gradient-primary) !important;
+        border: none;
+        color: white;
+        transition: all var(--transition-base);
+        margin-top: 0.5rem;
+        box-shadow: var(--shadow-md);
+    }
+
+    .btn-register:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .register-footer {
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+
+    .register-footer p {
+        color: var(--gray) !important;
+        font-weight: 500;
+    }
+
+    .register-footer a {
+        color: var(--primary) !important;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all var(--transition-base);
+    }
+
+    .register-footer a:hover {
+        color: var(--primary-dark) !important;
+        text-decoration: underline;
+    }
+
+    @@media (max-width: 576px) {
+        .register-card {
+            padding: 2rem 1.5rem;
+            margin: 1rem;
+        }
+    }
+</style>
+
+<div class="register-container">
+    <div class="register-card">
+        <div class="register-header">
+            <div class="register-icon">
+                <i class="fas fa-user-plus"></i>
+            </div>
+            <h2>Đăng ký tài khoản</h2>
+            <p>Tạo tài khoản mới để trải nghiệm dịch vụ</p>
         </div>
+
+        @if (ViewData.ModelState.Values.SelectMany(v => v.Errors).Any())
+        {
+            <div class="alert alert-danger">
+                <i class="fas fa-exclamation-circle me-2"></i>
+                @foreach (var err in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <div>@err.ErrorMessage</div>
+                }
+            </div>
+        }
+
+        <div class="alert alert-danger" id="passwordError" style="display:none;">
+            <i class="fas fa-exclamation-circle me-2"></i>
+            <span id="passwordErrorText"></span>
+        </div>
+
         <form asp-action="Register" method="post" id="registerForm" autocomplete="off">
-            <div class="mb-3 input-group">
-                <span class="input-group-text bg-white"><i class="fas fa-user"></i></span>
-                <input class="form-control" name="Username" placeholder="Tên đăng nhập" required value="@((ViewData.Model != null)?((dynamic)ViewData.Model).Username: "")" />
+            <div class="input-icon">
+                <i class="fas fa-user"></i>
+                <input class="form-control" name="Username" placeholder="Tên đăng nhập" required 
+                       value="@((ViewData.Model != null)?((dynamic)ViewData.Model).Username: "")" />
             </div>
-            <div class="mb-3 input-group">
-                <span class="input-group-text bg-white"><i class="fas fa-envelope"></i></span>
-                <input type="email" class="form-control" name="Email" placeholder="Email (không bắt buộc)" value="@((ViewData.Model != null)?((dynamic)ViewData.Model).Email: "")" />
+
+            <div class="input-icon">
+                <i class="fas fa-envelope"></i>
+                <input type="email" class="form-control" name="Email" placeholder="Email (không bắt buộc)" 
+                       value="@((ViewData.Model != null)?((dynamic)ViewData.Model).Email: "")" />
             </div>
-            <div class="mb-3 input-group">
-                <span class="input-group-text bg-white"><i class="fas fa-lock"></i></span>
-                <input type="password" class="form-control" name="Password" id="Password" placeholder="Mật khẩu" required />
+
+            <div class="input-icon">
+                <i class="fas fa-lock"></i>
+                <input type="password" class="form-control" name="Password" id="Password" 
+                       placeholder="Mật khẩu" required />
             </div>
-            <div class="mb-3 input-group">
-                <span class="input-group-text bg-white"><i class="fas fa-lock"></i></span>
-                <input type="password" class="form-control" name="ConfirmPassword" id="ConfirmPassword" placeholder="Xác nhận mật khẩu" required />
+
+            <div class="input-icon">
+                <i class="fas fa-lock"></i>
+                <input type="password" class="form-control" name="ConfirmPassword" id="ConfirmPassword" 
+                       placeholder="Xác nhận mật khẩu" required />
             </div>
-            <div class="text-danger mb-2" id="passwordError" style="display:none;"></div>
-            <button type="submit" class="btn btn-success w-100 mb-2">Đăng ký</button>
-            <div class="text-center">
-                <a asp-controller="Account" asp-action="Login" class="small">Đã có tài khoản? Đăng nhập</a>
-            </div>
+
+            <button type="submit" class="btn btn-register">
+                <i class="fas fa-user-plus me-2"></i>Đăng ký
+            </button>
         </form>
-        <div class="text-danger mt-2 small">
-            @foreach (var err in ViewData.ModelState.Values.SelectMany(v => v.Errors))
-            {
-                <div>@err.ErrorMessage</div>
-            }
+
+        <div class="register-footer">
+            <p class="mb-0">Đã có tài khoản? <a asp-controller="Account" asp-action="Login">Đăng nhập ngay</a></p>
         </div>
     </div>
 </div>
 
-<style>
-    .avatar-circle {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        width: 54px;
-        height: 54px;
-        background: linear-gradient(45deg, #667eea, #764ba2);
-        font-size: 2rem;
-        margin-bottom: .7rem;
-        box-shadow: 0 2px 16px #2151b342;
-    }
-</style>
 <script>
     document.getElementById("registerForm").addEventListener("submit", function(e) {
         var pwd = document.getElementById("Password").value;
         var conf = document.getElementById("ConfirmPassword").value;
         var errorDiv = document.getElementById("passwordError");
+        var errorText = document.getElementById("passwordErrorText");
+        
         if (pwd !== conf) {
-            errorDiv.textContent = "Xác nhận mật khẩu không khớp.";
+            errorText.textContent = "Xác nhận mật khẩu không khớp.";
             errorDiv.style.display = "block";
             e.preventDefault();
             return false;

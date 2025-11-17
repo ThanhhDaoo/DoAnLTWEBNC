@@ -4,94 +4,172 @@
     ViewData["Title"] = "Trang chủ";
 }
 
-<div class="container-fluid mt-4">
-    <h2 class="mb-4"><i class="fas fa-tachometer-alt"></i> Dashboard - Tổng quan</h2>
+<style>
+    .stat-card {
+        border-radius: 0.75rem;
+        border: none;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        height: 100%;
+        min-height: 140px;
+    }
 
-    <!-- Statistics Cards -->
-    <div class="row g-3 mb-4">
-        <div class="col-md-3">
-            <div class="card bg-primary text-white">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="card-title text-uppercase">Khách hàng</h6>
-                            <h2 class="mb-0">@Model.TongKhachHang</h2>
-                        </div>
-                        <i class="fas fa-users fa-3x opacity-50"></i>
-                    </div>
+    .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .stat-card .card-body {
+        padding: 1.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .stat-content h6 {
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.75rem;
+        opacity: 0.9;
+    }
+
+    .stat-content h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin: 0;
+        line-height: 1;
+    }
+
+    .stat-icon {
+        font-size: 3.5rem;
+        opacity: 0.3;
+    }
+
+    .revenue-card {
+        height: 100%;
+        min-height: 220px;
+    }
+
+    .revenue-card .card-header {
+        padding: 1.25rem 1.5rem;
+        border: none;
+    }
+
+    .revenue-card .card-header h5 {
+        margin: 0;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+
+    .revenue-card .card-body {
+        padding: 2rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .revenue-amount {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .revenue-label {
+        font-size: 0.95rem;
+        color: #6c757d;
+        margin: 0;
+    }
+</style>
+
+<!-- Statistics Cards -->
+<div class="row g-4 mb-4">
+    <div class="col-xl-3 col-md-6">
+        <div class="card stat-card bg-primary text-white">
+            <div class="card-body">
+                <div class="stat-content">
+                    <h6>Khách hàng</h6>
+                    <h2>@Model.TongKhachHang</h2>
                 </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card bg-success text-white">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="card-title text-uppercase">Xe đang quản lý</h6>
-                            <h2 class="mb-0">@Model.TongXe</h2>
-                        </div>
-                        <i class="fas fa-car fa-3x opacity-50"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card bg-info text-white">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="card-title text-uppercase">Dịch vụ</h6>
-                            <h2 class="mb-0">@Model.TongDichVu</h2>
-                        </div>
-                        <i class="fas fa-tools fa-3x opacity-50"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card bg-warning text-white">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="card-title text-uppercase">Sản phẩm</h6>
-                            <h2 class="mb-0">@Model.TongSanPham</h2>
-                        </div>
-                        <i class="fas fa-box fa-3x opacity-50"></i>
-                    </div>
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Revenue Cards -->
-    <div class="row g-3 mb-4">
-        <div class="col-md-6">
-            <div class="card border-primary">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0"><i class="fas fa-calendar-day"></i> Doanh thu hôm nay</h5>
+    <div class="col-xl-3 col-md-6">
+        <div class="card stat-card bg-success text-white">
+            <div class="card-body">
+                <div class="stat-content">
+                    <h6>Xe đang quản lý</h6>
+                    <h2>@Model.TongXe</h2>
                 </div>
-                <div class="card-body text-center">
-                    <h1 class="display-4 text-primary">@(((decimal)Model.DoanhThuHomNay).ToString("N0")) đ</h1>
-                    <p class="text-muted">Số hóa đơn: @Model.SoHoaDonHomNay</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="card border-success">
-                <div class="card-header bg-success text-white">
-                    <h5 class="mb-0"><i class="fas fa-calendar-alt"></i> Doanh thu tháng này</h5>
-                </div>
-                <div class="card-body text-center">
-                    <h1 class="display-4 text-success">@(((decimal)Model.DoanhThuThangNay).ToString("N0")) đ</h1>
-                    <p class="text-muted">Số hóa đơn: @Model.SoHoaDonThangNay</p>
+                <div class="stat-icon">
+                    <i class="fas fa-car"></i>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="col-xl-3 col-md-6">
+        <div class="card stat-card bg-info text-white">
+            <div class="card-body">
+                <div class="stat-content">
+                    <h6>Dịch vụ</h6>
+                    <h2>@Model.TongDichVu</h2>
+                </div>
+                <div class="stat-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6">
+        <div class="card stat-card bg-warning text-white">
+            <div class="card-body">
+                <div class="stat-content">
+                    <h6>Sản phẩm</h6>
+                    <h2>@Model.TongSanPham</h2>
+                </div>
+                <div class="stat-icon">
+                    <i class="fas fa-box"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Revenue Cards -->
+<div class="row g-4 mb-4">
+    <div class="col-md-6">
+        <div class="card revenue-card">
+            <div class="card-header bg-primary text-white">
+                <h5><i class="fas fa-calendar-day me-2"></i>Doanh thu hôm nay</h5>
+            </div>
+            <div class="card-body">
+                <h1 class="revenue-amount text-primary">@(((decimal)Model.DoanhThuHomNay).ToString("N0")) ₫</h1>
+                <p class="revenue-label">Số hóa đơn: @Model.SoHoaDonHomNay</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card revenue-card">
+            <div class="card-header bg-success text-white">
+                <h5><i class="fas fa-calendar-alt me-2"></i>Doanh thu tháng này</h5>
+            </div>
+            <div class="card-body">
+                <h1 class="revenue-amount text-success">@(((decimal)Model.DoanhThuThangNay).ToString("N0")) ₫</h1>
+                <p class="revenue-label">Số hóa đơn: @Model.SoHoaDonThangNay</p>
+            </div>
+        </div>
+    </div>
+</div>
 
     <!-- Alert for low stock -->
     @if (Model.SanPhamSapHet > 0)

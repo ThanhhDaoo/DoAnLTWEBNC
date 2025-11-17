@@ -1,4 +1,4 @@
-@model GaraMVC.Models.Xe
+@model GaraMVC.ViewModels.XeCreateViewModel
 
 @{
     ViewData["Title"] = "Thêm xe mới";
@@ -10,43 +10,52 @@
     @if (TempData["ErrorMessage"] != null)
     {
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            @TempData["ErrorMessage"]
+            <i class="fas fa-exclamation-circle me-2"></i>@TempData["ErrorMessage"]
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
     }
 
-    <div class="row">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Thông tin xe</h5>
-                </div>
-                <div class="card-body">
-                    <form asp-action="Create" method="post">
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fas fa-exclamation-circle me-2"></i>
+            <strong>Có lỗi xảy ra:</strong>
+            <ul class="mb-0 mt-2">
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <form asp-action="Create" method="post">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="fas fa-car"></i> Thông tin xe</h5>
+                    </div>
+                    <div class="card-body">
                         
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label asp-for="BienSo" class="form-label">Biển số <span class="text-danger">*</span></label>
-                                    <input asp-for="BienSo" class="form-control" placeholder="Nhập biển số xe" />
-                                    <span asp-validation-for="BienSo" class="text-danger"></span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label asp-for="HangXe" class="form-label">Hãng xe <span class="text-danger">*</span></label>
-                                    <input asp-for="HangXe" class="form-control" placeholder="Nhập hãng xe" />
-                                    <span asp-validation-for="HangXe" class="text-danger"></span>
-                                </div>
-                            </div>
+                        <div class="mb-3">
+                            <label asp-for="BienSo" class="form-label">Biển số <span class="text-danger">*</span></label>
+                            <input asp-for="BienSo" class="form-control" placeholder="Nhập biển số xe" />
+                            <span asp-validation-for="BienSo" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="HangXe" class="form-label">Hãng xe</label>
+                            <input asp-for="HangXe" class="form-control" placeholder="Nhập hãng xe" />
+                            <span asp-validation-for="HangXe" class="text-danger"></span>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label asp-for="DoiXe" class="form-label">Đời xe <span class="text-danger">*</span></label>
-                                    <input asp-for="DoiXe" class="form-control" placeholder="Nhập đời xe" />
+                                    <label asp-for="DoiXe" class="form-label">Đời xe</label>
+                                    <input asp-for="DoiXe" type="number" class="form-control" placeholder="Nhập đời xe" />
                                     <span asp-validation-for="DoiXe" class="text-danger"></span>
                                 </div>
                             </div>
@@ -58,30 +67,103 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="col-lg-6">
+                <div class="card mb-4">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="fas fa-user"></i> Thông tin khách hàng</h5>
+                    </div>
+                    <div class="card-body">
                         <div class="mb-3">
-                            <label asp-for="MaKH" class="form-label">Khách hàng <span class="text-danger">*</span></label>
-                            <select asp-for="MaKH" class="form-select" asp-items="@(new SelectList(ViewBag.KhachHangs, "MaKH", "TenKH"))">
-                                <option value="">-- Chọn khách hàng --</option>
-                            </select>
-                            <span asp-validation-for="MaKH" class="text-danger"></span>
+                            <div class="form-check form-switch">
+                                <input asp-for="ThemKhachHangMoi" class="form-check-input" type="checkbox" id="themKhachHangMoi" onchange="toggleKhachHangForm()">
+                                <label class="form-check-label" for="themKhachHangMoi">
+                                    <strong>Thêm khách hàng mới</strong>
+                                </label>
+                            </div>
                         </div>
 
-                        <div class="d-flex justify-content-between">
-                            <a asp-action="Index" class="btn btn-secondary">
-                                <i class="fas fa-arrow-left"></i> Quay lại
-                            </a>
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save"></i> Lưu
-                            </button>
+                        <div id="chonKhachHang">
+                            <div class="mb-3">
+                                <label asp-for="MaKH" class="form-label">Chọn khách hàng <span class="text-danger">*</span></label>
+                                <select asp-for="MaKH" class="form-select" asp-items="@(new SelectList(ViewBag.KhachHangs, "MaKH", "TenKH"))">
+                                    <option value="">-- Chọn khách hàng --</option>
+                                </select>
+                                <span asp-validation-for="MaKH" class="text-danger"></span>
+                            </div>
                         </div>
-                    </form>
+
+                        <div id="themKhachHangForm" style="display: none;">
+                            <div class="mb-3">
+                                <label asp-for="TenKH" class="form-label">Tên khách hàng <span class="text-danger">*</span></label>
+                                <input asp-for="TenKH" class="form-control" placeholder="Nhập tên khách hàng" />
+                                <span asp-validation-for="TenKH" class="text-danger"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="SDT" class="form-label">Số điện thoại <span class="text-danger">*</span></label>
+                                <input asp-for="SDT" class="form-control" placeholder="Nhập số điện thoại" />
+                                <span asp-validation-for="SDT" class="text-danger"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="DiaChi" class="form-label">Địa chỉ</label>
+                                <textarea asp-for="DiaChi" class="form-control" rows="2" placeholder="Nhập địa chỉ"></textarea>
+                                <span asp-validation-for="DiaChi" class="text-danger"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="Email" class="form-label">Email</label>
+                                <input asp-for="Email" type="email" class="form-control" placeholder="Nhập email" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+        <div class="d-flex justify-content-between mb-4">
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Quay lại
+            </a>
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-save"></i> Lưu
+            </button>
+        </div>
+    </form>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        function toggleKhachHangForm() {
+            var checkbox = document.getElementById('themKhachHangMoi');
+            var chonKhachHang = document.getElementById('chonKhachHang');
+            var themKhachHangForm = document.getElementById('themKhachHangForm');
+            
+            if (checkbox.checked) {
+                chonKhachHang.style.display = 'none';
+                themKhachHangForm.style.display = 'block';
+                // Clear selected customer
+                document.querySelector('select[name="MaKH"]').value = '';
+            } else {
+                chonKhachHang.style.display = 'block';
+                themKhachHangForm.style.display = 'none';
+                // Clear new customer fields
+                document.querySelector('input[name="TenKH"]').value = '';
+                document.querySelector('input[name="SDT"]').value = '';
+                document.querySelector('textarea[name="DiaChi"]').value = '';
+                document.querySelector('input[name="Email"]').value = '';
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            toggleKhachHangForm();
+        });
+    </script>
 }

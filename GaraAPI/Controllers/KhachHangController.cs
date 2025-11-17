@@ -39,10 +39,39 @@ namespace GaraAPI.Controllers
             return khachHang;
         }
 
+        // GET: api/KhachHang/sdt/{sdt}
+        [HttpGet("sdt/{sdt}")]
+        public async Task<ActionResult<KhachHang>> GetKhachHangBySDT(string sdt)
+        {
+            var khachHang = await _context.KhachHangs
+                .Include(k => k.DanhSachXe)
+                .OrderByDescending(k => k.MaKH)
+                .FirstOrDefaultAsync(k => k.SDT == sdt);
+
+            if (khachHang == null)
+            {
+                return NotFound();
+            }
+
+            return khachHang;
+        }
+
         // POST: api/KhachHang
         [HttpPost]
         public async Task<ActionResult<KhachHang>> PostKhachHang(KhachHang khachHang)
         {
+            // Ensure NgayDangKy is set if not provided
+            if (khachHang.NgayDangKy == default(DateTime))
+            {
+                khachHang.NgayDangKy = DateTime.Now;
+            }
+
+            // Ensure UserId is null if 0
+            if (khachHang.UserId == 0)
+            {
+                khachHang.UserId = null;
+            }
+
             _context.KhachHangs.Add(khachHang);
             await _context.SaveChangesAsync();
 

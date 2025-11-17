@@ -3,92 +3,200 @@
     ViewData["Title"] = Model.TenSanPham;
 }
 
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-6">
-            <img src="@(string.IsNullOrEmpty(Model.HinhAnh) ? "https://via.placeholder.com/600x400/764ba2/ffffff?text=" + Model.TenSanPham : Model.HinhAnh)" 
-                 class="img-fluid rounded" alt="@Model.TenSanPham">
-        </div>
-        <div class="col-lg-6">
-            <h1 class="mb-3">@Model.TenSanPham</h1>
-            <p class="lead">@Model.MoTa</p>
-            
-            <div class="mb-4">
-                <h3 class="text-primary">@Model.Gia.ToString("N0") VNĐ</h3>
-            </div>
+<style>
+    .product-detail-section {
+        padding: 3rem 0;
+    }
 
-            <div class="mb-4">
-                @if (Model.SoLuongTon > 0)
-                {
-                    <span class="badge bg-success fs-6">Còn hàng (@Model.SoLuongTon sản phẩm)</span>
-                }
-                else
-                {
-                    <span class="badge bg-warning fs-6">Hết hàng</span>
-                }
-            </div>
+    .product-image-container {
+        background: white;
+        border: 1px solid var(--gray-light);
+        border-radius: var(--radius-xl);
+        padding: 2rem;
+        box-shadow: var(--shadow-md);
+    }
 
-            @if (Model.SoLuongTon > 0)
-            {
-                <div class="row mb-4">
-                    <div class="col-4">
-                        <label for="soLuong" class="form-label">Số lượng:</label>
-                        <input type="number" class="form-control" id="soLuong" value="1" min="1" max="@Model.SoLuongTon">
+    .product-image-container img {
+        width: 100%;
+        border-radius: var(--radius-lg);
+    }
+
+    .product-info {
+        background: white;
+        border: 1px solid var(--gray-light);
+        border-radius: var(--radius-xl);
+        padding: 2.5rem;
+        box-shadow: var(--shadow-md);
+    }
+
+    .product-info h1 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 1rem;
+    }
+
+    .product-info .lead {
+        color: var(--gray);
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+    }
+
+    .price-display {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+    }
+
+    .quantity-selector {
+        max-width: 150px;
+    }
+
+    .detail-card {
+        background: white;
+        border: 1px solid var(--gray-light);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-md);
+        overflow: hidden;
+    }
+
+    .detail-card .card-header {
+        background: var(--light);
+        border-bottom: 1px solid var(--gray-light);
+        padding: 1.5rem;
+    }
+
+    .detail-card .card-header h5 {
+        font-weight: 700;
+        color: var(--dark);
+        margin: 0;
+    }
+
+    .detail-card .card-body {
+        padding: 2rem;
+    }
+
+    .detail-card h6 {
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 1rem;
+    }
+
+    .detail-card ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .detail-card ul li {
+        padding: 0.5rem 0;
+        color: var(--gray);
+        border-bottom: 1px solid var(--light);
+    }
+
+    .detail-card ul li:last-child {
+        border-bottom: none;
+    }
+
+    .detail-card ul li strong {
+        color: var(--dark);
+        font-weight: 600;
+    }
+</style>
+
+<div class="product-detail-section">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="product-image-container">
+                    <img src="@(string.IsNullOrEmpty(Model.HinhAnh) ? "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg" : Model.HinhAnh)" 
+                         alt="@Model.TenSanPham">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="product-info">
+                    <h1>@Model.TenSanPham</h1>
+                    <p class="lead">@Model.MoTa</p>
+                    
+                    <div class="price-display">@Model.Gia.ToString("N0") ₫</div>
+
+                    <div class="mb-4">
+                        @if (Model.SoLuongTon > 0)
+                        {
+                            <span class="badge bg-success fs-6">
+                                <i class="fas fa-check me-1"></i>Còn hàng (@Model.SoLuongTon sản phẩm)
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-warning fs-6">
+                                <i class="fas fa-exclamation me-1"></i>Hết hàng
+                            </span>
+                        }
                     </div>
-                </div>
-                
-                <div class="d-grid gap-2 d-md-flex">
-                    <button class="btn btn-primary btn-lg" onclick="addToCart(@Model.Id)">
-                        <i class="fas fa-shopping-cart me-2"></i>Thêm vào giỏ hàng
-                    </button>
-                    <a href="@Url.Action("Index", "SanPham")" class="btn btn-outline-secondary btn-lg">
-                        <i class="fas fa-arrow-left me-2"></i>Quay lại
-                    </a>
-                </div>
-            }
-            else
-            {
-                <div class="alert alert-warning" role="alert">
-                    <i class="fas fa-exclamation-triangle me-2"></i>
-                    Sản phẩm hiện tại không khả dụng.
-                </div>
-                <a href="@Url.Action("Index", "SanPham")" class="btn btn-outline-secondary btn-lg">
-                    <i class="fas fa-arrow-left me-2"></i>Quay lại
-                </a>
-            }
-        </div>
-    </div>
 
-    <!-- Thông tin chi tiết -->
-    <div class="row mt-5">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="mb-0">Thông tin chi tiết</h5>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h6>Thông tin sản phẩm</h6>
-                            <ul class="list-unstyled">
-                                <li><strong>Tên sản phẩm:</strong> @Model.TenSanPham</li>
-                                <li><strong>Giá:</strong> @Model.Gia.ToString("N0") VNĐ</li>
-                                <li><strong>Số lượng tồn:</strong> @Model.SoLuongTon sản phẩm</li>
-                                <li><strong>Trạng thái:</strong> 
-                                    @if (Model.SoLuongTon > 0)
-                                    {
-                                        <span class="text-success">Còn hàng</span>
-                                    }
-                                    else
-                                    {
-                                        <span class="text-warning">Hết hàng</span>
-                                    }
-                                </li>
-                            </ul>
+                    @if (Model.SoLuongTon > 0)
+                    {
+                        <div class="mb-4">
+                            <label for="soLuong" class="form-label fw-bold">Số lượng:</label>
+                            <input type="number" class="form-control quantity-selector" id="soLuong" value="1" min="1" max="@Model.SoLuongTon">
                         </div>
-                        <div class="col-md-6">
-                            <h6>Mô tả</h6>
-                            <p>@Model.MoTa</p>
+                        
+                        <div class="d-grid gap-2 d-md-flex">
+                            <button class="btn btn-primary btn-lg" onclick="addToCart(@Model.Id)">
+                                <i class="fas fa-shopping-cart me-2"></i>Thêm vào giỏ hàng
+                            </button>
+                            <a href="@Url.Action("Index", "SanPham")" class="btn btn-outline-primary btn-lg">
+                                <i class="fas fa-arrow-left me-2"></i>Quay lại
+                            </a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-warning" role="alert">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            Sản phẩm hiện tại không khả dụng.
+                        </div>
+                        <a href="@Url.Action("Index", "SanPham")" class="btn btn-outline-primary btn-lg">
+                            <i class="fas fa-arrow-left me-2"></i>Quay lại
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Thông tin chi tiết -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="detail-card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-info-circle me-2"></i>Thông tin chi tiết</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Thông tin sản phẩm</h6>
+                                <ul>
+                                    <li><strong>Tên sản phẩm:</strong> @Model.TenSanPham</li>
+                                    <li><strong>Giá:</strong> @Model.Gia.ToString("N0") ₫</li>
+                                    <li><strong>Số lượng tồn:</strong> @Model.SoLuongTon sản phẩm</li>
+                                    <li><strong>Trạng thái:</strong> 
+                                        @if (Model.SoLuongTon > 0)
+                                        {
+                                            <span style="color: var(--success); font-weight: 600;">Còn hàng</span>
+                                        }
+                                        else
+                                        {
+                                            <span style="color: var(--warning); font-weight: 600;">Hết hàng</span>
+                                        }
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Mô tả</h6>
+                                <p style="color: var(--gray); line-height: 1.7;">@Model.MoTa</p>
+                            </div>
                         </div>
                     </div>
                 </div>

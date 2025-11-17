@@ -345,3 +345,358 @@ D:\LTWNC\DoAnCuoiKi\GaraAPI\bin\Debug\net8.0\runtimes\win-x64\native\sni.dll
 D:\LTWNC\DoAnCuoiKi\GaraAPI\bin\Debug\net8.0\runtimes\win-x86\native\sni.dll
 D:\LTWNC\DoAnCuoiKi\GaraAPI\bin\Debug\net8.0\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
 D:\LTWNC\DoAnCuoiKi\GaraAPI\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+D:\LTWNC\DoAnCuoiKi\GaraAPI\obj\Debug\net8.0\GaraAPI.sourcelink.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\appsettings.Development.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\appsettings.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\GaraAPI.staticwebassets.endpoints.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\GaraAPI.exe
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\GaraAPI.deps.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\GaraAPI.runtimeconfig.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\GaraAPI.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\GaraAPI.pdb
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Azure.Core.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Azure.Identity.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Humanizer.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.Build.Locator.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.Extensions.Caching.Abstractions.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Mono.TextTemplating.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\System.ClientModel.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\System.CodeDom.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\System.Composition.Convention.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\System.Composition.Hosting.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\System.Composition.Runtime.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\System.Composition.TypedParts.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\System.Data.SqlClient.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\System.Drawing.Common.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\System.Formats.Asn1.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\System.IO.Pipelines.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\System.Memory.Data.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\System.Runtime.Caching.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\System.Security.Permissions.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\System.Text.Json.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\System.Windows.Extensions.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\runtimes\win-arm64\native\sni.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\runtimes\win-x64\native\sni.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\runtimes\win-x86\native\sni.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\obj\Debug\net8.0\GaraAPI.csproj.AssemblyReference.cache
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\obj\Debug\net8.0\rpswa.dswa.cache.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\obj\Debug\net8.0\GaraAPI.GeneratedMSBuildEditorConfig.editorconfig
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\obj\Debug\net8.0\GaraAPI.AssemblyInfoInputs.cache
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\obj\Debug\net8.0\GaraAPI.AssemblyInfo.cs
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\obj\Debug\net8.0\GaraAPI.csproj.CoreCompileInputs.cache
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\obj\Debug\net8.0\GaraAPI.MvcApplicationPartsAssemblyInfo.cs
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\obj\Debug\net8.0\GaraAPI.MvcApplicationPartsAssemblyInfo.cache
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\obj\Debug\net8.0\GaraAPI.sourcelink.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\obj\Debug\net8.0\rjimswa.dswa.cache.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\obj\Debug\net8.0\scopedcss\bundle\GaraAPI.styles.css
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\obj\Debug\net8.0\staticwebassets.build.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\obj\Debug\net8.0\staticwebassets.build.json.cache
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\obj\Debug\net8.0\staticwebassets.development.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\obj\Debug\net8.0\GaraAPI.csproj.Up2Date
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\obj\Debug\net8.0\GaraAPI.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\obj\Debug\net8.0\refint\GaraAPI.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\obj\Debug\net8.0\GaraAPI.pdb
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\obj\Debug\net8.0\GaraAPI.genruntimeconfig.cache
+D:\CongNgheXMl\DoAnCuoiKii\GaraAPI\obj\Debug\net8.0\ref\GaraAPI.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\appsettings.Development.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\appsettings.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\GaraAPI.staticwebassets.endpoints.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\GaraAPI.exe
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\GaraAPI.deps.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\GaraAPI.runtimeconfig.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\GaraAPI.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\GaraAPI.pdb
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Azure.Core.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Azure.Identity.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Humanizer.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.Build.Locator.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.Extensions.Caching.Abstractions.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Mono.TextTemplating.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\System.ClientModel.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\System.CodeDom.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\System.Composition.Convention.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\System.Composition.Hosting.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\System.Composition.Runtime.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\System.Composition.TypedParts.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\System.Data.SqlClient.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\System.Drawing.Common.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\System.Formats.Asn1.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\System.IO.Pipelines.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\System.Memory.Data.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\System.Runtime.Caching.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\System.Security.Permissions.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\System.Text.Json.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\System.Windows.Extensions.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\runtimes\win-arm64\native\sni.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\runtimes\win-x64\native\sni.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\runtimes\win-x86\native\sni.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\obj\Debug\net8.0\GaraAPI.csproj.AssemblyReference.cache
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\obj\Debug\net8.0\rpswa.dswa.cache.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\obj\Debug\net8.0\GaraAPI.GeneratedMSBuildEditorConfig.editorconfig
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\obj\Debug\net8.0\GaraAPI.AssemblyInfoInputs.cache
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\obj\Debug\net8.0\GaraAPI.AssemblyInfo.cs
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\obj\Debug\net8.0\GaraAPI.csproj.CoreCompileInputs.cache
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\obj\Debug\net8.0\GaraAPI.MvcApplicationPartsAssemblyInfo.cs
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\obj\Debug\net8.0\GaraAPI.MvcApplicationPartsAssemblyInfo.cache
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\obj\Debug\net8.0\GaraAPI.sourcelink.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\obj\Debug\net8.0\rjimswa.dswa.cache.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\obj\Debug\net8.0\scopedcss\bundle\GaraAPI.styles.css
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\obj\Debug\net8.0\staticwebassets.build.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\obj\Debug\net8.0\staticwebassets.build.json.cache
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\obj\Debug\net8.0\staticwebassets.development.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\obj\Debug\net8.0\GaraAPI.csproj.Up2Date
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\obj\Debug\net8.0\GaraAPI.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\obj\Debug\net8.0\refint\GaraAPI.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\obj\Debug\net8.0\GaraAPI.pdb
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\obj\Debug\net8.0\GaraAPI.genruntimeconfig.cache
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraAPI\obj\Debug\net8.0\ref\GaraAPI.dll

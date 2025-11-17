@@ -457,3 +457,464 @@ D:\LTWNC\DoAnCuoiKi\GaraMVC\obj\Debug\net8.0\staticwebassets.build.endpoints.jso
 D:\LTWNC\DoAnCuoiKi\GaraMVC\obj\Debug\net8.0\GaraMVC.csproj.Up2Date
 D:\LTWNC\DoAnCuoiKi\GaraMVC\obj\Debug\net8.0\GaraMVC.genruntimeconfig.cache
 D:\LTWNC\DoAnCuoiKi\GaraMVC\obj\Debug\net8.0\ref\GaraMVC.dll
+D:\LTWNC\DoAnCuoiKi\GaraMVC\obj\Debug\net8.0\GaraMVC.sourcelink.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\appsettings.Development.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\appsettings.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\GaraMVC.staticwebassets.endpoints.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\GaraMVC.staticwebassets.runtime.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\GaraMVC.exe
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\GaraMVC.deps.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\GaraMVC.runtimeconfig.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\GaraMVC.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\GaraMVC.pdb
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Humanizer.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.Build.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.Build.Framework.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Features.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.CodeAnalysis.Elfie.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.CodeAnalysis.Features.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.CodeAnalysis.Razor.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.CodeAnalysis.Scripting.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.DiaSymReader.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.DotNet.Scaffolding.Shared.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.NET.StringTools.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\dotnet-aspnet-codegenerator-design.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Mono.TextTemplating.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\NuGet.Common.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\NuGet.Configuration.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\NuGet.DependencyResolver.Core.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\NuGet.Frameworks.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\NuGet.LibraryModel.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\NuGet.Packaging.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\NuGet.ProjectModel.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\NuGet.Protocol.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\NuGet.Versioning.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\System.CodeDom.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\System.Composition.Convention.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\System.Composition.Hosting.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\System.Composition.Runtime.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\System.Composition.TypedParts.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\System.Drawing.Common.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\System.Reflection.MetadataLoadContext.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\System.Security.Permissions.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\System.Windows.Extensions.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\af\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ar\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\az\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\bg\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\bn-BD\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\cs\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\da\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\de\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\el\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\es\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\fa\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\fi-FI\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\fr\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\fr-BE\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\he\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\hr\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\hu\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\hy\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\id\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\is\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\it\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ja\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ko-KR\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ku\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\lv\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ms-MY\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\mt\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\nb\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\nb-NO\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\nl\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\pl\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\pt\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ro\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ru\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\sk\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\sl\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\sr\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\sr-Latn\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\sv\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\th-TH\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\tr\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\uk\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\uz-Cyrl-UZ\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\uz-Latn-UZ\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\vi\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\zh-CN\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\zh-Hans\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\zh-Hant\Humanizer.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Features.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\GaraMVC.csproj.AssemblyReference.cache
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\rpswa.dswa.cache.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\GaraMVC.GeneratedMSBuildEditorConfig.editorconfig
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\GaraMVC.AssemblyInfoInputs.cache
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\GaraMVC.AssemblyInfo.cs
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\GaraMVC.csproj.CoreCompileInputs.cache
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\GaraMVC.MvcApplicationPartsAssemblyInfo.cache
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\GaraMVC.RazorAssemblyInfo.cache
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\GaraMVC.RazorAssemblyInfo.cs
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\GaraMVC.sourcelink.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\rjimswa.dswa.cache.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\scopedcss\bundle\GaraMVC.styles.css
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\scopedcss\projectbundle\GaraMVC.bundle.scp.css
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\staticwebassets.build.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\staticwebassets.build.json.cache
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\staticwebassets.development.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\GaraMVC.csproj.Up2Date
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\GaraMVC.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\refint\GaraMVC.dll
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\GaraMVC.pdb
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\GaraMVC.genruntimeconfig.cache
+D:\CongNgheXMl\DoAnCuoiKii\GaraMVC\obj\Debug\net8.0\ref\GaraMVC.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\appsettings.Development.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\appsettings.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\GaraMVC.staticwebassets.endpoints.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\GaraMVC.staticwebassets.runtime.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\GaraMVC.exe
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\GaraMVC.deps.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\GaraMVC.runtimeconfig.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\GaraMVC.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\GaraMVC.pdb
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Humanizer.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.Build.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.Build.Framework.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Features.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.CodeAnalysis.Elfie.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.CodeAnalysis.Features.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.CodeAnalysis.Razor.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.CodeAnalysis.Scripting.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.DiaSymReader.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.DotNet.Scaffolding.Shared.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.NET.StringTools.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\dotnet-aspnet-codegenerator-design.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Mono.TextTemplating.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\NuGet.Common.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\NuGet.Configuration.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\NuGet.DependencyResolver.Core.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\NuGet.Frameworks.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\NuGet.LibraryModel.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\NuGet.Packaging.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\NuGet.ProjectModel.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\NuGet.Protocol.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\NuGet.Versioning.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\System.CodeDom.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\System.Composition.Convention.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\System.Composition.Hosting.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\System.Composition.Runtime.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\System.Composition.TypedParts.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\System.Drawing.Common.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\System.Reflection.MetadataLoadContext.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\System.Security.Permissions.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\System.Windows.Extensions.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\af\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ar\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\az\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\bg\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\bn-BD\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\cs\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\da\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\de\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\el\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\es\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\fa\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\fi-FI\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\fr\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\fr-BE\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\he\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\hr\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\hu\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\hy\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\id\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\is\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\it\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ja\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ko-KR\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ku\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\lv\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ms-MY\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\mt\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\nb\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\nb-NO\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\nl\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\pl\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\pt\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ro\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ru\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\sk\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\sl\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\sr\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\sr-Latn\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\sv\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\th-TH\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\tr\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\uk\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\uz-Cyrl-UZ\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\uz-Latn-UZ\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\vi\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\zh-CN\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\zh-Hans\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\zh-Hant\Humanizer.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\GaraMVC.csproj.AssemblyReference.cache
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\rpswa.dswa.cache.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\GaraMVC.GeneratedMSBuildEditorConfig.editorconfig
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\GaraMVC.AssemblyInfoInputs.cache
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\GaraMVC.AssemblyInfo.cs
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\GaraMVC.csproj.CoreCompileInputs.cache
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\GaraMVC.MvcApplicationPartsAssemblyInfo.cache
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\GaraMVC.RazorAssemblyInfo.cache
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\GaraMVC.RazorAssemblyInfo.cs
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\GaraMVC.sourcelink.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\rjimswa.dswa.cache.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\scopedcss\bundle\GaraMVC.styles.css
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\scopedcss\projectbundle\GaraMVC.bundle.scp.css
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\staticwebassets.build.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\staticwebassets.build.json.cache
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\staticwebassets.development.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\GaraMVC.csproj.Up2Date
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\GaraMVC.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\refint\GaraMVC.dll
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\GaraMVC.pdb
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\GaraMVC.genruntimeconfig.cache
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\obj\Debug\net8.0\ref\GaraMVC.dll

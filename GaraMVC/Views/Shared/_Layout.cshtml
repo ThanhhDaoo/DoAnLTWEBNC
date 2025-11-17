@@ -3,242 +3,606 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Quản lý Gara Ô Tô</title>
+    <title>@ViewData["Title"] - MTProAuto Admin</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <style>
+        /* ========== ARCHITECTUI DESIGN SYSTEM ========== */
         :root {
-            --primary-color: #0d6efd;
-            --sidebar-width: 250px;
+            /* Colors */
+            --primary: #3f6ad8;
+            --primary-dark: #2948b1;
+            --secondary: #6c757d;
+            --success: #3ac47d;
+            --danger: #d92550;
+            --warning: #f7b924;
+            --info: #16aaff;
+            --dark: #0f1531;
+            --light: #f8f9fa;
+            
+            /* Sidebar */
+            --sidebar-width: 280px;
+            --sidebar-bg: #ffffff;
+            --sidebar-text: #495057;
+            --sidebar-hover: #f8f9fa;
+            --sidebar-active: #3f6ad8;
+            
+            /* Layout */
+            --topbar-height: 70px;
+            --border-radius: 0.5rem;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f8f9fa;
+            color: #495057;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
-        /* Sidebar */
-        .sidebar {
+        /* ========== SIDEBAR ========== */
+        .app-sidebar {
             position: fixed;
             top: 0;
             left: 0;
-            height: 100vh;
             width: var(--sidebar-width);
-            background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%);
-            padding-top: 20px;
+            height: 100vh;
+            background: var(--sidebar-bg);
+            border-right: 1px solid #e9ecef;
             z-index: 1000;
             overflow-y: auto;
+            transition: var(--transition);
+            box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
         }
 
-        .sidebar-brand {
-            padding: 20px;
-            text-align: center;
+        .app-sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .app-sidebar::-webkit-scrollbar-thumb {
+            background: #dee2e6;
+            border-radius: 3px;
+        }
+
+        /* Logo */
+        .app-sidebar__logo {
+            padding: 1.5rem 1.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 20px;
+            font-size: 1.25rem;
+            font-weight: 700;
         }
 
-            .sidebar-brand i {
-                font-size: 2rem;
-                display: block;
-                margin-bottom: 10px;
-            }
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark);
+            letter-spacing: -0.5px;
+        }
 
-        .sidebar-menu {
+        /* Menu */
+        .vertical-nav-menu {
+            padding: 1.5rem 0;
+        }
+
+        .metismenu {
             list-style: none;
             padding: 0;
             margin: 0;
         }
 
-            .sidebar-menu li {
-                margin: 0;
-            }
-
-            .sidebar-menu a {
-                display: flex;
-                align-items: center;
-                padding: 15px 25px;
-                color: rgba(255,255,255,0.8);
-                text-decoration: none;
-                transition: all 0.3s;
-            }
-
-                .sidebar-menu a:hover,
-                .sidebar-menu a.active {
-                    background-color: rgba(255,255,255,0.1);
-                    color: white;
-                    border-left: 4px solid #fbbf24;
-                }
-
-                .sidebar-menu a i {
-                    width: 30px;
-                    font-size: 1.2rem;
-                    margin-right: 10px;
-                }
-
-        /* Main Content */
-        .main-content {
-            margin-left: var(--sidebar-width);
-            padding: 20px;
-            min-height: 100vh;
+        .metismenu > li {
+            margin-bottom: 0.25rem;
         }
 
-        /* Top Navbar */
-        .top-navbar {
+        .metismenu-link {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1.75rem;
+            color: var(--sidebar-text);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .metismenu-link:hover {
+            background: var(--sidebar-hover);
+            color: var(--primary);
+        }
+
+        .metismenu-link.active {
+            background: linear-gradient(90deg, rgba(63, 106, 216, 0.1) 0%, transparent 100%);
+            color: var(--primary);
+            border-right: 3px solid var(--primary);
+        }
+
+        .metismenu-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            margin-right: 0.75rem;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .metismenu-link:hover .metismenu-icon {
+            background: rgba(63, 106, 216, 0.1);
+            color: var(--primary);
+        }
+
+        .metismenu-link.active .metismenu-icon {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* ========== HEADER ========== */
+        .app-header {
+            position: fixed;
+            top: 0;
+            left: var(--sidebar-width);
+            right: 0;
+            height: var(--topbar-height);
             background: white;
-            padding: 15px 30px;
-            margin: -20px -20px 20px -20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-bottom: 1px solid #e9ecef;
+            z-index: 999;
             display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            box-shadow: 0 0.125rem 0.625rem rgba(90, 97, 105, 0.12);
+        }
+
+        .app-header__content {
+            display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: center;
+            width: 100%;
         }
 
-            .top-navbar h4 {
-                margin: 0;
-                color: #1e3a8a;
-            }
-
-        .user-info {
+        .app-page-title {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 1rem;
         }
 
-            .user-info img {
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-            }
+        .page-title-wrapper h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin: 0;
+        }
 
-        /* Cards */
+        .page-title-subheading {
+            font-size: 0.875rem;
+            color: #6c757d;
+            margin: 0;
+        }
+
+        /* Header Right */
+        .header-btn-lg {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .header-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            border: none;
+            color: #495057;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .header-btn:hover {
+            background: #e9ecef;
+            color: var(--primary);
+        }
+
+        .badge-dot {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 8px;
+            height: 8px;
+            background: var(--danger);
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .header-user-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            background: #f8f9fa;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .header-user-info:hover {
+            background: #e9ecef;
+        }
+
+        .widget-content-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .widget-heading {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--dark);
+        }
+
+        .widget-subheading {
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+
+        .rounded-circle {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* ========== MAIN CONTENT ========== */
+        .app-main {
+            margin-left: var(--sidebar-width);
+            margin-top: var(--topbar-height);
+            min-height: calc(100vh - var(--topbar-height));
+        }
+
+        .app-main__outer {
+            padding: 2rem;
+        }
+
+        .app-main__inner {
+            max-width: 100%;
+        }
+
+        /* ========== CARDS ========== */
         .card {
             border: none;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            margin-bottom: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 0.125rem 0.625rem rgba(90, 97, 105, 0.12);
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            box-shadow: 0 0.5rem 1.5rem rgba(90, 97, 105, 0.2);
         }
 
         .card-header {
-            border-radius: 10px 10px 0 0 !important;
-            font-weight: 600;
-        }
-
-        /* Buttons */
-        .btn {
-            border-radius: 8px;
-            padding: 8px 20px;
-            font-weight: 500;
-        }
-
-        /* Tables */
-        .table {
             background: white;
+            border-bottom: 1px solid #e9ecef;
+            padding: 1.25rem 1.5rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--dark);
         }
 
-            .table thead th {
-                border-bottom: 2px solid #dee2e6;
-                font-weight: 600;
-                text-transform: uppercase;
-                font-size: 0.85rem;
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        /* ========== TABLES ========== */
+        .table {
+            margin-bottom: 0;
+        }
+
+        .table thead th {
+            border-bottom: 2px solid #e9ecef;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            color: #6c757d;
+            letter-spacing: 0.5px;
+            padding: 1rem;
+        }
+
+        .table tbody td {
+            padding: 1rem;
+            vertical-align: middle;
+            border-bottom: 1px solid #f1f3f5;
+        }
+
+        .table tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        /* ========== BUTTONS ========== */
+        .btn {
+            border-radius: var(--border-radius);
+            padding: 0.625rem 1.25rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(63, 106, 216, 0.4);
+        }
+
+        .btn-success {
+            background: var(--success);
+        }
+
+        .btn-danger {
+            background: var(--danger);
+        }
+
+        .btn-warning {
+            background: var(--warning);
+        }
+
+        .btn-info {
+            background: var(--info);
+        }
+
+        .btn-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.85rem;
+        }
+
+        /* ========== BADGES ========== */
+        .badge {
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.25rem;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        /* ========== FORMS ========== */
+        .form-control {
+            border: 1px solid #e9ecef;
+            border-radius: var(--border-radius);
+            padding: 0.625rem 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.2rem rgba(63, 106, 216, 0.15);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @@media (max-width: 991px) {
+            .app-sidebar {
+                margin-left: calc(-1 * var(--sidebar-width));
             }
 
-        /* Mobile Responsive */
-      @@media (max-width: 768px) {
-            .sidebar
+            .app-sidebar.mobile-open {
+                margin-left: 0;
+            }
 
-        {
-            margin-left: calc(-1 * var(--sidebar-width));
+            .app-header {
+                left: 0;
+            }
+
+            .app-main {
+                margin-left: 0;
+            }
+
+            .mobile-toggle-btn {
+                display: flex !important;
+            }
         }
 
-        .main-content {
-            margin-left: 0;
+        .mobile-toggle-btn {
+            display: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #f8f9fa;
+            border: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-right: 1rem;
         }
 
-        .sidebar.show {
-            margin-left: 0;
+        .mobile-toggle-btn:hover {
+            background: #e9ecef;
         }
 
-        }
+        /* ========== UTILITIES ========== */
+        .text-primary { color: var(--primary) !important; }
+        .text-success { color: var(--success) !important; }
+        .text-danger { color: var(--danger) !important; }
+        .text-warning { color: var(--warning) !important; }
+        .text-info { color: var(--info) !important; }
+
+        .bg-primary { background: var(--primary) !important; }
+        .bg-success { background: var(--success) !important; }
+        .bg-danger { background: var(--danger) !important; }
+        .bg-warning { background: var(--warning) !important; }
+        .bg-info { background: var(--info) !important; }
     </style>
 </head>
 <body>
     <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="sidebar-brand">
-            <i class="fas fa-car"></i>
-            GARA Ô TÔ
+    <div class="app-sidebar">
+        <div class="app-sidebar__logo">
+            <div class="logo-icon">
+                <i class="fas fa-car-side"></i>
+            </div>
+            <div class="logo-text">MTProAuto</div>
         </div>
-        <ul class="sidebar-menu">
-            <li>
-                <a asp-controller="Home" asp-action="Index" class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Home" ? "active" : "")">
-                    <i class="fas fa-tachometer-alt"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a asp-controller="KhachHang" asp-action="Index" class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "KhachHang" ? "active" : "")">
-                    <i class="fas fa-users"></i>
-                    <span>Khách hàng</span>
-                </a>
-            </li>
-            <li>
-                <a asp-controller="Xe" asp-action="Index" class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Xe" ? "active" : "")">
-                    <i class="fas fa-car"></i>
-                    <span>Quản lý xe</span>
-                </a>
-            </li>
-            <li>
-                <a asp-controller="DichVu" asp-action="Index" class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "DichVu" ? "active" : "")">
-                    <i class="fas fa-tools"></i>
-                    <span>Dịch vụ</span>
-                </a>
-            </li>
-            <li>
-                <a asp-controller="Yeucau" asp-action="Index" class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Yeucau" ? "active" : "")">
-                    <i class="fas fa-clipboard-list"></i>
-                    <span>Yêu cầu dịch vụ</span>
-                </a>
-            </li>
-            <li>
-                <a asp-controller="LienHe" asp-action="Index" class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "LienHe" ? "active" : "")">
+        
+        <div class="vertical-nav-menu">
+            <ul class="metismenu">
+                <li>
+                    <a asp-controller="Home" asp-action="Index" class="metismenu-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Home" ? "active" : "")">
+                        <div class="metismenu-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="KhachHang" asp-action="Index" class="metismenu-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "KhachHang" ? "active" : "")">
+                        <div class="metismenu-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <span>Khách hàng</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Xe" asp-action="Index" class="metismenu-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Xe" ? "active" : "")">
+                        <div class="metismenu-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <span>Quản lý xe</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="DichVu" asp-action="Index" class="metismenu-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "DichVu" ? "active" : "")">
+                        <div class="metismenu-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <span>Dịch vụ</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Yeucau" asp-action="Index" class="metismenu-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Yeucau" ? "active" : "")">
+                        <div class="metismenu-icon">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <span>Yêu cầu dịch vụ</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="SanPham" asp-action="Index" class="metismenu-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "SanPham" ? "active" : "")">
+                        <div class="metismenu-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <span>Sản phẩm</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="LienHe" asp-action="Index" class="metismenu-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "LienHe" ? "active" : "")">
+                        <div class="metismenu-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <span>Liên hệ</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div class="app-header">
+        <div class="app-header__content">
+            <div class="app-page-title">
+                <button class="mobile-toggle-btn" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="page-title-wrapper">
+                    <h1>@ViewData["Title"]</h1>
+                    <div class="page-title-subheading">
+                        Quản lý hệ thống MTProAuto
+                    </div>
+                </div>
+            </div>
+            
+            <div class="header-btn-lg">
+                <button class="header-btn" title="Thông báo">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge-dot"></span>
+                </button>
+                
+                <button class="header-btn" title="Tin nhắn">
                     <i class="fas fa-envelope"></i>
-                    <span>Liên hệ</span>
-                </a>
-            </li>
-            <li>
-                <a asp-controller="SanPham" asp-action="Index" class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "SanPham" ? "active" : "")">
-                    <i class="fas fa-box"></i>
-                    <span>Sản phẩm</span>
-                </a>
-            </li>
-        </ul>
+                </button>
+                
+                <div class="header-user-info">
+                    <div class="widget-content-left">
+                        <div class="widget-heading">Admin User</div>
+                        <div class="widget-subheading">Quản trị viên</div>
+                    </div>
+                    <img src="https://ui-avatars.com/api/?name=Admin&background=3f6ad8&color=fff" alt="Admin" class="rounded-circle">
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Main Content -->
-    <div class="main-content">
-        <div class="top-navbar">
-            <h4>@ViewData["Title"]</h4>
-            <div class="user-info">
-                <div>
-                    <div style="font-weight: 600;">Admin User</div>
-                    <small class="text-muted">Quản trị viên</small>
-                </div>
-                <img src="https://ui-avatars.com/api/?name=Admin&background=0d6efd&color=fff" alt="User">
+    <div class="app-main">
+        <div class="app-main__outer">
+            <div class="app-main__inner">
+                @RenderBody()
             </div>
         </div>
-
-        <main>
-            @RenderBody()
-        </main>
     </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.app-sidebar').classList.toggle('mobile-open');
+        }
+        
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            const sidebar = document.querySelector('.app-sidebar');
+            const toggleBtn = document.querySelector('.mobile-toggle-btn');
+            
+            if (window.innerWidth <= 991) {
+                if (!sidebar.contains(event.target) && !toggleBtn.contains(event.target)) {
+                    sidebar.classList.remove('mobile-open');
+                }
+            }
+        });
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

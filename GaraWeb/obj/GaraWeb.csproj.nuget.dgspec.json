@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\LTWNC\\DoAnCuoiKi\\GaraWeb\\GaraWeb.csproj": {}
+    "D:\\Tài liệu\\DoAnCuoiKiiiiiii\\GaraWeb\\GaraWeb.csproj": {}
   },
   "projects": {
-    "D:\\LTWNC\\DoAnCuoiKi\\GaraWeb\\GaraWeb.csproj": {
+    "D:\\Tài liệu\\DoAnCuoiKiiiiiii\\GaraWeb\\GaraWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\LTWNC\\DoAnCuoiKi\\GaraWeb\\GaraWeb.csproj",
+        "projectUniqueName": "D:\\Tài liệu\\DoAnCuoiKiiiiiii\\GaraWeb\\GaraWeb.csproj",
         "projectName": "GaraWeb",
-        "projectPath": "D:\\LTWNC\\DoAnCuoiKi\\GaraWeb\\GaraWeb.csproj",
+        "projectPath": "D:\\Tài liệu\\DoAnCuoiKiiiiiii\\GaraWeb\\GaraWeb.csproj",
         "packagesPath": "C:\\Users\\Cam Tien\\.nuget\\packages\\",
-        "outputPath": "D:\\LTWNC\\DoAnCuoiKi\\GaraWeb\\obj\\",
+        "outputPath": "D:\\Tài liệu\\DoAnCuoiKiiiiiii\\GaraWeb\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -74,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

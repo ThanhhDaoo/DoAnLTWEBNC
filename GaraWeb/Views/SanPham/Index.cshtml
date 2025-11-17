@@ -3,64 +3,318 @@
     ViewData["Title"] = "Sản phẩm";
 }
 
-<div class="container py-5">
-    <div class="section-title">
-        <h2>Sản phẩm của chúng tôi</h2>
+<style>
+    .page-header {
+        background: var(--gradient-primary);
+        color: white;
+        padding: 4rem 0 3rem;
+        margin-bottom: 3rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .page-header::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 400px;
+        height: 400px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+    }
+
+    .page-header h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .page-header p {
+        font-size: 1.2rem;
+        opacity: 0.95;
+        position: relative;
+        z-index: 2;
+    }
+
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    @@media (max-width: 992px) {
+        .product-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @@media (max-width: 576px) {
+        .product-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .product-item {
+        background: white !important;
+        border: 1px solid #e5e7eb !important;
+        border-radius: 16px !important;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .product-item:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        border-color: #06b6d4 !important;
+    }
+
+    .product-image {
+        position: relative;
+        overflow: hidden;
+        height: 200px;
+        background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%);
+    }
+
+    .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .product-item:hover .product-image img {
+        transform: scale(1.1);
+    }
+
+    .product-badge {
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        padding: 0.4rem 0.85rem;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.8rem;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-badge i {
+        font-size: 0.7rem;
+    }
+
+    .product-content {
+        padding: 1.25rem !important;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        background: white !important;
+    }
+
+    .product-title {
+        font-size: 1.1rem !important;
+        font-weight: 700;
+        color: #1f2937 !important;
+        margin-bottom: 0.5rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        line-height: 1.4;
+        min-height: 2.8em;
+    }
+
+    .product-description {
+        color: #6b7280 !important;
+        font-size: 0.85rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        min-height: 2.5em;
+        flex-grow: 1;
+    }
+
+    .product-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.75rem;
+        margin-top: auto;
+        padding-top: 0.75rem;
+        border-top: 1px solid #f3f4f6;
+    }
+
+    .product-price {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: #06b6d4 !important;
+        flex-shrink: 0;
+    }
+
+    .product-actions {
+        display: flex;
+        gap: 0.5rem;
+        flex-shrink: 0;
+    }
+
+    .btn-icon {
+        width: 38px;
+        height: 38px;
+        padding: 0 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        flex-shrink: 0;
+        border: 1px solid #e5e7eb;
+        background: white;
+        color: #6b7280;
+        transition: all 0.2s ease;
+    }
+
+    .btn-icon:hover {
+        background: #f3f4f6;
+        border-color: #06b6d4;
+        color: #06b6d4;
+    }
+
+    .product-actions .btn:not(.btn-icon) {
+        white-space: nowrap;
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        border-radius: 8px;
+        background: #06b6d4;
+        border: none;
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        transition: all 0.2s ease;
+    }
+
+    .product-actions .btn:not(.btn-icon):hover {
+        background: #0891b2;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+    }
+
+    .product-actions .btn-secondary {
+        background: #9ca3af;
+    }
+
+    .product-actions .btn-secondary:hover {
+        background: #6b7280;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 5rem 0;
+    }
+
+    .empty-icon {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--light);
+        color: var(--gray);
+        font-size: 3rem;
+    }
+
+    @@media (max-width: 768px) {
+        .page-header h1 { font-size: 2rem; }
+        .product-grid { grid-template-columns: 1fr; }
+    }
+</style>
+
+<div class="page-header">
+    <div class="container text-center">
+        <h1>Sản phẩm của chúng tôi</h1>
         <p>Phụ tùng và phụ kiện ô tô chính hãng, chất lượng cao</p>
     </div>
+</div>
 
-    <div class="row">
-        @foreach (var sanPham in Model)
-        {
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card product-card h-100">
-                    <img src="@(string.IsNullOrEmpty(sanPham.HinhAnh) ? "https://via.placeholder.com/400x250/764ba2/ffffff?text=" + sanPham.TenSanPham : sanPham.HinhAnh)" 
-                         class="card-img-top" alt="@sanPham.TenSanPham" style="height: 250px; object-fit: cover;">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">@sanPham.TenSanPham</h5>
-                        <p class="card-text">@sanPham.MoTa</p>
-                        <div class="mt-auto">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <span class="h4 text-primary mb-0">@sanPham.Gia.ToString("N0") VNĐ</span>
-                                @if (sanPham.SoLuongTon > 0)
-                                {
-                                    <span class="badge bg-success">Còn hàng (@sanPham.SoLuongTon)</span>
-                                }
-                                else
-                                {
-                                    <span class="badge bg-warning">Hết hàng</span>
-                                }
-                            </div>
-                            <div class="d-grid gap-2">
-                                <a href="@Url.Action("ChiTiet", "SanPham", new { id = sanPham.Id })" class="btn btn-outline-primary">
-                                    <i class="fas fa-eye me-2"></i>Xem chi tiết
+<div class="container pb-5">
+    @if (Model.Any())
+    {
+        <div class="product-grid">
+            @foreach (var sanPham in Model)
+            {
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="@(string.IsNullOrEmpty(sanPham.HinhAnh) ? "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg" : sanPham.HinhAnh)" 
+                             alt="@sanPham.TenSanPham">
+                        @if (sanPham.SoLuongTon > 0)
+                        {
+                            <span class="product-badge bg-success text-white">
+                                <i class="fas fa-check me-1"></i>Còn @sanPham.SoLuongTon
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="product-badge bg-warning text-white">
+                                <i class="fas fa-exclamation me-1"></i>Hết hàng
+                            </span>
+                        }
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">@sanPham.TenSanPham</h3>
+                        <p class="product-description">@sanPham.MoTa</p>
+                        <div class="product-footer">
+                            <div class="product-price">@sanPham.Gia.ToString("N0") ₫</div>
+                            <div class="product-actions">
+                                <a href="@Url.Action("ChiTiet", "SanPham", new { id = sanPham.Id })" 
+                                   class="btn btn-outline-primary btn-icon" 
+                                   title="Xem chi tiết">
+                                    <i class="fas fa-eye"></i>
                                 </a>
                                 @if (sanPham.SoLuongTon > 0)
                                 {
                                     <button class="btn btn-primary" onclick="addToCart(@sanPham.Id)">
-                                        <i class="fas fa-shopping-cart me-2"></i>Thêm vào giỏ
+                                        <i class="fas fa-cart-plus me-2"></i>Thêm
                                     </button>
                                 }
                                 else
                                 {
                                     <button class="btn btn-secondary" disabled>
-                                        <i class="fas fa-times me-2"></i>Không khả dụng
+                                        <i class="fas fa-times me-2"></i>Hết
                                     </button>
                                 }
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        }
-    </div>
-
-    @if (!Model.Any())
+            }
+        </div>
+    }
+    else
     {
-        <div class="text-center py-5">
-            <i class="fas fa-box fa-3x text-muted mb-3"></i>
-            <h4 class="text-muted">Chưa có sản phẩm nào</h4>
-            <p class="text-muted">Vui lòng quay lại sau.</p>
+        <div class="empty-state">
+            <div class="empty-icon">
+                <i class="fas fa-box-open"></i>
+            </div>
+            <h3 style="color: var(--dark); margin-bottom: 1rem;">Chưa có sản phẩm nào</h3>
+            <p style="color: var(--gray); margin-bottom: 2rem;">Vui lòng quay lại sau hoặc liên hệ với chúng tôi để biết thêm thông tin.</p>
+            <a href="@Url.Action("Index", "Home")" class="btn btn-primary">
+                <i class="fas fa-home me-2"></i>Về trang chủ
+            </a>
         </div>
     }
 </div>

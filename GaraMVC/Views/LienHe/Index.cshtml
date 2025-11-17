@@ -2,49 +2,320 @@
 @{
     ViewData["Title"] = "Quản lý liên hệ";
 }
-<h2 class="my-4">Quản lý liên hệ khách hàng</h2>
-<table class="table table-bordered table-hover">
-    <thead class="table-info">
-        <tr>
-            <th>STT</th>
-            <th>Họ tên</th>
-            <th>Email</th>
-            <th>Điện thoại</th>
-            <th>Chủ đề</th>
-            <th>Nội dung</th>
-            <th>Ngày gửi</th>
-            <th>Đã xử lý</th>
-        </tr>
-    </thead>
-    <tbody>
-    @foreach(var item in Model){
-        <tr>
-            <td>@item.MaLienHe</td>
-            <td>@item.HoTen</td>
-            <td>@item.Email</td>
-            <td>@item.SoDienThoai</td>
-            <td>@item.ChuDe</td>
-            <td>@item.NoiDung</td>
-            <td>@item.NgayGui.ToString("dd/MM/yyyy HH:mm")</td>
-            <td>
-                <input type="checkbox" class="form-check-input update-status" data-id="@item.MaLienHe" @(item.DaXuLy ? "checked" : "") />
-            </td>
-        </tr>
+
+<style>
+    .status-badge {
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
     }
-    </tbody>
-</table>
+    
+    .status-badge.processed {
+        background: rgba(16, 185, 129, 0.15);
+        color: #10b981;
+        border: 2px solid rgba(16, 185, 129, 0.3);
+    }
+    
+    .status-badge.unprocessed {
+        background: rgba(251, 146, 60, 0.15);
+        color: #f97316;
+        border: 2px solid rgba(251, 146, 60, 0.3);
+    }
+    
+    .status-badge:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact-row {
+        transition: background-color 0.3s ease;
+    }
+    
+    .contact-row.processed-row {
+        background-color: rgba(16, 185, 129, 0.05);
+    }
+    
+    .contact-row:hover {
+        background-color: rgba(14, 165, 233, 0.05);
+    }
+    
+    .card-header-custom {
+        background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+        color: white;
+        padding: 1.5rem;
+        border-radius: 12px 12px 0 0;
+    }
+    
+    .table-custom {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    
+    .table-custom thead th {
+        background: #f1f5f9;
+        color: #1e293b;
+        font-weight: 700;
+        border: none;
+        padding: 1rem;
+    }
+    
+    .table-custom tbody td {
+        padding: 1rem;
+        vertical-align: middle;
+        border-color: #e2e8f0;
+    }
+    
+    .content-cell {
+        max-width: 300px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
+    .stats-card {
+        background: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        margin-bottom: 1.5rem;
+    }
+    
+    .stat-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+    }
+    
+    .stat-icon.total {
+        background: rgba(14, 165, 233, 0.15);
+        color: #0ea5e9;
+    }
+    
+    .stat-icon.processed {
+        background: rgba(16, 185, 129, 0.15);
+        color: #10b981;
+    }
+    
+    .stat-icon.pending {
+        background: rgba(251, 146, 60, 0.15);
+        color: #f97316;
+    }
+</style>
+
+<div class="container-fluid mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2><i class="fas fa-envelope"></i> Quản lý liên hệ khách hàng</h2>
+    </div>
+
+    <!-- Statistics -->
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="stats-card">
+                <div class="stat-item">
+                    <div class="stat-icon total">
+                        <i class="fas fa-inbox"></i>
+                    </div>
+                    <div>
+                        <div class="text-muted small">Tổng liên hệ</div>
+                        <h4 class="mb-0">@Model.Count</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stats-card">
+                <div class="stat-item">
+                    <div class="stat-icon processed">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div>
+                        <div class="text-muted small">Đã xử lý</div>
+                        <h4 class="mb-0">@Model.Count(x => x.DaXuLy)</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stats-card">
+                <div class="stat-item">
+                    <div class="stat-icon pending">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <div class="text-muted small">Chưa xử lý</div>
+                        <h4 class="mb-0">@Model.Count(x => !x.DaXuLy)</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Table -->
+    <div class="card table-custom">
+        <div class="card-header-custom">
+            <h5 class="mb-0"><i class="fas fa-list"></i> Danh sách liên hệ</h5>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th style="width: 60px;">STT</th>
+                            <th>Họ tên</th>
+                            <th>Email</th>
+                            <th>Điện thoại</th>
+                            <th>Chủ đề</th>
+                            <th>Nội dung</th>
+                            <th style="width: 150px;">Ngày gửi</th>
+                            <th style="width: 180px;" class="text-center">Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @if (Model.Any())
+                    {
+                        int stt = 1;
+                        foreach(var item in Model)
+                        {
+                            <tr class="contact-row @(item.DaXuLy ? "processed-row" : "")" id="row-@item.MaLienHe">
+                                <td class="text-center">@stt</td>
+                                <td><strong>@item.HoTen</strong></td>
+                                <td>@item.Email</td>
+                                <td>@item.SoDienThoai</td>
+                                <td>@item.ChuDe</td>
+                                <td class="content-cell" title="@item.NoiDung">@item.NoiDung</td>
+                                <td>@item.NgayGui.ToString("dd/MM/yyyy HH:mm")</td>
+                                <td class="text-center">
+                                    <label class="status-badge @(item.DaXuLy ? "processed" : "unprocessed")" id="badge-@item.MaLienHe">
+                                        <input type="checkbox" 
+                                               class="form-check-input update-status d-none" 
+                                               data-id="@item.MaLienHe" 
+                                               @(item.DaXuLy ? "checked" : "") />
+                                        <i class="fas @(item.DaXuLy ? "fa-check-circle" : "fa-clock")"></i>
+                                        <span class="status-text">@(item.DaXuLy ? "Đã xử lý" : "Chưa xử lý")</span>
+                                    </label>
+                                </td>
+                            </tr>
+                            stt++;
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="8" class="text-center py-5">
+                                <i class="fas fa-inbox fa-3x text-muted mb-3"></i>
+                                <p class="text-muted">Chưa có liên hệ nào</p>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
 @section Scripts{
 <script>
     $(function(){
-        $('.update-status').change(function(){
-            var id = $(this).data('id');
-            var daxuly = $(this).is(':checked');
-            $.post('@Url.Action("UpdateStatus", "LienHe")', { id: id, daxuly: daxuly }, function(res) {
+        $('.status-badge').click(function(e){
+            e.preventDefault();
+            var checkbox = $(this).find('.update-status');
+            var id = checkbox.data('id');
+            var currentStatus = checkbox.is(':checked');
+            var newStatus = !currentStatus;
+            
+            // Update UI immediately for better UX
+            checkbox.prop('checked', newStatus);
+            updateBadgeUI(id, newStatus);
+            
+            // Send to server
+            $.post('@Url.Action("UpdateStatus", "LienHe")', { 
+                id: id, 
+                daxuly: newStatus 
+            }, function(res) {
                 if(res.success){
-                    // thông báo hoặc highlight nếu muốn
+                    // Show success notification
+                    showNotification('Cập nhật trạng thái thành công!', 'success');
+                    updateRowStyle(id, newStatus);
+                    updateStats();
+                } else {
+                    // Revert on failure
+                    checkbox.prop('checked', currentStatus);
+                    updateBadgeUI(id, currentStatus);
+                    showNotification('Có lỗi xảy ra khi cập nhật!', 'error');
                 }
+            }).fail(function(){
+                // Revert on error
+                checkbox.prop('checked', currentStatus);
+                updateBadgeUI(id, currentStatus);
+                showNotification('Không thể kết nối đến server!', 'error');
             });
         });
+        
+        function updateBadgeUI(id, isProcessed) {
+            var badge = $('#badge-' + id);
+            var icon = badge.find('i');
+            var text = badge.find('.status-text');
+            
+            if(isProcessed) {
+                badge.removeClass('unprocessed').addClass('processed');
+                icon.removeClass('fa-clock').addClass('fa-check-circle');
+                text.text('Đã xử lý');
+            } else {
+                badge.removeClass('processed').addClass('unprocessed');
+                icon.removeClass('fa-check-circle').addClass('fa-clock');
+                text.text('Chưa xử lý');
+            }
+        }
+        
+        function updateRowStyle(id, isProcessed) {
+            var row = $('#row-' + id);
+            if(isProcessed) {
+                row.addClass('processed-row');
+            } else {
+                row.removeClass('processed-row');
+            }
+        }
+        
+        function updateStats() {
+            // Reload page to update statistics (or use AJAX to update dynamically)
+            setTimeout(function() {
+                location.reload();
+            }, 1500);
+        }
+        
+        function showNotification(message, type) {
+            var alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
+            var icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
+            
+            var notification = $('<div class="alert ' + alertClass + ' alert-dismissible fade show position-fixed" style="top: 20px; right: 20px; z-index: 9999; min-width: 300px;" role="alert">' +
+                '<i class="fas ' + icon + ' me-2"></i>' + message +
+                '<button type="button" class="btn-close" data-bs-dismiss="alert"></button>' +
+                '</div>');
+            
+            $('body').append(notification);
+            
+            setTimeout(function() {
+                notification.alert('close');
+            }, 3000);
+        }
     });
 </script>
 }

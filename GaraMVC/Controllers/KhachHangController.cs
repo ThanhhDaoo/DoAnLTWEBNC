@@ -43,6 +43,9 @@ namespace GaraMVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Set ngày đăng ký tự động
+                khachHang.NgayDangKy = DateTime.Now;
+                
                 var result = await _khachHangService.CreateAsync(khachHang);
                 if (result)
                 {

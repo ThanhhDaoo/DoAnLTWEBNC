@@ -3,37 +3,181 @@
     ViewData["Title"] = "Giỏ hàng";
 }
 
-<div class="container py-5">
-    <h2 class="mb-4">Giỏ hàng của bạn</h2>
+<style>
+    .page-header {
+        background: var(--gradient-primary);
+        color: white;
+        padding: 3rem 0 2rem;
+        margin-bottom: 3rem;
+    }
 
+    .page-header h1 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+    }
+
+    .cart-card {
+        background: white;
+        border: 1px solid var(--gray-light);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-md);
+        overflow: hidden;
+    }
+
+    .cart-item {
+        padding: 1.5rem;
+        border-bottom: 1px solid var(--light);
+        transition: all var(--transition-base);
+    }
+
+    .cart-item:last-child {
+        border-bottom: none;
+    }
+
+    .cart-item:hover {
+        background: var(--light);
+    }
+
+    .cart-item img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--gray-light);
+    }
+
+    .cart-item h6 {
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 0.5rem;
+    }
+
+    .cart-item .text-muted {
+        color: var(--gray) !important;
+        font-size: 0.9rem;
+    }
+
+    .quantity-control {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .quantity-control input {
+        width: 80px;
+        text-align: center;
+    }
+
+    .summary-card {
+        background: white;
+        border: 1px solid var(--gray-light);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-md);
+        position: sticky;
+        top: 100px;
+    }
+
+    .summary-card .card-header {
+        background: var(--light);
+        border-bottom: 1px solid var(--gray-light);
+        padding: 1.5rem;
+    }
+
+    .summary-card .card-header h5 {
+        font-weight: 700;
+        color: var(--dark);
+        margin: 0;
+    }
+
+    .summary-card .card-body {
+        padding: 1.5rem;
+    }
+
+    .summary-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.75rem 0;
+        color: var(--gray);
+    }
+
+    .summary-total {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 0;
+        border-top: 2px solid var(--light);
+        margin-top: 0.5rem;
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--dark);
+    }
+
+    .summary-total .amount {
+        color: var(--primary);
+    }
+
+    .empty-cart {
+        text-align: center;
+        padding: 5rem 2rem;
+        background: white;
+        border: 1px solid var(--gray-light);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-md);
+    }
+
+    .empty-cart i {
+        color: var(--gray-light);
+        margin-bottom: 1.5rem;
+    }
+
+    .empty-cart h4 {
+        color: var(--dark);
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .empty-cart p {
+        color: var(--gray);
+        margin-bottom: 2rem;
+    }
+</style>
+
+<div class="page-header">
+    <div class="container text-center">
+        <h1>Giỏ hàng của bạn</h1>
+        <p>Xem lại và hoàn tất đơn hàng của bạn</p>
+    </div>
+</div>
+
+<div class="container pb-5">
     @if (Model.Any())
     {
-        <div class="row">
+        <div class="row g-4">
             <div class="col-lg-8">
-                <div class="card">
-                    <div class="card-body">
-                        @foreach (var item in Model)
-                        {
-                            <div class="row align-items-center border-bottom py-3">
+                <div class="cart-card">
+                    @foreach (var item in Model)
+                    {
+                        <div class="cart-item">
+                            <div class="row align-items-center">
                                 <div class="col-md-2">
-                                    <img src="@(string.IsNullOrEmpty(item.HinhAnh) ? "https://via.placeholder.com/100x100/764ba2/ffffff?text=" + item.TenSanPham : item.HinhAnh)" 
-                                         class="img-fluid rounded" alt="@item.TenSanPham" style="width: 80px; height: 80px; object-fit: cover;">
+                                    <img src="@(string.IsNullOrEmpty(item.HinhAnh) ? "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg" : item.HinhAnh)" 
+                                         alt="@item.TenSanPham">
                                 </div>
                                 <div class="col-md-4">
-                                    <h6 class="mb-1">@item.TenSanPham</h6>
-                                    <p class="text-muted mb-0">@item.Gia.ToString("N0") VNĐ</p>
+                                    <h6>@item.TenSanPham</h6>
+                                    <p class="text-muted mb-0">@item.Gia.ToString("N0") ₫</p>
                                 </div>
                                 <div class="col-md-3">
-                                    <form method="post" asp-action="CapNhatGioHang" class="d-flex align-items-center">
+                                    <form method="post" asp-action="CapNhatGioHang" class="quantity-control">
                                         <input type="hidden" name="sanPhamId" value="@item.SanPhamId">
-                                        <input type="number" name="soLuong" value="@item.SoLuong" min="1" class="form-control me-2" style="width: 80px;">
+                                        <input type="number" name="soLuong" value="@item.SoLuong" min="1" class="form-control">
                                         <button type="submit" class="btn btn-outline-primary btn-sm">
                                             <i class="fas fa-sync"></i>
                                         </button>
                                     </form>
                                 </div>
                                 <div class="col-md-2">
-                                    <h6 class="text-primary mb-0">@item.ThanhTien.ToString("N0") VNĐ</h6>
+                                    <h6 style="color: var(--primary); margin: 0;">@item.ThanhTien.ToString("N0") ₫</h6>
                                 </div>
                                 <div class="col-md-1">
                                     <form method="post" asp-action="XoaKhoiGioHang">
@@ -44,34 +188,33 @@
                                     </form>
                                 </div>
                             </div>
-                        }
-                    </div>
+                        </div>
+                    }
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="card">
+                <div class="summary-card">
                     <div class="card-header">
-                        <h5 class="mb-0">Tổng kết</h5>
+                        <h5><i class="fas fa-receipt me-2"></i>Tổng kết đơn hàng</h5>
                     </div>
                     <div class="card-body">
-                        <div class="d-flex justify-content-between mb-2">
+                        <div class="summary-row">
                             <span>Tạm tính:</span>
-                            <span>@Model.Sum(x => x.ThanhTien).ToString("N0") VNĐ</span>
+                            <span>@Model.Sum(x => x.ThanhTien).ToString("N0") ₫</span>
                         </div>
-                        <div class="d-flex justify-content-between mb-2">
+                        <div class="summary-row">
                             <span>Phí vận chuyển:</span>
-                            <span>Miễn phí</span>
+                            <span style="color: var(--success); font-weight: 600;">Miễn phí</span>
                         </div>
-                        <hr>
-                        <div class="d-flex justify-content-between">
-                            <strong>Tổng cộng:</strong>
-                            <strong class="text-primary">@Model.Sum(x => x.ThanhTien).ToString("N0") VNĐ</strong>
+                        <div class="summary-total">
+                            <span>Tổng cộng:</span>
+                            <span class="amount">@Model.Sum(x => x.ThanhTien).ToString("N0") ₫</span>
                         </div>
                         <div class="d-grid gap-2 mt-3">
                             <button class="btn btn-primary btn-lg" onclick="checkout()">
                                 <i class="fas fa-credit-card me-2"></i>Thanh toán
                             </button>
-                            <a href="@Url.Action("Index", "SanPham")" class="btn btn-outline-secondary">
+                            <a href="@Url.Action("Index", "SanPham")" class="btn btn-outline-primary">
                                 <i class="fas fa-arrow-left me-2"></i>Tiếp tục mua sắm
                             </a>
                         </div>
@@ -82,11 +225,11 @@
     }
     else
     {
-        <div class="text-center py-5">
-            <i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i>
-            <h4 class="text-muted">Giỏ hàng trống</h4>
-            <p class="text-muted">Hãy thêm một số sản phẩm vào giỏ hàng của bạn.</p>
-            <a href="@Url.Action("Index", "SanPham")" class="btn btn-primary">
+        <div class="empty-cart">
+            <i class="fas fa-shopping-cart fa-5x"></i>
+            <h4>Giỏ hàng trống</h4>
+            <p>Hãy thêm một số sản phẩm vào giỏ hàng của bạn.</p>
+            <a href="@Url.Action("Index", "SanPham")" class="btn btn-primary btn-lg">
                 <i class="fas fa-shopping-bag me-2"></i>Mua sắm ngay
             </a>
         </div>
