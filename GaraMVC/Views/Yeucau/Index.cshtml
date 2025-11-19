@@ -75,16 +75,16 @@
                                     <td>
                                         <div class="btn-group" role="group">
                                             <a href="@Url.Action("Details", new { id = item.MaYeuCau })" 
-                                               class="btn btn-sm btn-info">
-                                                <i class="fas fa-eye"></i>
+                                               class="btn btn-sm btn-primary">
+                                                <i class="fas fa-eye me-1"></i>Xem
                                             </a>
                                             
                                             @if (item.TrangThai == "Mới")
                                             {
                                                 <form method="post" action="@Url.Action("UpdateStatus", new { id = item.MaYeuCau, trangThai = "Đang xử lý" })" 
                                                       style="display: inline;" onsubmit="return confirm('Xác nhận bắt đầu xử lý yêu cầu này?');">
-                                                    <button type="submit" class="btn btn-sm btn-warning">
-                                                        <i class="fas fa-play"></i>
+                                                    <button type="submit" class="btn btn-sm btn-primary">
+                                                        <i class="fas fa-play me-1"></i>Xử lý
                                                     </button>
                                                 </form>
                                             }
@@ -93,16 +93,16 @@
                                             {
                                                 <form method="post" action="@Url.Action("UpdateStatus", new { id = item.MaYeuCau, trangThai = "Hoàn thành" })" 
                                                       style="display: inline;" onsubmit="return confirm('Xác nhận hoàn thành yêu cầu này?');">
-                                                    <button type="submit" class="btn btn-sm btn-success">
-                                                        <i class="fas fa-check"></i>
+                                                    <button type="submit" class="btn btn-sm btn-primary">
+                                                        <i class="fas fa-check me-1"></i>Hoàn thành
                                                     </button>
                                                 </form>
                                             }
                                             
                                             <form method="post" action="@Url.Action("Delete", new { id = item.MaYeuCau })" 
                                                   style="display: inline;" onsubmit="return confirm('Bạn có chắc muốn xóa yêu cầu này?');">
-                                                <button type="submit" class="btn btn-sm btn-danger">
-                                                    <i class="fas fa-trash"></i>
+                                                <button type="submit" class="btn btn-sm btn-primary">
+                                                    <i class="fas fa-trash me-1"></i>Xóa
                                                 </button>
                                             </form>
                                         </div>

@@ -3,7 +3,11 @@
     ViewData["Title"] = "Liên hệ";
 }
 
+<!-- Revolution Slider CSS -->
+<link rel="stylesheet" href="~/css/revolution-slider.css" asp-append-version="true" />
+
 <style>
+
     .page-header {
         background: var(--gradient-primary);
         color: white;
@@ -11,6 +15,7 @@
         margin-bottom: 3rem;
         position: relative;
         overflow: hidden;
+        display: none;
     }
 
     .page-header::before {
@@ -159,12 +164,25 @@
     }
 </style>
 
-<div class="page-header">
-    <div class="container text-center">
-        <h1>Liên hệ với chúng tôi</h1>
-        <p>Chúng tôi luôn sẵn sàng hỗ trợ và tư vấn cho bạn</p>
+<!-- Revolution Slider for Contact -->
+<section class="rev-slider-container page-header-slider" id="revSliderContact">
+    <div class="rev-slides">
+        <div class="rev-slide">
+            <div class="rev-slide-bg" style="background-image: url('https://images.pexels.com/photos/5835359/pexels-photo-5835359.jpeg');"></div>
+            <div class="rev-slide-overlay"></div>
+            <div class="rev-layers">
+                <div class="container text-center">
+                    <h1 class="rev-layer rev-layer-title" data-animation="fadeInUp">
+                        Liên hệ với chúng tôi
+                    </h1>
+                    <p class="rev-layer rev-layer-subtitle" data-animation="fadeInUp">
+                        Chúng tôi luôn sẵn sàng hỗ trợ và tư vấn cho bạn
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</section>
 
 <div class="container pb-5">
     @if (TempData["SuccessMessage"] != null)
@@ -289,3 +307,18 @@
         </div>
     </div>
 </div>
+
+
+@section Scripts {
+    <script src="~/js/revolution-slider-custom.js" asp-append-version="true"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const revSlider = new RevolutionSlider('#revSliderContact', {
+                autoplay: false,
+                navigation: false,
+                pagination: false
+            });
+            document.getElementById('revSliderContact').classList.add('loaded');
+        });
+    </script>
+}

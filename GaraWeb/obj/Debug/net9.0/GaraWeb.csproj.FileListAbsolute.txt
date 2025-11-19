@@ -316,3 +316,5 @@ D:\Tài liệu\DoAnCuoiKiiiiiii\GaraWeb\obj\Debug\net9.0\GaraWeb.pdb
 D:\Tài liệu\DoAnCuoiKiiiiiii\GaraWeb\obj\Debug\net9.0\GaraWeb.genruntimeconfig.cache
 D:\Tài liệu\DoAnCuoiKiiiiiii\GaraWeb\obj\Debug\net9.0\ref\GaraWeb.dll
 D:\Tài liệu\DoAnCuoiKiiiiiii\GaraWeb\obj\Debug\net9.0\compressed\ncfqj9j7mn-yphh0xr970.gz
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraWeb\obj\Debug\net9.0\compressed\7rwuau6i5u-7jk9q71k98.gz
+D:\Tài liệu\DoAnCuoiKiiiiiii\GaraWeb\obj\Debug\net9.0\compressed\l9zerb2j2i-53a839a4xj.gz

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GaraWeb")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a59d2e867739f3e05a839be425a352f86951aaaf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+677dc6d04bccc915d4fa13f2935201c5b132cf02")]
 [assembly: System.Reflection.AssemblyProductAttribute("GaraWeb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GaraWeb")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

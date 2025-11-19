@@ -3,7 +3,11 @@
     ViewData["Title"] = "Dịch vụ";
 }
 
+<!-- Revolution Slider CSS -->
+<link rel="stylesheet" href="~/css/revolution-slider.css" asp-append-version="true" />
+
 <style>
+
     .page-header {
         background: var(--gradient-primary);
         color: white;
@@ -11,6 +15,7 @@
         margin-bottom: 3rem;
         position: relative;
         overflow: hidden;
+        display: none;
     }
 
     .page-header::before {
@@ -237,12 +242,25 @@
     }
 </style>
 
-<div class="page-header">
-    <div class="container text-center">
-        <h1>Dịch vụ của chúng tôi</h1>
-        <p>Chúng tôi cung cấp đầy đủ các dịch vụ sửa chữa và bảo dưỡng ô tô chuyên nghiệp</p>
+<!-- Revolution Slider for Services -->
+<section class="rev-slider-container page-header-slider" id="revSliderServices">
+    <div class="rev-slides">
+        <div class="rev-slide">
+            <div class="rev-slide-bg" style="background-image: url('https://images.pexels.com/photos/4489743/pexels-photo-4489743.jpeg');"></div>
+            <div class="rev-slide-overlay"></div>
+            <div class="rev-layers">
+                <div class="container text-center">
+                    <h1 class="rev-layer rev-layer-title" data-animation="fadeInUp">
+                        Dịch vụ của chúng tôi
+                    </h1>
+                    <p class="rev-layer rev-layer-subtitle" data-animation="fadeInUp">
+                        Chúng tôi cung cấp đầy đủ các dịch vụ sửa chữa và bảo dưỡng ô tô chuyên nghiệp
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</section>
 
 <div class="container pb-5">
     @if (TempData["SuccessMessage"] != null)
@@ -317,3 +335,18 @@
         </div>
     }
 </div>
+
+
+@section Scripts {
+    <script src="~/js/revolution-slider-custom.js" asp-append-version="true"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const revSlider = new RevolutionSlider('#revSliderServices', {
+                autoplay: false,
+                navigation: false,
+                pagination: false
+            });
+            document.getElementById('revSliderServices').classList.add('loaded');
+        });
+    </script>
+}
