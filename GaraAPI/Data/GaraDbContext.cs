@@ -19,6 +19,7 @@ namespace GaraAPI.Data
         public DbSet<ChiTietHDDV> ChiTietHDDVs { get; set; }
         public DbSet<ChiTietHDSP> ChiTietHDSPs { get; set; }
         public DbSet<YeucauDichVu> YeucauDichVus { get; set; }
+        public DbSet<LienHe> LienHes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

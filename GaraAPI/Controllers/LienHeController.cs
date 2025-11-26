@@ -38,7 +38,8 @@ namespace GaraAPI.Controllers
                         ChuDe = reader["ChuDe"],
                         NoiDung = reader["NoiDung"],
                         NgayGui = reader["NgayGui"],
-                        DaXuLy = reader["DaXuLy"]
+                        DaXuLy = reader["DaXuLy"],
+                        Username = reader["Username"] != DBNull.Value ? reader["Username"] : null
                     });
                 }
             }
@@ -58,8 +59,8 @@ namespace GaraAPI.Controllers
             {
                 conn.Open();
                 var cmd = new SqlCommand(
-                    "INSERT INTO LIENHE (HoTen, Email, SoDienThoai, ChuDe, NoiDung, NgayGui, DaXuLy) " +
-                    "VALUES (@HoTen, @Email, @SoDienThoai, @ChuDe, @NoiDung, @NgayGui, 0); " +
+                    "INSERT INTO LIENHE (HoTen, Email, SoDienThoai, ChuDe, NoiDung, NgayGui, DaXuLy, Username) " +
+                    "VALUES (@HoTen, @Email, @SoDienThoai, @ChuDe, @NoiDung, @NgayGui, 0, @Username); " +
                     "SELECT CAST(SCOPE_IDENTITY() as int);", conn);
                 
                 cmd.Parameters.AddWithValue("@HoTen", request.HoTen);
@@ -68,6 +69,7 @@ namespace GaraAPI.Controllers
                 cmd.Parameters.AddWithValue("@ChuDe", request.ChuDe ?? "");
                 cmd.Parameters.AddWithValue("@NoiDung", request.NoiDung ?? "");
                 cmd.Parameters.AddWithValue("@NgayGui", DateTime.Now);
+                cmd.Parameters.AddWithValue("@Username", (object?)request.Username ?? DBNull.Value);
                 
                 var id = (int)cmd.ExecuteScalar();
                 return Ok(new { maLienHe = id, message = "Gửi liên hệ thành công" });
@@ -96,6 +98,7 @@ namespace GaraAPI.Controllers
             public string? SoDienThoai { get; set; }
             public string? ChuDe { get; set; }
             public string? NoiDung { get; set; }
+            public string? Username { get; set; }
         }
     }
 }

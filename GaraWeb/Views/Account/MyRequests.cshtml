@@ -1,0 +1,94 @@
+@model List<GaraWeb.Models.YeucauDichVu>
+@{
+    ViewData["Title"] = "Lịch sử yêu cầu dịch vụ";
+}
+
+<div class="container" style="margin-top: 100px; margin-bottom: 50px; padding-bottom: 100px;">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="mb-3">
+                        <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px; font-size: 32px;">
+                            @User.Identity?.Name?.Substring(0, 1).ToUpper()
+                        </div>
+                    </div>
+                    <h5 class="card-title">@User.Identity?.Name</h5>
+                    <p class="text-muted">Khách hàng</p>
+                </div>
+                <div class="list-group list-group-flush">
+                    <a asp-action="Profile" class="list-group-item list-group-item-action">
+                        <i class="fas fa-user me-2"></i> Thông tin tài khoản
+                    </a>
+                    <a asp-action="MyRequests" class="list-group-item list-group-item-action active">
+                        <i class="fas fa-clipboard-list me-2"></i> Lịch sử yêu cầu dịch vụ
+                    </a>
+                    <a asp-action="MyContacts" class="list-group-item list-group-item-action">
+                        <i class="fas fa-envelope me-2"></i> Lịch sử liên hệ
+                    </a>
+                    <a asp-action="Logout" class="list-group-item list-group-item-action text-danger">
+                        <i class="fas fa-sign-out-alt me-2"></i> Đăng xuất
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="fas fa-clipboard-list me-2"></i> Lịch sử yêu cầu dịch vụ</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model != null && Model.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Mã YC</th>
+                                        <th>Dịch vụ</th>
+                                        <th>Ngày hẹn</th>
+                                        <th>Giờ hẹn</th>
+                                        <th>Trạng thái</th>
+                                        <th>Ngày tạo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        var statusClass = item.TrangThai switch
+                                        {
+                                            "Mới" => "warning",
+                                            "Đang xử lý" => "info",
+                                            "Hoàn thành" => "success",
+                                            "Đã hủy" => "danger",
+                                            _ => "secondary"
+                                        };
+                                        <tr>
+                                            <td><strong>#YC@item.MaYeuCau</strong></td>
+                                            <td>@(item.DichVu?.TenDichVu ?? "N/A")</td>
+                                            <td>@(item.NgayHen?.ToString("dd/MM/yyyy") ?? "-")</td>
+                                            <td>@(item.GioHen ?? "-")</td>
+                                            <td><span class="badge bg-@statusClass">@item.TrangThai</span></td>
+                                            <td>@item.NgayYeuCau.ToString("dd/MM/yyyy")</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-5">
+                            <i class="fas fa-clipboard-list fa-4x text-muted mb-3"></i>
+                            <p class="text-muted">Bạn chưa có yêu cầu dịch vụ nào</p>
+                            <a asp-controller="DichVu" asp-action="Index" class="btn btn-primary">
+                                <i class="fas fa-plus me-2"></i> Đặt dịch vụ ngay
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -18,5 +18,6 @@ namespace GaraWeb.Models
         public string NoiDung { get; set; } = "";
         public DateTime NgayGui { get; set; }
         public bool DaXuLy { get; set; }
+        public string? Username { get; set; } // Username của user đã liên hệ
     }
 }

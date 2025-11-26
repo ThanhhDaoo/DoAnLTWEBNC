@@ -13,6 +13,7 @@ namespace GaraMVC.Models
         public DichVu? DichVu { get; set; }
         public DateTime? NgayHen { get; set; } // Ngày hẹn khách chọn
         public string? GioHen { get; set; } // Giờ hẹn khách chọn
+        public string? Username { get; set; } // Username của user đã đặt
     }
 }
 

@@ -62,8 +62,25 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0" aria-labelledby="userDropdown" style="border-radius: 12px; backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.95);">
                                 <li>
+                                    <a class="dropdown-item" asp-controller="Account" asp-action="Profile">
+                                        <i class="fas fa-user me-2"></i>Thông tin tài khoản
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Account" asp-action="MyRequests">
+                                        <i class="fas fa-clipboard-list me-2"></i>Lịch sử yêu cầu dịch vụ
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Account" asp-action="MyContacts">
+                                        <i class="fas fa-envelope me-2"></i>Lịch sử liên hệ
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
                                     <form method="post" asp-controller="Account" asp-action="Logout" style="display:inline;">
-                                        <button type="submit" class="dropdown-item">
+                                        <button type="submit" class="dropdown-item text-danger">
                                             <i class="fas fa-sign-out-alt me-2"></i>Đăng xuất
                                         </button>
                                     </form>

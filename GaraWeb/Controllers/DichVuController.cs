@@ -59,7 +59,8 @@ namespace GaraWeb.Controllers
                     NgayYeuCau = DateTime.Now,
                     TrangThai = "Mới",
                     NgayHen = dHen,
-                    GioHen = gioHen
+                    GioHen = gioHen,
+                    Username = User.Identity?.Name // Lưu username
                 };
 
                 var result = await _apiService.CreateYeucauDichVuAsync(yeucau);

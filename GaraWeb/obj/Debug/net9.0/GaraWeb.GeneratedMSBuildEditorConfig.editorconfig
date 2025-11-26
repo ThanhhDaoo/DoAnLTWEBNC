@@ -24,8 +24,24 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/LTWNC/DoAnLTWEBNC/GaraWeb/Views/Account/MyContacts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxNeUNvbnRhY3RzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LTWNC/DoAnLTWEBNC/GaraWeb/Views/Account/MyRequests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxNeVJlcXVlc3RzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LTWNC/DoAnLTWEBNC/GaraWeb/Views/Account/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/LTWNC/DoAnLTWEBNC/GaraWeb/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LTWNC/DoAnLTWEBNC/GaraWeb/Views/Account/TestLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxUZXN0TG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/LTWNC/DoAnLTWEBNC/GaraWeb/Views/AdminLienHe/Index.cshtml]

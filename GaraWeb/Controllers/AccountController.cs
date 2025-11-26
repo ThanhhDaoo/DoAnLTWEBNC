@@ -51,36 +51,49 @@ namespace GaraWeb.Controllers
                 return View(model);
             }
 
-            var baseUrl = _configuration["ApiSettings:BaseUrl"]; // e.g. https://localhost:7001/api
-            var payload = JsonSerializer.Serialize(new { username = model.Username, password = model.Password });
-            var content = new StringContent(payload, Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync($"{baseUrl}/Auth/login", content);
-
-            if (!response.IsSuccessStatusCode)
+            try
             {
-                ModelState.AddModelError(string.Empty, "Đăng nhập thất bại. Vui lòng kiểm tra thông tin.");
+                var baseUrl = _configuration["ApiSettings:BaseUrl"]; // e.g. https://localhost:7001/api
+                
+                // Hash password với SHA256
+                var hashedPassword = HashPassword(model.Password);
+                
+                var payload = JsonSerializer.Serialize(new { username = model.Username, password = hashedPassword });
+                var content = new StringContent(payload, Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync($"{baseUrl}/Auth/login", content);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    ModelState.AddModelError(string.Empty, "Đăng nhập thất bại. Vui lòng kiểm tra thông tin.");
+                    return View(model);
+                }
+
+                var json = await response.Content.ReadAsStringAsync();
+                using var doc = JsonDocument.Parse(json);
+                var root = doc.RootElement;
+                var username = root.GetProperty("username").GetString() ?? model.Username;
+                var role = root.TryGetProperty("role", out var roleProp) ? (roleProp.GetString() ?? "Customer") : "Customer";
+
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, username),
+                    new Claim(ClaimTypes.Role, role)
+                };
+                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var principal = new ClaimsPrincipal(identity);
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+                if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
+                    return Redirect(model.ReturnUrl);
+
+                return RedirectToAction("Index", "Home");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, $"Lỗi kết nối: {ex.Message}");
                 return View(model);
             }
-
-            var json = await response.Content.ReadAsStringAsync();
-            using var doc = JsonDocument.Parse(json);
-            var root = doc.RootElement;
-            var username = root.GetProperty("username").GetString() ?? model.Username;
-            var role = root.TryGetProperty("role", out var roleProp) ? (roleProp.GetString() ?? "Customer") : "Customer";
-
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, username),
-                new Claim(ClaimTypes.Role, role)
-            };
-            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-            var principal = new ClaimsPrincipal(identity);
-            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-
-            if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
-                return Redirect(model.ReturnUrl);
-
-            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
@@ -103,20 +116,41 @@ namespace GaraWeb.Controllers
                 ModelState.AddModelError("ConfirmPassword", "Mật khẩu xác nhận không khớp.");
                 return View(model);
             }
-            var baseUrl = _configuration["ApiSettings:BaseUrl"]; // e.g. https://localhost:7001/api
-            var payload = JsonSerializer.Serialize(new { username = model.Username, password = model.Password, email = model.Email });
-            var content = new StringContent(payload, Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync($"{baseUrl}/Auth/register", content);
-
-            if (!response.IsSuccessStatusCode)
+            
+            try
             {
-                var msg = await response.Content.ReadAsStringAsync();
-                ModelState.AddModelError(string.Empty, string.IsNullOrWhiteSpace(msg) ? "Đăng ký thất bại." : msg);
+                var baseUrl = _configuration["ApiSettings:BaseUrl"]; // e.g. https://localhost:7001/api
+                
+                // Gửi plain password cho register, API sẽ tự hash
+                var payload = JsonSerializer.Serialize(new { username = model.Username, password = model.Password, email = model.Email });
+                var content = new StringContent(payload, Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync($"{baseUrl}/Auth/register", content);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    var msg = await response.Content.ReadAsStringAsync();
+                    ModelState.AddModelError(string.Empty, string.IsNullOrWhiteSpace(msg) ? "Đăng ký thất bại." : msg);
+                    return View(model);
+                }
+
+                TempData["SuccessMessage"] = "Đăng ký thành công. Vui lòng đăng nhập.";
+                return RedirectToAction("Login");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, $"Lỗi kết nối: {ex.Message}");
                 return View(model);
             }
-
-            TempData["SuccessMessage"] = "Đăng ký thành công. Vui lòng đăng nhập.";
-            return RedirectToAction("Login");
+        }
+        
+        private string HashPassword(string password)
+        {
+            using (var sha256 = System.Security.Cryptography.SHA256.Create())
+            {
+                var bytes = Encoding.UTF8.GetBytes(password);
+                var hash = sha256.ComputeHash(bytes);
+                return BitConverter.ToString(hash).Replace("-", "").ToLower();
+            }
         }
 
         [Authorize]
@@ -124,6 +158,88 @@ namespace GaraWeb.Controllers
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Home");
+        }
+
+        [AllowAnonymous]
+        public IActionResult TestLogin()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public IActionResult Profile()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public async Task<IActionResult> MyRequests()
+        {
+            try
+            {
+                var username = User.Identity?.Name;
+                if (string.IsNullOrEmpty(username))
+                {
+                    return RedirectToAction("Login");
+                }
+
+                var baseUrl = _configuration["ApiSettings:BaseUrl"];
+                var response = await _httpClient.GetAsync($"{baseUrl}/Yeucau");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = await response.Content.ReadAsStringAsync();
+                    var allRequests = JsonSerializer.Deserialize<List<Models.YeucauDichVu>>(json, new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    }) ?? new List<Models.YeucauDichVu>();
+
+                    // Filter theo username của user hiện tại
+                    var myRequests = allRequests.Where(r => r.Username == username).ToList();
+                    return View(myRequests);
+                }
+
+                return View(new List<Models.YeucauDichVu>());
+            }
+            catch
+            {
+                return View(new List<Models.YeucauDichVu>());
+            }
+        }
+
+        [Authorize]
+        public async Task<IActionResult> MyContacts()
+        {
+            try
+            {
+                var username = User.Identity?.Name;
+                if (string.IsNullOrEmpty(username))
+                {
+                    return RedirectToAction("Login");
+                }
+
+                var baseUrl = _configuration["ApiSettings:BaseUrl"];
+                var response = await _httpClient.GetAsync($"{baseUrl}/LienHe");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = await response.Content.ReadAsStringAsync();
+                    var allContacts = JsonSerializer.Deserialize<List<Models.LienHe>>(json, new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    }) ?? new List<Models.LienHe>();
+
+                    // Filter theo username của user hiện tại
+                    var myContacts = allContacts.Where(c => c.Username == username).ToList();
+                    return View(myContacts);
+                }
+
+                return View(new List<Models.LienHe>());
+            }
+            catch
+            {
+                return View(new List<Models.LienHe>());
+            }
         }
     }
 }

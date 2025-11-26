@@ -27,22 +27,43 @@ namespace GaraWeb.Controllers
 
         [HttpPost]
         [Authorize]
-        public IActionResult Index(string ten, string email, string soDienThoai, string chuDe, string noiDung)
+        public async Task<IActionResult> Index(string ten, string email, string soDienThoai, string chuDe, string noiDung)
         {
-            // Lưu liên hệ vào database
-            using (var conn = new SqlConnection(_connectionString))
+            try
             {
-                conn.Open();
-                var cmd = new SqlCommand(
-                    "INSERT INTO LIENHE (HoTen, Email, SoDienThoai, ChuDe, NoiDung) VALUES (@HoTen, @Email, @SoDienThoai, @ChuDe, @NoiDung)", conn);
-                cmd.Parameters.AddWithValue("@HoTen", ten);
-                cmd.Parameters.AddWithValue("@Email", email);
-                cmd.Parameters.AddWithValue("@SoDienThoai", soDienThoai);
-                cmd.Parameters.AddWithValue("@ChuDe", (object?)chuDe ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@NoiDung", noiDung);
-                cmd.ExecuteNonQuery();
+                // Gọi API để lưu liên hệ
+                var apiUrl = _configuration["ApiSettings:BaseUrl"];
+                using var httpClient = new HttpClient();
+                
+                var lienHe = new
+                {
+                    hoTen = ten,
+                    email = email,
+                    soDienThoai = soDienThoai,
+                    chuDe = chuDe,
+                    noiDung = noiDung,
+                    username = User.Identity?.Name
+                };
+                
+                var json = System.Text.Json.JsonSerializer.Serialize(lienHe);
+                var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+                
+                var response = await httpClient.PostAsync($"{apiUrl}/LienHe", content);
+                
+                if (response.IsSuccessStatusCode)
+                {
+                    TempData["SuccessMessage"] = "Cảm ơn bạn, phản hồi đã được gửi thành công!";
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = "Có lỗi xảy ra khi gửi liên hệ. Vui lòng thử lại.";
+                }
             }
-            TempData["SuccessMessage"] = "Cảm ơn bạn, phản hồi đã được gửi thành công!";
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = $"Có lỗi xảy ra: {ex.Message}";
+            }
+            
             return RedirectToAction("Index");
         }
     }

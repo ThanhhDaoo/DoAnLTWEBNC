@@ -35,6 +35,9 @@ namespace GaraAPI.Models
         [StringLength(10)]
         public string? GioHen { get; set; } // Giờ hẹn (08:30, 15:00 ...)
 
+        [StringLength(50)]
+        public string? Username { get; set; } // Username của user đã đặt
+
         [ForeignKey("MaDV")]
         public DichVu? DichVu { get; set; }
     }
