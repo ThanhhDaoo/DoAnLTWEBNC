@@ -1,187 +1,555 @@
-﻿@model GaraMVC.ViewModels.TongQuanViewModel
+﻿@model GaraMVC.ViewModels.DashboardViewModel
 
 @{
-    ViewData["Title"] = "Trang chủ";
+    ViewData["Title"] = "Dashboard";
+    var thangHienTai = DateTime.Now.Month;
+    var namHienTai = DateTime.Now.Year;
 }
 
-<style>
-    .stat-card {
-        border-radius: 0.75rem;
-        border: none;
-        overflow: hidden;
-        transition: all 0.3s ease;
-        height: 100%;
-        min-height: 140px;
-    }
-
-    .stat-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
-    }
-
-    .stat-card .card-body {
-        padding: 1.75rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 100%;
-    }
-
-    .stat-content h6 {
-        font-size: 0.85rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin-bottom: 0.75rem;
-        opacity: 0.9;
-    }
-
-    .stat-content h2 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin: 0;
-        line-height: 1;
-    }
-
-    .stat-icon {
-        font-size: 3.5rem;
-        opacity: 0.3;
-    }
-
-    .revenue-card {
-        height: 100%;
-        min-height: 220px;
-    }
-
-    .revenue-card .card-header {
-        padding: 1.25rem 1.5rem;
-        border: none;
-    }
-
-    .revenue-card .card-header h5 {
-        margin: 0;
-        font-weight: 600;
-        font-size: 1.1rem;
-    }
-
-    .revenue-card .card-body {
-        padding: 2rem 1.5rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .revenue-amount {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-    }
-
-    .revenue-label {
-        font-size: 0.95rem;
-        color: #6c757d;
-        margin: 0;
-    }
-</style>
-
-<!-- Statistics Cards -->
-<div class="row g-4 mb-4">
-    <div class="col-xl-3 col-md-6">
-        <div class="card stat-card bg-primary text-white">
-            <div class="card-body">
-                <div class="stat-content">
-                    <h6>Khách hàng</h6>
-                    <h2>@Model.TongKhachHang</h2>
+<!-- Row 1: Goal Card + Total Stats -->
+<div class="row g-3 mb-24">
+    <!-- Goal Card -->
+    <div class="col-xl-4 col-lg-6">
+        <div class="goal-card">
+            <h4>Mục tiêu gần hoàn thành!</h4>
+            <p>Bạn đã hoàn thành @Model.PhanTramMucTieu% mục tiêu tháng này. Xem chi tiết công việc.</p>
+            <a asp-controller="ThongKe" asp-action="Index" class="goal-link">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
+            <div class="goal-percent">@Model.PhanTramMucTieu%</div>
+        </div>
+    </div>
+    
+    <!-- Total Sales -->
+    <div class="col-xl-4 col-lg-6">
+        <div class="stat-card">
+            <div class="stat-header">
+                <div>
+                    <div class="stat-label">Tổng doanh thu tháng</div>
+                    <div class="stat-value">@Model.DoanhThuThangNay.ToString("N0")₫</div>
+                    @{
+                        var doanhThuThangTruoc = Model.DoanhThuTheoThang.FirstOrDefault(x => x.Thang == thangHienTai - 1)?.DoanhThu ?? 0;
+                        var phanTramThayDoi = doanhThuThangTruoc > 0 ? ((Model.DoanhThuThangNay - doanhThuThangTruoc) / doanhThuThangTruoc * 100) : 0;
+                    }
+                    <span class="stat-change @(phanTramThayDoi >= 0 ? "up" : "down")">
+                        <i class="fas fa-arrow-@(phanTramThayDoi >= 0 ? "up" : "down")"></i> @Math.Abs(phanTramThayDoi).ToString("N1")%
+                    </span>
                 </div>
-                <div class="stat-icon">
+                <div class="stat-icon blue">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+            </div>
+            <div class="stat-chart">
+                @foreach (var item in Model.DoanhThuTheoThang.TakeLast(7))
+                {
+                    var maxDoanhThu = Model.DoanhThuTheoThang.Max(x => x.DoanhThu);
+                    var height = maxDoanhThu > 0 ? (int)((item.DoanhThu / maxDoanhThu) * 100) : 10;
+                    <div class="bar @(item.Thang == thangHienTai ? "" : "light")" style="height: @height%"></div>
+                }
+            </div>
+        </div>
+    </div>
+    
+    <!-- Total Customers -->
+    <div class="col-xl-4 col-lg-6">
+        <div class="stat-card">
+            <div class="stat-header">
+                <div>
+                    <div class="stat-label">Tổng khách hàng</div>
+                    <div class="stat-value">@Model.TongKhachHang</div>
+                    <span class="stat-change up"><i class="fas fa-arrow-up"></i> Hoạt động</span>
+                </div>
+                <div class="stat-icon green">
                     <i class="fas fa-users"></i>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="col-xl-3 col-md-6">
-        <div class="card stat-card bg-success text-white">
-            <div class="card-body">
-                <div class="stat-content">
-                    <h6>Xe đang quản lý</h6>
-                    <h2>@Model.TongXe</h2>
-                </div>
-                <div class="stat-icon">
-                    <i class="fas fa-car"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-xl-3 col-md-6">
-        <div class="card stat-card bg-info text-white">
-            <div class="card-body">
-                <div class="stat-content">
-                    <h6>Dịch vụ</h6>
-                    <h2>@Model.TongDichVu</h2>
-                </div>
-                <div class="stat-icon">
-                    <i class="fas fa-tools"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-xl-3 col-md-6">
-        <div class="card stat-card bg-warning text-white">
-            <div class="card-body">
-                <div class="stat-content">
-                    <h6>Sản phẩm</h6>
-                    <h2>@Model.TongSanPham</h2>
-                </div>
-                <div class="stat-icon">
-                    <i class="fas fa-box"></i>
-                </div>
+            <div class="stat-chart">
+                @foreach (var item in Model.DoanhThuTheoThang.TakeLast(7))
+                {
+                    var maxHoaDon = Model.DoanhThuTheoThang.Max(x => x.SoHoaDon);
+                    var height = maxHoaDon > 0 ? (int)((double)item.SoHoaDon / maxHoaDon * 100) : 10;
+                    <div class="bar" style="height: @height%; background: @(item.Thang == thangHienTai ? "#22C55E" : "rgba(34,197,94,0.3)")"></div>
+                }
             </div>
         </div>
     </div>
 </div>
 
-<!-- Revenue Cards -->
-<div class="row g-4 mb-4">
-    <div class="col-md-6">
-        <div class="card revenue-card">
-            <div class="card-header bg-primary text-white">
-                <h5><i class="fas fa-calendar-day me-2"></i>Doanh thu hôm nay</h5>
+<!-- Row 2: Sales Chart + Recent Orders -->
+<div class="row g-3 mb-24">
+    <!-- Sales by Category Chart -->
+    <div class="col-xl-3 col-lg-4">
+        <div class="wg-box sales-category">
+            <div class="wg-box-header">
+                <h5 class="wg-box-title">Doanh thu theo tháng</h5>
             </div>
-            <div class="card-body">
-                <h1 class="revenue-amount text-primary">@(((decimal)Model.DoanhThuHomNay).ToString("N0")) ₫</h1>
-                <p class="revenue-label">Số hóa đơn: @Model.SoHoaDonHomNay</p>
+            <div class="sales-header">
+                <div class="sales-date">Tháng @thangHienTai, @namHienTai</div>
+                <div class="sales-amount">@Model.DoanhThuThangNay.ToString("N0")₫</div>
+                <span class="sales-change"><i class="fas fa-file-invoice"></i> @Model.SoHoaDonThangNay hóa đơn</span>
+            </div>
+            <div style="height: 180px; margin-top: 16px;">
+                <canvas id="salesChart"></canvas>
             </div>
         </div>
     </div>
-
-    <div class="col-md-6">
-        <div class="card revenue-card">
-            <div class="card-header bg-success text-white">
-                <h5><i class="fas fa-calendar-alt me-2"></i>Doanh thu tháng này</h5>
+    
+    <!-- Recent Orders -->
+    <div class="col-xl-9 col-lg-8">
+        <div class="wg-box">
+            <div class="wg-box-header">
+                <h5 class="wg-box-title">Hóa đơn gần đây</h5>
+                <a asp-controller="HoaDon" asp-action="Index" class="wg-box-link">Xem tất cả →</a>
             </div>
-            <div class="card-body">
-                <h1 class="revenue-amount text-success">@(((decimal)Model.DoanhThuThangNay).ToString("N0")) ₫</h1>
-                <p class="revenue-label">Số hóa đơn: @Model.SoHoaDonThangNay</p>
+            <table class="orders-table">
+                <thead>
+                    <tr>
+                        <th>Mã HĐ</th>
+                        <th>Khách hàng</th>
+                        <th>Biển số</th>
+                        <th>Ngày lập</th>
+                        <th>Tổng tiền</th>
+                        <th>Trạng thái</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.HoaDonGanDay.Any())
+                    {
+                        @foreach (var hd in Model.HoaDonGanDay)
+                        {
+                            <tr>
+                                <td><strong>#@hd.MaHD</strong></td>
+                                <td>@hd.TenKH</td>
+                                <td><span class="badge badge-light">@hd.BienSo</span></td>
+                                <td>@hd.NgayLap.ToString("dd/MM/yyyy")</td>
+                                <td><strong>@hd.TongTien.ToString("N0")₫</strong></td>
+                                <td>
+                                    @{
+                                        var badgeClass = hd.TrangThai switch
+                                        {
+                                            "Đã thanh toán" => "badge-success",
+                                            "Chờ thanh toán" => "badge-warning",
+                                            "Đã hủy" => "badge-danger",
+                                            _ => "badge-info"
+                                        };
+                                    }
+                                    <span class="badge @badgeClass">@(hd.TrangThai ?? "Mới")</span>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="6" class="text-center text-muted py-4">Chưa có hóa đơn nào</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Row 3: Top Customers + Top Services + Top Products -->
+<div class="row g-3 mb-24">
+    <!-- Top Customers -->
+    <div class="col-xl-4 col-lg-6">
+        <div class="wg-box">
+            <div class="wg-box-header">
+                <h5 class="wg-box-title">Khách hàng hàng đầu</h5>
+                <a asp-controller="KhachHang" asp-action="Index" class="wg-box-link">Xem tất cả →</a>
+            </div>
+            <div class="customer-list">
+                @if (Model.TopKhachHang.Any())
+                {
+                    var colors = new[] { "2377FC", "22C55E", "FF9F43", "7367F0", "FF5200" };
+                    var index = 0;
+                    @foreach (var kh in Model.TopKhachHang)
+                    {
+                        <div class="customer-item">
+                            <div class="customer-info">
+                                <img src="https://ui-avatars.com/api/?name=@Uri.EscapeDataString(kh.TenKH)&background=@colors[index % 5]&color=fff&size=36" class="customer-avatar" alt="">
+                                <div>
+                                    <div class="customer-name">@kh.TenKH</div>
+                                    <div class="customer-orders">@kh.SoLanSuDung lần sử dụng</div>
+                                </div>
+                            </div>
+                            <div class="customer-amount">@kh.TongChiTieu.ToString("N0")₫</div>
+                        </div>
+                        index++;
+                    }
+                }
+                else
+                {
+                    <div class="text-center text-muted py-4">Chưa có dữ liệu</div>
+                }
+            </div>
+        </div>
+    </div>
+    
+    <!-- Top Services -->
+    <div class="col-xl-4 col-lg-6">
+        <div class="wg-box">
+            <div class="wg-box-header">
+                <h5 class="wg-box-title">Dịch vụ theo doanh số</h5>
+                <a asp-controller="DichVu" asp-action="Index" class="wg-box-link">Xem tất cả →</a>
+            </div>
+            <div class="mb-3">
+                <div class="sales-amount" style="font-size: 22px;">@Model.TopDichVu.Sum(x => x.DoanhThu).ToString("N0")₫</div>
+                <span class="stat-change up"><i class="fas fa-chart-line"></i> Top 5 dịch vụ</span>
+            </div>
+            <div class="country-list">
+                @if (Model.TopDichVu.Any())
+                {
+                    var icons = new[] { "fa-oil-can", "fa-spray-can", "fa-cogs", "fa-car-battery", "fa-wrench" };
+                    var bgColors = new[] { "#E8F1FF", "#E6F9F0", "#FEF3E6", "#F3E8FF", "#FFE8E8" };
+                    var iconColors = new[] { "#2377FC", "#22C55E", "#FF9F43", "#7367F0", "#FF5200" };
+                    var idx = 0;
+                    @foreach (var dv in Model.TopDichVu)
+                    {
+                        <div class="country-item">
+                            <div class="country-info">
+                                <div style="width: 28px; height: 28px; background: @bgColors[idx % 5]; border-radius: 6px; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas @icons[idx % 5]" style="font-size: 12px; color: @iconColors[idx % 5];"></i>
+                                </div>
+                                <span class="country-name">@dv.TenDV</span>
+                            </div>
+                            <div class="country-stats">
+                                <span class="country-sales">@dv.SoLuong</span>
+                            </div>
+                        </div>
+                        idx++;
+                    }
+                }
+                else
+                {
+                    <div class="text-center text-muted py-4">Chưa có dữ liệu</div>
+                }
+            </div>
+        </div>
+    </div>
+    
+    <!-- Top Products -->
+    <div class="col-xl-4 col-lg-6">
+        <div class="wg-box">
+            <div class="wg-box-header">
+                <h5 class="wg-box-title">Sản phẩm bán chạy</h5>
+                <a asp-controller="SanPham" asp-action="Index" class="wg-box-link">Xem tất cả →</a>
+            </div>
+            <div class="product-list">
+                @if (Model.TopSanPham.Any())
+                {
+                    var productIcons = new[] { "fa-oil-can", "fa-filter", "fa-car-battery", "fa-lightbulb", "fa-wind" };
+                    var pidx = 0;
+                    @foreach (var sp in Model.TopSanPham)
+                    {
+                        <div class="product-item">
+                            <div class="product-thumb">
+                                <i class="fas @productIcons[pidx % 5]"></i>
+                            </div>
+                            <div class="product-details">
+                                <div class="product-title">@sp.TenSP</div>
+                                <div class="product-sales">@sp.SoLuong đã bán • @sp.DoanhThu.ToString("N0")₫</div>
+                            </div>
+                        </div>
+                        pidx++;
+                    }
+                }
+                else
+                {
+                    <div class="text-center text-muted py-4">Chưa có dữ liệu</div>
+                }
             </div>
         </div>
     </div>
 </div>
 
-    <!-- Alert for low stock -->
-    @if (Model.SanPhamSapHet > 0)
-    {
-        <div class="alert alert-danger" role="alert">
-            <i class="fas fa-exclamation-triangle"></i>
-            <strong>Cảnh báo!</strong> Có <strong>@Model.SanPhamSapHet</strong> sản phẩm sắp hết hàng (tồn kho &lt; 10).
-            <a asp-controller="SanPham" asp-action="Index" class="alert-link">Xem ngay</a>
+<!-- Row 4: Revenue Chart + Stats Overview -->
+<div class="row g-3">
+    <!-- Revenue Chart -->
+    <div class="col-xl-8">
+        <div class="wg-box">
+            <div class="wg-box-header">
+                <h5 class="wg-box-title">Biểu đồ doanh thu năm @namHienTai</h5>
+            </div>
+            <div class="revenue-header">
+                <div class="revenue-stat">
+                    <span class="revenue-label"><i class="fas fa-circle" style="color: #2377FC; font-size: 8px; margin-right: 6px;"></i>Doanh thu</span>
+                    <span class="revenue-value">@Model.DoanhThuNam.ToString("N0")₫</span>
+                </div>
+                <div class="revenue-stat">
+                    <span class="revenue-label"><i class="fas fa-circle" style="color: #22C55E; font-size: 8px; margin-right: 6px;"></i>Hôm nay</span>
+                    <span class="revenue-value">@Model.DoanhThuHomNay.ToString("N0")₫</span>
+                </div>
+            </div>
+            <div style="height: 280px;">
+                <canvas id="revenueChart"></canvas>
+            </div>
         </div>
+    </div>
+    
+    <!-- Stats Overview -->
+    <div class="col-xl-4">
+        <div class="wg-box">
+            <div class="wg-box-header">
+                <h5 class="wg-box-title">Tổng quan</h5>
+            </div>
+            <div class="stats-overview">
+                <div class="stat-overview-item">
+                    <div class="stat-overview-icon blue">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-overview-content">
+                        <div class="stat-overview-value">@Model.TongKhachHang</div>
+                        <div class="stat-overview-label">Khách hàng</div>
+                    </div>
+                </div>
+                <div class="stat-overview-item">
+                    <div class="stat-overview-icon green">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="stat-overview-content">
+                        <div class="stat-overview-value">@Model.TongXe</div>
+                        <div class="stat-overview-label">Xe đang quản lý</div>
+                    </div>
+                </div>
+                <div class="stat-overview-item">
+                    <div class="stat-overview-icon orange">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="stat-overview-content">
+                        <div class="stat-overview-value">@Model.TongDichVu</div>
+                        <div class="stat-overview-label">Dịch vụ</div>
+                    </div>
+                </div>
+                <div class="stat-overview-item">
+                    <div class="stat-overview-icon purple">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="stat-overview-content">
+                        <div class="stat-overview-value">@Model.TongSanPham</div>
+                        <div class="stat-overview-label">Sản phẩm</div>
+                    </div>
+                </div>
+                @if (Model.SanPhamSapHet > 0)
+                {
+                    <div class="stat-overview-item alert-item">
+                        <div class="stat-overview-icon red">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="stat-overview-content">
+                            <div class="stat-overview-value text-danger">@Model.SanPhamSapHet</div>
+                            <div class="stat-overview-label">Sản phẩm sắp hết</div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .badge-light {
+        background: #F2F4F7;
+        color: #5C5F6A;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 500;
     }
-</div>
+    .badge-success { background: rgba(34,197,94,0.1); color: #22C55E; }
+    .badge-warning { background: rgba(255,159,67,0.1); color: #FF9F43; }
+    .badge-danger { background: rgba(255,82,0,0.1); color: #FF5200; }
+    .badge-info { background: rgba(35,119,252,0.1); color: #2377FC; }
+    
+    .stats-overview {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    .stat-overview-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px;
+        background: #F7F8FA;
+        border-radius: 10px;
+    }
+    .stat-overview-item.alert-item {
+        background: rgba(255,82,0,0.05);
+        border: 1px solid rgba(255,82,0,0.2);
+    }
+    .stat-overview-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+    }
+    .stat-overview-icon.blue { background: #E8F1FF; color: #2377FC; }
+    .stat-overview-icon.green { background: rgba(34,197,94,0.1); color: #22C55E; }
+    .stat-overview-icon.orange { background: rgba(255,159,67,0.1); color: #FF9F43; }
+    .stat-overview-icon.purple { background: rgba(115,103,240,0.1); color: #7367F0; }
+    .stat-overview-icon.red { background: rgba(255,82,0,0.1); color: #FF5200; }
+    .stat-overview-value {
+        font-size: 20px;
+        font-weight: 700;
+        color: #111;
+    }
+    .stat-overview-label {
+        font-size: 13px;
+        color: #95989D;
+    }
+</style>
 
 @section Scripts {
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Dữ liệu từ server (PascalCase từ C#)
+        const doanhThuTheoThang = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.DoanhThuTheoThang));
+        const topDichVu = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.TopDichVu));
+        
+        console.log('Dữ liệu doanh thu:', doanhThuTheoThang);
+        
+        // Chart màu sắc
+        const chartColors = {
+            primary: '#2377FC',
+            primaryLight: 'rgba(35, 119, 252, 0.1)',
+            success: '#22C55E',
+            successLight: 'rgba(34, 197, 94, 0.1)',
+        };
+        
+        // Sales Chart (Area) - Biểu đồ nhỏ
+        const salesCtx = document.getElementById('salesChart');
+        if (salesCtx && doanhThuTheoThang.length > 0) {
+            new Chart(salesCtx, {
+                type: 'line',
+                data: {
+                    labels: doanhThuTheoThang.map(x => 'T' + x.Thang),
+                    datasets: [{
+                        label: 'Doanh thu',
+                        data: doanhThuTheoThang.map(x => x.DoanhThu),
+                        borderColor: chartColors.primary,
+                        backgroundColor: chartColors.primaryLight,
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 2,
+                        pointRadius: 0,
+                        pointHoverRadius: 5,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: {
+                            grid: { display: false },
+                            ticks: { font: { size: 10 } }
+                        },
+                        y: {
+                            grid: { color: '#F2F4F7' },
+                            ticks: {
+                                font: { size: 10 },
+                                callback: function(value) {
+                                    return (value / 1000000).toFixed(1) + 'M';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Revenue Chart (Area with 2 datasets) - Biểu đồ lớn
+        const revenueCtx = document.getElementById('revenueChart');
+        if (revenueCtx && doanhThuTheoThang.length > 0) {
+            new Chart(revenueCtx, {
+                type: 'line',
+                data: {
+                    labels: doanhThuTheoThang.map(x => 'Tháng ' + x.Thang),
+                    datasets: [{
+                        label: 'Doanh thu',
+                        data: doanhThuTheoThang.map(x => x.DoanhThu),
+                        borderColor: chartColors.primary,
+                        backgroundColor: chartColors.primaryLight,
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 2,
+                        pointRadius: 3,
+                        pointBackgroundColor: chartColors.primary,
+                    }, {
+                        label: 'Số hóa đơn (x100k)',
+                        data: doanhThuTheoThang.map(x => x.SoHoaDon * 100000),
+                        borderColor: chartColors.success,
+                        backgroundColor: chartColors.successLight,
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 2,
+                        pointRadius: 3,
+                        pointBackgroundColor: chartColors.success,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        intersect: false,
+                        mode: 'index',
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'bottom',
+                            labels: {
+                                usePointStyle: true,
+                                padding: 20,
+                                font: { size: 12 }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#fff',
+                            titleColor: '#111',
+                            bodyColor: '#5C5F6A',
+                            borderColor: '#E4E7EC',
+                            borderWidth: 1,
+                            padding: 12,
+                            displayColors: true,
+                            callbacks: {
+                                label: function(context) {
+                                    if (context.datasetIndex === 0) {
+                                        return 'Doanh thu: ' + new Intl.NumberFormat('vi-VN').format(context.raw) + '₫';
+                                    } else {
+                                        return 'Số hóa đơn: ' + (context.raw / 100000);
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { display: false },
+                            ticks: { font: { size: 11 } }
+                        },
+                        y: {
+                            grid: { color: '#F2F4F7' },
+                            ticks: {
+                                font: { size: 11 },
+                                callback: function(value) {
+                                    if (value >= 1000000) {
+                                        return (value / 1000000).toFixed(1) + 'M';
+                                    }
+                                    return value;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        } else {
+            console.log('Không có dữ liệu doanh thu hoặc không tìm thấy canvas');
+        }
+    </script>
 }

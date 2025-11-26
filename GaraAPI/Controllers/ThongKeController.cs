@@ -20,6 +20,10 @@ namespace GaraAPI.Controllers
         [HttpGet("TongQuan")]
         public async Task<ActionResult<TongQuanDto>> GetTongQuan()
         {
+            var today = DateTime.Today;
+            var currentMonth = DateTime.Now.Month;
+            var currentYear = DateTime.Now.Year;
+
             var tongQuan = new TongQuanDto
             {
                 TongKhachHang = await _context.KhachHangs.CountAsync(),
@@ -27,12 +31,36 @@ namespace GaraAPI.Controllers
                 TongHoaDon = await _context.HoaDons.CountAsync(),
                 TongDichVu = await _context.DichVus.CountAsync(),
                 TongSanPham = await _context.SanPhams.CountAsync(),
-                DoanhThuThang = await _context.HoaDons
-                    .Where(h => h.NgayLap.Month == DateTime.Now.Month && h.NgayLap.Year == DateTime.Now.Year)
+                
+                // Doanh thu hôm nay
+                DoanhThuHomNay = await _context.HoaDons
+                    .Where(h => h.NgayLap.Date == today && h.TrangThai == "Hoàn thành")
                     .SumAsync(h => h.TongTien),
+                
+                // Doanh thu tháng này
+                DoanhThuThang = await _context.HoaDons
+                    .Where(h => h.NgayLap.Month == currentMonth && h.NgayLap.Year == currentYear && h.TrangThai == "Hoàn thành")
+                    .SumAsync(h => h.TongTien),
+                
+                // Doanh thu năm
                 DoanhThuNam = await _context.HoaDons
-                    .Where(h => h.NgayLap.Year == DateTime.Now.Year)
-                    .SumAsync(h => h.TongTien)
+                    .Where(h => h.NgayLap.Year == currentYear && h.TrangThai == "Hoàn thành")
+                    .SumAsync(h => h.TongTien),
+                
+                // Số hóa đơn hôm nay
+                SoHoaDonHomNay = await _context.HoaDons
+                    .Where(h => h.NgayLap.Date == today)
+                    .CountAsync(),
+                
+                // Số hóa đơn tháng này
+                SoHoaDonThang = await _context.HoaDons
+                    .Where(h => h.NgayLap.Month == currentMonth && h.NgayLap.Year == currentYear)
+                    .CountAsync(),
+                
+                // Sản phẩm sắp hết (tồn kho < 10)
+                SanPhamSapHet = await _context.SanPhams
+                    .Where(sp => sp.SoLuongTon < 10 && sp.SoLuongTon > 0)
+                    .CountAsync()
             };
 
             return tongQuan;
@@ -55,6 +83,36 @@ namespace GaraAPI.Controllers
                 .ToListAsync();
 
             return doanhThu;
+        }
+
+        // GET: api/ThongKe/DoanhThuTheoNgay
+        [HttpGet("DoanhThuTheoNgay")]
+        public async Task<ActionResult<DoanhThuTheoNgayResponse>> GetDoanhThuTheoNgay(DateTime? fromDate, DateTime? toDate)
+        {
+            var from = fromDate ?? DateTime.Now.AddMonths(-1);
+            var to = toDate ?? DateTime.Now;
+
+            var hoaDons = await _context.HoaDons
+                .Where(h => h.NgayLap >= from && h.NgayLap <= to && h.TrangThai == "Hoàn thành")
+                .ToListAsync();
+
+            var chiTiet = hoaDons
+                .GroupBy(h => h.NgayLap.Date)
+                .Select(g => new DoanhThuNgayDto
+                {
+                    Ngay = g.Key,
+                    TongTien = g.Sum(h => h.TongTien),
+                    SoHoaDon = g.Count()
+                })
+                .OrderBy(d => d.Ngay)
+                .ToList();
+
+            return new DoanhThuTheoNgayResponse
+            {
+                TongDoanhThu = hoaDons.Sum(h => h.TongTien),
+                TongHoaDon = hoaDons.Count,
+                ChiTiet = chiTiet
+            };
         }
 
         // GET: api/ThongKe/TopDichVu
@@ -121,6 +179,29 @@ namespace GaraAPI.Controllers
 
             return hoaDonGanDay;
         }
+
+        // GET: api/ThongKe/TopKhachHang
+        [HttpGet("TopKhachHang")]
+        public async Task<ActionResult<List<TopKhachHangDto>>> GetTopKhachHang(int top = 10)
+        {
+            var topKhachHang = await _context.HoaDons
+                .Include(h => h.KhachHang)
+                .Where(h => h.TrangThai == "Hoàn thành")
+                .GroupBy(h => new { h.MaKH, h.KhachHang!.TenKH, h.KhachHang.SDT })
+                .Select(g => new TopKhachHangDto
+                {
+                    MaKH = g.Key.MaKH,
+                    TenKH = g.Key.TenKH,
+                    SDT = g.Key.SDT,
+                    SoLanSuDung = g.Count(),
+                    TongChiTieu = g.Sum(h => h.TongTien)
+                })
+                .OrderByDescending(k => k.TongChiTieu)
+                .Take(top)
+                .ToListAsync();
+
+            return topKhachHang;
+        }
     }
 
     public class TongQuanDto
@@ -130,8 +211,12 @@ namespace GaraAPI.Controllers
         public int TongHoaDon { get; set; }
         public int TongDichVu { get; set; }
         public int TongSanPham { get; set; }
+        public decimal DoanhThuHomNay { get; set; }
         public decimal DoanhThuThang { get; set; }
         public decimal DoanhThuNam { get; set; }
+        public int SoHoaDonHomNay { get; set; }
+        public int SoHoaDonThang { get; set; }
+        public int SanPhamSapHet { get; set; }
     }
 
     public class DoanhThuThangDto
@@ -165,5 +250,28 @@ namespace GaraAPI.Controllers
         public DateTime NgayLap { get; set; }
         public decimal TongTien { get; set; }
         public string? TrangThai { get; set; }
+    }
+
+    public class TopKhachHangDto
+    {
+        public int MaKH { get; set; }
+        public string TenKH { get; set; } = string.Empty;
+        public string? SDT { get; set; }
+        public int SoLanSuDung { get; set; }
+        public decimal TongChiTieu { get; set; }
+    }
+
+    public class DoanhThuTheoNgayResponse
+    {
+        public decimal TongDoanhThu { get; set; }
+        public int TongHoaDon { get; set; }
+        public List<DoanhThuNgayDto> ChiTiet { get; set; } = new();
+    }
+
+    public class DoanhThuNgayDto
+    {
+        public DateTime Ngay { get; set; }
+        public decimal TongTien { get; set; }
+        public int SoHoaDon { get; set; }
     }
 }

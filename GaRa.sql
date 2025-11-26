@@ -257,14 +257,14 @@ END;
 GO
 
 -- Thêm dữ liệu mẫu
--- Admin user
+-- Admin user (password: 123456 hashed with SHA256)
 INSERT INTO USERS (Username, Password, Email, Role) VALUES
-('admin', '123456', 'admin@gara.com', 'Admin');
+('admin', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'admin@gara.com', 'Admin');
 
--- Customer users
+-- Customer users (password: 123456 hashed with SHA256)
 INSERT INTO USERS (Username, Password, Email, Role) VALUES
-('customer1', '123456', 'customer1@gmail.com', 'Customer'),
-('customer2', '123456', 'customer2@gmail.com', 'Customer');
+('customer1', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'customer1@gmail.com', 'Customer'),
+('customer2', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'customer2@gmail.com', 'Customer');
 
 -- Khách hàng
 INSERT INTO KHACHHANG (TenKH, SDT, DiaChi, Email, UserId) VALUES

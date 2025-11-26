@@ -17,145 +17,145 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = GaraMVC
 build_property.RootNamespace = GaraMVC
-build_property.ProjectDir = D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC\
+build_property.ProjectDir = E:\DoAnLTWEBNC\GaraMVC\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Tài liệu\DoAnCuoiKiiiiiii\GaraMVC
+build_property.MSBuildProjectDirectory = E:\DoAnLTWEBNC\GaraMVC
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/DichVu/Create.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/DichVu/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGljaFZ1XENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/DichVu/Delete.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/DichVu/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGljaFZ1XERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/DichVu/Details.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/DichVu/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGljaFZ1XERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/DichVu/Edit.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/DichVu/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGljaFZ1XEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/DichVu/Index.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/DichVu/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGljaFZ1XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/HoaDon/Create.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/HoaDon/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9hRG9uXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/HoaDon/Index.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/HoaDon/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9hRG9uXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/Home/Index.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/Home/Privacy.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/KhachHang/Create.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/KhachHang/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hIYW5nXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/KhachHang/Delete.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/KhachHang/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hIYW5nXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/KhachHang/Details.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/KhachHang/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hIYW5nXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/KhachHang/Edit.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/KhachHang/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hIYW5nXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/KhachHang/Index.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/KhachHang/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hIYW5nXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/LienHe/Index.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/LienHe/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGllbkhlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/SanPham/Create.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/SanPham/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/SanPham/Delete.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/SanPham/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/SanPham/Details.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/SanPham/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/SanPham/Edit.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/SanPham/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/SanPham/Index.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/SanPham/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/Shared/Error.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/ThongKe/Index.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/ThongKe/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/Xe/Create.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/Xe/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWGVcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/Xe/Delete.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/Xe/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWGVcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/Xe/Details.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/Xe/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWGVcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/Xe/Edit.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/Xe/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWGVcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/Xe/Index.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/Xe/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/Yeucau/Details.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/Yeucau/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWWV1Y2F1XERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/Yeucau/Index.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/Yeucau/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWWV1Y2F1XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/_ViewImports.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/_ViewStart.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Tài liệu/DoAnCuoiKiiiiiii/GaraMVC/Views/Shared/_Layout.cshtml]
+[E:/DoAnLTWEBNC/GaraMVC/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-2zykonz4r0

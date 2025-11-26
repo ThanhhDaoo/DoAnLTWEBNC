@@ -4,85 +4,159 @@
     ViewData["Title"] = "Danh sách xe";
 }
 
-<div class="container-fluid mt-4">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2><i class="fas fa-car"></i> Danh sách xe</h2>
-        <a asp-action="Create" class="btn btn-primary">
-            <i class="fas fa-plus"></i> Thêm xe mới
+<!-- Breadcrumb -->
+<div class="flex-wrap-box gap14 mb-24">
+    <div class="page-title">
+        <h3>Quản lý xe</h3>
+        <ul class="breadcrumbs">
+            <li><a asp-controller="Home" asp-action="Index">Dashboard</a></li>
+            <li><i class="fas fa-chevron-right"></i></li>
+            <li>Xe</li>
+        </ul>
+    </div>
+</div>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show mb-20" role="alert">
+        <i class="fas fa-check-circle me-2"></i>@TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<div class="wg-box">
+    <div class="flex-wrap-box gap10 mb-24">
+        <div class="wg-filter flex-grow">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Tìm kiếm xe..." onkeyup="filterTable()">
+            </div>
+        </div>
+        <a asp-action="Create" class="btn-add tf-button style-1">
+            <i class="fas fa-plus"></i> Thêm xe
         </a>
     </div>
 
-    @if (TempData["SuccessMessage"] != null)
-    {
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            @TempData["SuccessMessage"]
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>
-    }
-
-    @if (TempData["ErrorMessage"] != null)
-    {
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            @TempData["ErrorMessage"]
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>
-    }
-
-    <div class="card">
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-striped table-hover">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Mã xe</th>
-                            <th>Biển số</th>
-                            <th>Hãng xe</th>
-                            <th>Đời xe</th>
-                            <th>Màu xe</th>
-                            <th>Khách hàng</th>
-                            <th>Thao tác</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if (Model != null && Model.Any())
+    <div class="wg-table table-responsive">
+        <table class="table table-striped" id="dataTable">
+            <thead>
+                <tr>
+                    <th>Xe</th>
+                    <th>Biển số</th>
+                    <th>Hãng xe</th>
+                    <th>Đời xe</th>
+                    <th>Màu xe</th>
+                    <th>Chủ xe</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var item in Model)
+                    {
+                        var brandColors = new Dictionary<string, string> {
+                            {"Toyota", "EB0A1E"}, {"Honda", "CC0000"}, {"Mazda", "910000"},
+                            {"Hyundai", "002C5F"}, {"Kia", "05141F"}, {"Ford", "003478"},
+                            {"VinFast", "EA0029"}, {"Mercedes", "00ADEF"}, {"BMW", "0066B1"}, {"Audi", "BB0A30"}
+                        };
+                        var brandColor = "7367F0";
+                        if (item.HangXe != null)
                         {
-                            @foreach (var item in Model)
+                            foreach (var bc in brandColors)
                             {
-                                <tr>
-                                    <td>@item.MaXe</td>
-                                    <td><span class="badge bg-primary">@item.BienSo</span></td>
-                                    <td>@item.HangXe</td>
-                                    <td>@item.DoiXe</td>
-                                    <td>@item.MauXe</td>
-                                    <td>@(item.KhachHang?.TenKH ?? "N/A")</td>
-                                    <td>
-                                        <div class="btn-group" role="group">
-                                            <a asp-action="Details" asp-route-id="@item.MaXe" class="btn btn-sm btn-primary">
-                                                <i class="fas fa-eye me-1"></i>Xem
-                                            </a>
-                                            <a asp-action="Edit" asp-route-id="@item.MaXe" class="btn btn-sm btn-primary">
-                                                <i class="fas fa-edit me-1"></i>Sửa
-                                            </a>
-                                            <a asp-action="Delete" asp-route-id="@item.MaXe" class="btn btn-sm btn-primary">
-                                                <i class="fas fa-trash me-1"></i>Xóa
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                if (item.HangXe.Contains(bc.Key))
+                                {
+                                    brandColor = bc.Value;
+                                    break;
+                                }
                             }
                         }
-                        else
-                        {
-                            <tr>
-                                <td colspan="7" class="text-center text-muted">
-                                    <i class="fas fa-car fa-2x mb-2"></i><br>
-                                    Chưa có xe nào
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                        <tr>
+                            <td>
+                                <div class="product-item gap14">
+                                    <div class="image">
+                                        <div style="width:50px;height:50px;background:#@brandColor;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+                                            <i class="fas fa-car" style="color:white;font-size:20px;"></i>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-column">
+                                        <span class="name">@(item.HangXe ?? "Xe")</span>
+                                        <span class="text-tiny text-secondary">@(item.DoiXe?.ToString() ?? "")</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="badge-status info fw-semibold">@item.BienSo</span></td>
+                            <td>@(item.HangXe ?? "-")</td>
+                            <td>@(item.DoiXe?.ToString() ?? "-")</td>
+                            <td>@(item.MauXe ?? "-")</td>
+                            <td>
+                                <span class="text-secondary">@(item.KhachHang?.TenKH ?? "N/A")</span>
+                            </td>
+                            <td>
+                                <div class="list-icon-function">
+                                    <a asp-action="Details" asp-route-id="@item.MaXe" class="item eye" title="Xem chi tiết">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a asp-action="Edit" asp-route-id="@item.MaXe" class="item edit" title="Chỉnh sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@item.MaXe" class="item trash" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="7" class="text-center py-4">
+                            <div class="empty-state">
+                                <i class="fas fa-car fa-3x text-muted mb-3"></i>
+                                <p class="text-muted">Chưa có xe nào</p>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="divider"></div>
+    <div class="flex-wrap-box gap10">
+        <div class="text-tiny">Hiển thị @Model?.Count() xe</div>
+        <ul class="wg-pagination">
+            <li><a href="#"><i class="fas fa-chevron-left"></i></a></li>
+            <li><a href="#" class="active">1</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i></a></li>
+        </ul>
     </div>
 </div>
+
+@section Scripts {
+<script>
+function filterTable() {
+    var input = document.getElementById("searchInput");
+    var filter = input.value.toLowerCase();
+    var table = document.getElementById("dataTable");
+    var tr = table.getElementsByTagName("tr");
+    
+    for (var i = 1; i < tr.length; i++) {
+        var td = tr[i].getElementsByTagName("td");
+        var found = false;
+        for (var j = 0; j < td.length; j++) {
+            if (td[j]) {
+                var txtValue = td[j].textContent || td[j].innerText;
+                if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                    found = true;
+                    break;
+                }
+            }
+        }
+        tr[i].style.display = found ? "" : "none";
+    }
+}
+</script>
+}

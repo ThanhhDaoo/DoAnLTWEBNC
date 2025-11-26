@@ -12,7 +12,10 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowMVC",
         policy => policy
-            .WithOrigins("https://localhost:7001", "http://localhost:5001") // URL của MVC app
+            .WithOrigins(
+                "https://localhost:7001", 
+                "http://localhost:5001",
+                "http://localhost:3000") // URL của React app
             .AllowAnyHeader()
             .AllowAnyMethod());
 });

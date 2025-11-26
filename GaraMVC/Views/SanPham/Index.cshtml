@@ -1,79 +1,152 @@
 ﻿@model IEnumerable<GaraMVC.Models.SanPham>
 
 @{
-    ViewData["Title"] = "Quản lý sản phẩm";
+    ViewData["Title"] = "Danh sách sản phẩm";
 }
 
-<div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2><i class="fas fa-box"></i> Danh sách sản phẩm</h2>
-        <a asp-action="Create" class="btn btn-primary">
-            <i class="fas fa-plus"></i> Thêm sản phẩm mới
+<!-- Breadcrumb -->
+<div class="flex-wrap-box gap14 mb-24">
+    <div class="page-title">
+        <h3>Sản phẩm</h3>
+        <ul class="breadcrumbs">
+            <li><a asp-controller="Home" asp-action="Index">Dashboard</a></li>
+            <li><i class="fas fa-chevron-right"></i></li>
+            <li>Sản phẩm</li>
+        </ul>
+    </div>
+</div>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show mb-20" role="alert">
+        <i class="fas fa-check-circle me-2"></i>@TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<div class="wg-box">
+    <div class="flex-wrap-box gap10 mb-24">
+        <div class="wg-filter flex-grow">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm..." onkeyup="filterTable()">
+            </div>
+        </div>
+        <a asp-action="Create" class="btn-add tf-button style-1">
+            <i class="fas fa-plus"></i> Thêm sản phẩm
         </a>
     </div>
 
-    @if (TempData["SuccessMessage"] != null)
-    {
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            @TempData["SuccessMessage"]
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>
-    }
-
-    <div class="card">
-        <div class="card-body">
-            <table class="table table-hover">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Mã SP</th>
-                        <th>Tên sản phẩm</th>
-                        <th>Đơn giá</th>
-                        <th>Tồn kho</th>
-                        <th>Đơn vị</th>
-                        <th>Mô tả</th>
-                        <th style="width: 180px;">Thao tác</th>
-                    </tr>
-                </thead>
-                <tbody>
+    <div class="wg-table table-responsive">
+        <table class="table table-striped" id="dataTable">
+            <thead>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Mã SP</th>
+                    <th>Đơn giá</th>
+                    <th>Tồn kho</th>
+                    <th>Đơn vị</th>
+                    <th>Trạng thái</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
                     @foreach (var item in Model)
                     {
-                        <tr class="@(item.SoLuongTon < 10 ? "table-warning" : "")">
-                            <td>@item.Id</td>
-                            <td><strong>@item.TenSanPham</strong></td>
-                            <td class="text-end">@item.Gia.ToString("N0") đ</td>
+                        var stockStatus = item.SoLuongTon <= 0 ? "danger" : (item.SoLuongTon < 10 ? "warning" : "success");
+                        var stockText = item.SoLuongTon <= 0 ? "Hết hàng" : (item.SoLuongTon < 10 ? "Sắp hết" : "Còn hàng");
+                        <tr>
                             <td>
-                                @if (item.SoLuongTon < 10)
-                                {
-                                    <span class="badge bg-danger">@item.SoLuongTon</span>
-                                    <small class="text-danger">(Sắp hết)</small>
-                                }
-                                else
-                                {
-                                    <span class="badge bg-success">@item.SoLuongTon</span>
-                                }
+                                <div class="product-item gap14">
+                                    <div class="image">
+                                        @if (!string.IsNullOrEmpty(item.HinhAnh))
+                                        {
+                                            <img src="@item.HinhAnh" alt="@item.TenSanPham">
+                                        }
+                                        else
+                                        {
+                                            <img src="https://ui-avatars.com/api/?name=@Uri.EscapeDataString(item.TenSanPham)&background=FF9F43&color=fff&size=50" alt="@item.TenSanPham">
+                                        }
+                                    </div>
+                                    <div class="flex flex-column">
+                                        <span class="name">@item.TenSanPham</span>
+                                        <span class="text-tiny text-secondary">@(item.MoTa?.Length > 40 ? item.MoTa.Substring(0, 40) + "..." : item.MoTa ?? "")</span>
+                                    </div>
+                                </div>
                             </td>
-                            <td>@(item.DonVi ?? "—")</td>
-                            <td>@(item.MoTa ?? "—")</td>
+                            <td><span class="fw-semibold">#@item.Id</span></td>
+                            <td><span class="fw-semibold text-primary">@item.Gia.ToString("N0")₫</span></td>
+                            <td><span class="fw-semibold">@item.SoLuongTon</span></td>
+                            <td>@(item.DonVi ?? "-")</td>
                             <td>
-                                <div class="btn-group" role="group">
-                                    <a asp-action="Edit" asp-route-id="@item.Id"
-                                       class="btn btn-sm btn-primary">
-                                        <i class="fas fa-edit me-1"></i>Sửa
+                                <span class="badge-status @stockStatus">@stockText</span>
+                            </td>
+                            <td>
+                                <div class="list-icon-function">
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="item eye" title="Xem chi tiết">
+                                        <i class="fas fa-eye"></i>
                                     </a>
-                                    <a asp-action="Details" asp-route-id="@item.Id"
-                                       class="btn btn-sm btn-primary">
-                                        <i class="fas fa-info-circle me-1"></i>Chi tiết
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="item edit" title="Chỉnh sửa">
+                                        <i class="fas fa-edit"></i>
                                     </a>
-                                    <a asp-action="Delete" asp-route-id="@item.Id"
-                                       class="btn btn-sm btn-primary">
-                                        <i class="fas fa-trash me-1"></i>Xóa
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="item trash" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
                                     </a>
                                 </div>
                             </td>
                         </tr>
                     }
-                </tbody>
-            </table>
-        </div>
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="7" class="text-center py-4">
+                            <div class="empty-state">
+                                <i class="fas fa-box-open fa-3x text-muted mb-3"></i>
+                                <p class="text-muted">Chưa có sản phẩm nào</p>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="divider"></div>
+    <div class="flex-wrap-box gap10">
+        <div class="text-tiny">Hiển thị @Model?.Count() sản phẩm</div>
+        <ul class="wg-pagination">
+            <li><a href="#"><i class="fas fa-chevron-left"></i></a></li>
+            <li><a href="#" class="active">1</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i></a></li>
+        </ul>
     </div>
 </div>
+
+@section Scripts {
+<script>
+function filterTable() {
+    var input = document.getElementById("searchInput");
+    var filter = input.value.toLowerCase();
+    var table = document.getElementById("dataTable");
+    var tr = table.getElementsByTagName("tr");
+    
+    for (var i = 1; i < tr.length; i++) {
+        var td = tr[i].getElementsByTagName("td");
+        var found = false;
+        for (var j = 0; j < td.length; j++) {
+            if (td[j]) {
+                var txtValue = td[j].textContent || td[j].innerText;
+                if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                    found = true;
+                    break;
+                }
+            }
+        }
+        tr[i].style.display = found ? "" : "none";
+    }
+}
+</script>
+}

@@ -1,5 +1,37 @@
 [
   {
+    "ContainingType": "GaraAPI.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "GaraAPI.Controllers.AuthController\u002BLoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GaraAPI.Controllers.AuthController",
+    "Method": "Register",
+    "RelativePath": "api/Auth/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "GaraAPI.Controllers.AuthController\u002BRegisterRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "GaraAPI.Controllers.DichVuController",
     "Method": "GetDichVus",
     "RelativePath": "api/DichVu",
@@ -342,6 +374,79 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "GaraAPI.Controllers.KhachHangController",
+    "Method": "GetKhachHangBySDT",
+    "RelativePath": "api/KhachHang/sdt/{sdt}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sdt",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GaraAPI.Models.KhachHang",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GaraAPI.Controllers.LienHeController",
+    "Method": "GetAll",
+    "RelativePath": "api/LienHe",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GaraAPI.Controllers.LienHeController",
+    "Method": "Create",
+    "RelativePath": "api/LienHe",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "GaraAPI.Controllers.LienHeController\u002BLienHeRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GaraAPI.Controllers.LienHeController",
+    "Method": "UpdateStatus",
+    "RelativePath": "api/LienHe/update-status",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "daxuly",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "GaraAPI.Controllers.SanPhamController",
     "Method": "GetSanPhams",
     "RelativePath": "api/SanPham",
@@ -472,24 +577,8 @@
   },
   {
     "ContainingType": "GaraAPI.Controllers.ThongKeController",
-    "Method": "GetDichVuPhoBien",
-    "RelativePath": "api/ThongKe/DichVuPhoBien",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "top",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "GaraAPI.Controllers.ThongKeController",
-    "Method": "GetDoanhThu",
-    "RelativePath": "api/ThongKe/DoanhThu",
+    "Method": "GetDoanhThuTheoNgay",
+    "RelativePath": "api/ThongKe/DoanhThuTheoNgay",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -505,12 +594,88 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "GaraAPI.Controllers.DoanhThuTheoNgayResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "GaraAPI.Controllers.ThongKeController",
-    "Method": "GetSanPhamBanChay",
-    "RelativePath": "api/ThongKe/SanPhamBanChay",
+    "Method": "GetDoanhThuTheoThang",
+    "RelativePath": "api/ThongKe/DoanhThuTheoThang",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[GaraAPI.Controllers.DoanhThuThangDto, GaraAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GaraAPI.Controllers.ThongKeController",
+    "Method": "GetHoaDonGanDay",
+    "RelativePath": "api/ThongKe/HoaDonGanDay",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "soLuong",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[GaraAPI.Controllers.HoaDonGanDayDto, GaraAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GaraAPI.Controllers.ThongKeController",
+    "Method": "GetTongQuan",
+    "RelativePath": "api/ThongKe/TongQuan",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "GaraAPI.Controllers.TongQuanDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GaraAPI.Controllers.ThongKeController",
+    "Method": "GetTopDichVu",
+    "RelativePath": "api/ThongKe/TopDichVu",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -521,17 +686,17 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "GaraAPI.Controllers.ThongKeController",
-    "Method": "GetTongQuan",
-    "RelativePath": "api/ThongKe/TongQuan",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[GaraAPI.Controllers.TopDichVuDto, GaraAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "GaraAPI.Controllers.ThongKeController",
@@ -547,7 +712,43 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[GaraAPI.Controllers.TopKhachHangDto, GaraAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GaraAPI.Controllers.ThongKeController",
+    "Method": "GetTopSanPham",
+    "RelativePath": "api/ThongKe/TopSanPham",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "top",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[GaraAPI.Controllers.TopSanPhamDto, GaraAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "GaraAPI.Controllers.XeController",
@@ -660,6 +861,32 @@
   },
   {
     "ContainingType": "GaraAPI.Controllers.XeController",
+    "Method": "GetXeByBienSo",
+    "RelativePath": "api/Xe/ByBienSo/{bienSo}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bienSo",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GaraAPI.Models.Xe",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GaraAPI.Controllers.XeController",
     "Method": "GetXesByKhachHang",
     "RelativePath": "api/Xe/ByKhachHang/{maKH}",
     "HttpMethod": "GET",
@@ -683,6 +910,115 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "GaraAPI.Controllers.YeucauController",
+    "Method": "GetYeucauDichVus",
+    "RelativePath": "api/Yeucau",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[GaraAPI.Models.YeucauDichVu, GaraAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GaraAPI.Controllers.YeucauController",
+    "Method": "PostYeucauDichVu",
+    "RelativePath": "api/Yeucau",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "yeucau",
+        "Type": "GaraAPI.Models.YeucauDichVu",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GaraAPI.Models.YeucauDichVu",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GaraAPI.Controllers.YeucauController",
+    "Method": "GetYeucauDichVu",
+    "RelativePath": "api/Yeucau/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GaraAPI.Models.YeucauDichVu",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GaraAPI.Controllers.YeucauController",
+    "Method": "PutYeucauDichVu",
+    "RelativePath": "api/Yeucau/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "yeucau",
+        "Type": "GaraAPI.Models.YeucauDichVu",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GaraAPI.Controllers.YeucauController",
+    "Method": "DeleteYeucauDichVu",
+    "RelativePath": "api/Yeucau/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "GaraOToManagement.Controllers.WeatherForecastController",

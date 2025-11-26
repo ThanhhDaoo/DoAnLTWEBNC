@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace GaraAPI.Controllers
 {
@@ -45,6 +45,35 @@ namespace GaraAPI.Controllers
             return Ok(list);
         }
 
+        // POST: api/LienHe
+        [HttpPost]
+        public IActionResult Create([FromBody] LienHeRequest request)
+        {
+            if (string.IsNullOrWhiteSpace(request.HoTen) || string.IsNullOrWhiteSpace(request.Email))
+            {
+                return BadRequest(new { message = "Thiếu thông tin bắt buộc" });
+            }
+
+            using (var conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+                var cmd = new SqlCommand(
+                    "INSERT INTO LIENHE (HoTen, Email, SoDienThoai, ChuDe, NoiDung, NgayGui, DaXuLy) " +
+                    "VALUES (@HoTen, @Email, @SoDienThoai, @ChuDe, @NoiDung, @NgayGui, 0); " +
+                    "SELECT CAST(SCOPE_IDENTITY() as int);", conn);
+                
+                cmd.Parameters.AddWithValue("@HoTen", request.HoTen);
+                cmd.Parameters.AddWithValue("@Email", request.Email);
+                cmd.Parameters.AddWithValue("@SoDienThoai", request.SoDienThoai ?? "");
+                cmd.Parameters.AddWithValue("@ChuDe", request.ChuDe ?? "");
+                cmd.Parameters.AddWithValue("@NoiDung", request.NoiDung ?? "");
+                cmd.Parameters.AddWithValue("@NgayGui", DateTime.Now);
+                
+                var id = (int)cmd.ExecuteScalar();
+                return Ok(new { maLienHe = id, message = "Gửi liên hệ thành công" });
+            }
+        }
+
         // PUT: api/LienHe/update-status
         [HttpPut("update-status")]
         public IActionResult UpdateStatus(int id, bool daxuly)
@@ -58,6 +87,15 @@ namespace GaraAPI.Controllers
                 var count = cmd.ExecuteNonQuery();
                 return Ok(new { updated = count });
             }
+        }
+
+        public class LienHeRequest
+        {
+            public string HoTen { get; set; } = string.Empty;
+            public string Email { get; set; } = string.Empty;
+            public string? SoDienThoai { get; set; }
+            public string? ChuDe { get; set; }
+            public string? NoiDung { get; set; }
         }
     }
 }

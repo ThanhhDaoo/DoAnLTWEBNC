@@ -5119,23 +5119,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Cam Tien\\.nuget\\packages\\": {},
+    "C:\\Users\\LENOVO\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Tài liệu\\DoAnCuoiKiiiiiii\\GaraAPI\\GaraAPI.csproj",
+      "projectUniqueName": "E:\\DoAnLTWEBNC\\GaraAPI\\GaraAPI.csproj",
       "projectName": "GaraAPI",
-      "projectPath": "D:\\Tài liệu\\DoAnCuoiKiiiiiii\\GaraAPI\\GaraAPI.csproj",
-      "packagesPath": "C:\\Users\\Cam Tien\\.nuget\\packages\\",
-      "outputPath": "D:\\Tài liệu\\DoAnCuoiKiiiiiii\\GaraAPI\\obj\\",
+      "projectPath": "E:\\DoAnLTWEBNC\\GaraAPI\\GaraAPI.csproj",
+      "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
+      "outputPath": "E:\\DoAnLTWEBNC\\GaraAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Cam Tien\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -5162,7 +5162,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net8.0": {
@@ -5212,7 +5212,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

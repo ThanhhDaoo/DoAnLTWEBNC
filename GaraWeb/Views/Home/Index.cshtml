@@ -4,653 +4,440 @@
     var sanPhams = ViewBag.SanPhams as List<GaraWeb.Models.SanPham> ?? new List<GaraWeb.Models.SanPham>();
 }
 
-<style>
-    main[style] { margin-top: 0 !important; }
-    
-    /* Hero Slider Section */
-    .hero-slider-section {
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        min-height: 600px;
-        overflow: hidden;
-    }
+<link rel="stylesheet" href="~/css/home-luxury.css" asp-append-version="true" />
 
-    .hero-swiper {
-        width: 100%;
-        height: 100%;
-    }
-
-    .hero-slide {
-        width: 100%;
-        height: 100vh;
-        min-height: 600px;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        display: flex;
-        align-items: center;
-        position: relative;
-    }
-
-    .hero-content {
-        position: relative;
-        z-index: 2;
-        text-align: center;
-        padding: 4rem 0;
-        animation: fadeInUp 0.8s ease-out;
-    }
-
-    .hero-title {
-        font-size: 4rem;
-        font-weight: 800;
-        margin-bottom: 1.5rem;
-        line-height: 1.2;
-        color: white;
-        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-        animation: fadeInUp 0.8s ease-out;
-    }
-
-    .hero-subtitle {
-        font-size: 1.4rem;
-        margin-bottom: 2.5rem;
-        color: white;
-        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-        animation: fadeInUp 1s ease-out;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .hero-buttons {
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        flex-wrap: wrap;
-        animation: fadeInUp 1.2s ease-out;
-    }
-
-    .btn-hero {
-        padding: 1rem 2.5rem;
-        font-size: 1.05rem;
-        font-weight: 700;
-        border-radius: 12px;
-        transition: all 0.3s ease;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .btn-hero-primary {
-        background: #06b6d4;
-        color: white !important;
-        border: none;
-    }
-
-    .btn-hero-primary:hover {
-        background: #0891b2;
-        transform: translateY(-4px);
-        box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
-    }
-
-    .btn-hero-outline {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        color: white !important;
-        border: 2px solid white;
-    }
-
-    .btn-hero-outline:hover {
-        background: white;
-        color: #06b6d4 !important;
-        transform: translateY(-4px);
-        box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
-    }
-
-    /* Swiper Navigation */
-    .swiper-button-next,
-    .swiper-button-prev {
-        color: white !important;
-        background: rgba(6, 182, 212, 0.8);
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        transition: all 0.3s ease;
-    }
-
-    .swiper-button-next:after,
-    .swiper-button-prev:after {
-        font-size: 20px;
-        font-weight: bold;
-    }
-
-    .swiper-button-next:hover,
-    .swiper-button-prev:hover {
-        background: #06b6d4;
-        transform: scale(1.1);
-    }
-
-    /* Swiper Pagination */
-    .swiper-pagination-bullet {
-        width: 12px;
-        height: 12px;
-        background: white;
-        opacity: 0.5;
-        transition: all 0.3s ease;
-    }
-
-    .swiper-pagination-bullet-active {
-        opacity: 1;
-        background: #06b6d4;
-        width: 30px;
-        border-radius: 6px;
-    }
-
-    /* Stats Section */
-    .stats-section {
-        background: white;
-        padding: 3rem 0;
-        margin-top: 0;
-    }
-
-    .stat-card {
-        text-align: center;
-        padding: 2rem;
-        border-radius: var(--radius-xl);
-        background: white;
-        border: 1px solid var(--gray-light);
-        box-shadow: var(--shadow-md);
-        transition: all var(--transition-base);
-    }
-
-    .stat-card:hover {
-        transform: translateY(-8px);
-        box-shadow: var(--shadow-xl);
-        border-color: var(--primary);
-    }
-
-    .stat-icon {
-        width: 70px;
-        height: 70px;
-        margin: 0 auto 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        background: var(--gradient-primary);
-        color: white;
-        font-size: 2rem;
-        box-shadow: var(--shadow-md);
-    }
-
-    .stat-number {
-        font-size: 2.5rem;
-        font-weight: 800;
-        color: var(--dark);
-        margin-bottom: 0.5rem;
-    }
-
-    .stat-label {
-        color: var(--gray);
-        font-size: 1rem;
-    }
-
-    /* Feature Cards */
-    .feature-card {
-        padding: 2rem;
-        border-radius: var(--radius-xl);
-        background: white;
-        border: 1px solid var(--gray-light);
-        box-shadow: var(--shadow-md);
-        transition: all var(--transition-base);
-        height: 100%;
-    }
-
-    .feature-card:hover {
-        transform: translateY(-8px);
-        box-shadow: var(--shadow-xl);
-        border-color: var(--primary);
-    }
-
-    .feature-icon {
-        width: 60px;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: var(--radius-md);
-        background: var(--gradient-primary);
-        color: white;
-        font-size: 1.8rem;
-        margin-bottom: 1.5rem;
-        box-shadow: var(--shadow-md);
-    }
-
-    .feature-card h4 {
-        font-weight: 700;
-        color: var(--dark);
-        margin-bottom: 1rem;
-    }
-
-    .feature-card p {
-        color: var(--gray);
-        line-height: 1.7;
-    }
-
-    /* Service & Product Cards Hover */
-    .service-card:hover,
-    .product-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15) !important;
-        border-color: #06b6d4 !important;
-    }
-
-    .service-card:hover img,
-    .product-card:hover img {
-        transform: scale(1.1);
-    }
-
-    .service-card .btn:hover,
-    .product-card .btn:hover {
-        background: #0891b2 !important;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
-    }
-
-    /* CTA Section */
-    .cta-section {
-        background: var(--gradient-primary);
-        color: white;
-        padding: 5rem 0;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-        border-radius: var(--radius-xl);
-        margin: 0 1rem;
-    }
-
-    .cta-section::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        right: -10%;
-        width: 500px;
-        height: 500px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-    }
-
-    .cta-section::after {
-        content: '';
-        position: absolute;
-        bottom: -50%;
-        left: -10%;
-        width: 500px;
-        height: 500px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-    }
-
-    .cta-content {
-        position: relative;
-        z-index: 2;
-    }
-
-    .cta-content h2 {
-        font-size: 3rem;
-        font-weight: 800;
-        margin-bottom: 1.5rem;
-    }
-
-    .cta-content p {
-        font-size: 1.3rem;
-        margin-bottom: 2rem;
-        opacity: 0.95;
-    }
-
-    @@media (max-width: 768px) {
-        .hero-slider-section {
-            height: 70vh;
-            min-height: 500px;
-        }
-        
-        .hero-slide {
-            height: 70vh;
-            min-height: 500px;
-        }
-        
-        .hero-title { 
-            font-size: 2.5rem; 
-        }
-        
-        .hero-subtitle { 
-            font-size: 1.1rem; 
-        }
-        
-        .btn-hero {
-            padding: 0.75rem 1.5rem;
-            font-size: 0.95rem;
-        }
-        
-        .swiper-button-next,
-        .swiper-button-prev {
-            width: 40px;
-            height: 40px;
-        }
-        
-        .swiper-button-next:after,
-        .swiper-button-prev:after {
-            font-size: 16px;
-        }
-        
-        .stat-number { font-size: 2rem; }
-        .cta-content h2 { font-size: 2rem; }
-        .cta-section { margin: 0; border-radius: 0; }
-    }
-</style>
-
-<!-- Revolution Slider CSS -->
-<link rel="stylesheet" href="~/css/revolution-slider.css" asp-append-version="true" />
-
-<!-- Revolution Slider Section -->
-<section class="rev-slider-container" id="revSlider">
-    <div class="rev-slides">
-        <!-- Slide 1 -->
-        <div class="rev-slide">
-            <div class="rev-slide-bg" style="background-image: url('https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg');"></div>
-            <div class="rev-slide-overlay"></div>
-            <div class="rev-layers">
-                <div class="container text-center">
-                    <h1 class="rev-layer rev-layer-title" data-animation="fadeInUp">
-                        Chào mừng đến với MTProAuto
-                    </h1>
-                    <p class="rev-layer rev-layer-subtitle" data-animation="fadeInUp">
-                        Dịch vụ sửa chữa, bảo dưỡng và phụ tùng ô tô chuyên nghiệp hàng đầu
-                    </p>
-                    <div class="rev-layer" data-animation="zoomIn">
-                        <a href="#services" class="rev-layer-button primary">
-                            <i class="fas fa-tools"></i>Khám phá dịch vụ
+<!-- Hero Slider Section -->
+<section class="hero-luxury">
+    <div class="hero-slider">
+        <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1920');">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="container">
+                    <div class="hero-badge">PREMIUM AUTO SERVICE</div>
+                    <h1 class="hero-title">MTProAuto</h1>
+                    <p class="hero-subtitle">Dịch vụ sửa chữa & bảo dưỡng ô tô chuyên nghiệp hàng đầu</p>
+                    <div class="hero-buttons">
+                        <a href="#services" class="btn-luxury primary">
+                            <i class="fas fa-tools"></i> Khám phá dịch vụ
                         </a>
-                        <a href="@Url.Action("Index", "SanPham")" class="rev-layer-button outline">
-                            <i class="fas fa-shopping-bag"></i>Xem sản phẩm
+                        <a href="@Url.Action("Index", "SanPham")" class="btn-luxury outline">
+                            <i class="fas fa-shopping-bag"></i> Xem sản phẩm
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Slide 2 -->
-        <div class="rev-slide">
-            <div class="rev-slide-bg" style="background-image: url('https://images.pexels.com/photos/4489743/pexels-photo-4489743.jpeg');"></div>
-            <div class="rev-slide-overlay"></div>
-            <div class="rev-layers">
-                <div class="container text-center">
-                    <h1 class="rev-layer rev-layer-title" data-animation="fadeInLeft">
-                        Dịch vụ chuyên nghiệp
-                    </h1>
-                    <p class="rev-layer rev-layer-subtitle" data-animation="fadeInRight">
-                        Đội ngũ kỹ thuật viên giàu kinh nghiệm, trang thiết bị hiện đại
-                    </p>
-                    <div class="rev-layer" data-animation="slideInDown">
-                        <a href="@Url.Action("Index", "DichVu")" class="rev-layer-button primary">
-                            <i class="fas fa-calendar-check"></i>Đặt lịch ngay
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1920');">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="container">
+                    <div class="hero-badge">PROFESSIONAL TEAM</div>
+                    <h1 class="hero-title">Đội ngũ chuyên nghiệp</h1>
+                    <p class="hero-subtitle">Kỹ thuật viên giàu kinh nghiệm, trang thiết bị hiện đại</p>
+                    <div class="hero-buttons">
+                        <a href="@Url.Action("Index", "DichVu")" class="btn-luxury primary">
+                            <i class="fas fa-calendar-check"></i> Đặt lịch ngay
                         </a>
-                        <a href="@Url.Action("Index", "LienHe")" class="rev-layer-button outline">
-                            <i class="fas fa-phone"></i>Liên hệ tư vấn
+                        <a href="@Url.Action("Index", "LienHe")" class="btn-luxury outline">
+                            <i class="fas fa-phone"></i> Liên hệ tư vấn
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Slide 3 -->
-        <div class="rev-slide">
-            <div class="rev-slide-bg" style="background-image: url('https://images.pexels.com/photos/13065690/pexels-photo-13065690.jpeg');"></div>
-            <div class="rev-slide-overlay"></div>
-            <div class="rev-layers">
-                <div class="container text-center">
-                    <h1 class="rev-layer rev-layer-title" data-animation="zoomIn">
-                        Phụ tùng chính hãng
-                    </h1>
-                    <p class="rev-layer rev-layer-subtitle" data-animation="fadeInUp">
-                        100% phụ tùng chính hãng, giá cả cạnh tranh, bảo hành dài hạn
-                    </p>
-                    <div class="rev-layer" data-animation="fadeInUp">
-                        <a href="@Url.Action("Index", "SanPham")" class="rev-layer-button primary">
-                            <i class="fas fa-shopping-cart"></i>Mua sắm ngay
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1920');">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="container">
+                    <div class="hero-badge">GENUINE PARTS</div>
+                    <h1 class="hero-title">Phụ tùng chính hãng</h1>
+                    <p class="hero-subtitle">100% phụ tùng chính hãng, giá cả cạnh tranh, bảo hành dài hạn</p>
+                    <div class="hero-buttons">
+                        <a href="@Url.Action("Index", "SanPham")" class="btn-luxury primary">
+                            <i class="fas fa-shopping-cart"></i> Mua sắm ngay
                         </a>
-                        <a href="#services" class="rev-layer-button outline">
-                            <i class="fas fa-info-circle"></i>Tìm hiểu thêm
+                        <a href="#about" class="btn-luxury outline">
+                            <i class="fas fa-info-circle"></i> Tìm hiểu thêm
                         </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
-    <!-- Navigation -->
-    <button class="rev-nav-prev">
-        <i class="fas fa-chevron-left"></i>
-    </button>
-    <button class="rev-nav-next">
-        <i class="fas fa-chevron-right"></i>
-    </button>
-    
-    <!-- Pagination -->
-    <div class="rev-pagination"></div>
-    
-    <!-- Progress Bar -->
-    <div class="rev-progress"></div>
+    <!-- Slider Navigation -->
+    <button class="slider-nav prev"><i class="fas fa-chevron-left"></i></button>
+    <button class="slider-nav next"><i class="fas fa-chevron-right"></i></button>
+    <!-- Slider Dots -->
+    <div class="slider-dots">
+        <span class="dot active" data-slide="0"></span>
+        <span class="dot" data-slide="1"></span>
+        <span class="dot" data-slide="2"></span>
+    </div>
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <span>Cuộn xuống</span>
+        <i class="fas fa-chevron-down"></i>
+    </div>
 </section>
 
-<!-- Stats Section -->
-<section class="stats-section">
+<!-- Featured Car Section -->
+<section class="featured-car-section" id="about">
     <div class="container">
-        <div class="row g-4">
-            <div class="col-lg-3 col-md-6">
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-users"></i>
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="featured-car-image">
+                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800" alt="Featured Car">
+                    <div class="car-badge">
+                        <span class="year">2024</span>
+                        <span class="model">ZK16</span>
                     </div>
-                    <div class="stat-number">10K+</div>
-                    <div class="stat-label">Khách hàng tin tưởng</div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-car"></i>
+            <div class="col-lg-6">
+                <div class="featured-car-info">
+                    <h2 class="section-label">VỀ CHÚNG TÔI</h2>
+                    <h3 class="featured-title">MTProAuto - Đối tác tin cậy cho xe của bạn</h3>
+                    <p class="featured-desc">Với hơn 10 năm kinh nghiệm trong ngành, MTProAuto tự hào là địa chỉ uy tín hàng đầu trong lĩnh vực sửa chữa và bảo dưỡng ô tô. Chúng tôi cam kết mang đến dịch vụ chất lượng cao nhất với giá cả hợp lý.</p>
+                    <div class="car-specs">
+                        <div class="spec-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <div>
+                                <span class="spec-value">10K+</span>
+                                <span class="spec-label">Khách hàng</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-car"></i>
+                            <div>
+                                <span class="spec-value">50K+</span>
+                                <span class="spec-label">Xe bảo dưỡng</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-award"></i>
+                            <div>
+                                <span class="spec-value">10+</span>
+                                <span class="spec-label">Năm kinh nghiệm</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-star"></i>
+                            <div>
+                                <span class="spec-value">4.9/5</span>
+                                <span class="spec-label">Đánh giá</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stat-number">50K+</div>
-                    <div class="stat-label">Xe được bảo dưỡng</div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-award"></i>
+                    <div class="featured-buttons">
+                        <a href="@Url.Action("Index", "LienHe")" class="btn-luxury primary">Liên hệ ngay</a>
+                        <a href="@Url.Action("Index", "DichVu")" class="btn-luxury dark">Xem dịch vụ</a>
                     </div>
-                    <div class="stat-number">10+</div>
-                    <div class="stat-label">Năm kinh nghiệm</div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="stat-number">4.9/5</div>
-                    <div class="stat-label">Đánh giá trung bình</div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Features Section -->
-<section class="py-5 bg-light">
-    <div class="container">
-        <div class="section-title">
-            <h2>Tại sao chọn chúng tôi?</h2>
-            <p>Những lý do khiến hàng nghìn khách hàng tin tưởng và lựa chọn MTProAuto</p>
-        </div>
-        <div class="row g-4">
-            <div class="col-lg-3 col-md-6">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h4>Đội ngũ chuyên nghiệp</h4>
-                    <p>Kỹ thuật viên được đào tạo bài bản, giàu kinh nghiệm</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h4>Trang thiết bị hiện đại</h4>
-                    <p>Đầu tư công nghệ và thiết bị tiên tiến nhất</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <h4>Phụ tùng chính hãng</h4>
-                    <p>100% phụ tùng chính hãng, có nguồn gốc rõ ràng</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h4>Bảo hành dài hạn</h4>
-                    <p>Chế độ bảo hành uy tín, hỗ trợ tận tâm</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- Services Section -->
-<section id="services" class="py-5">
+<section class="services-luxury" id="services">
     <div class="container">
-        <div class="section-title">
-            <h2>Dịch vụ của chúng tôi</h2>
-            <p>Chúng tôi cung cấp đầy đủ các dịch vụ sửa chữa và bảo dưỡng ô tô chuyên nghiệp</p>
+        <div class="section-header">
+            <h2 class="section-label">DỊCH VỤ CỦA CHÚNG TÔI</h2>
+            <h3 class="section-title">Dịch vụ chuyên nghiệp</h3>
+            <p class="section-desc">Chúng tôi cung cấp đầy đủ các dịch vụ sửa chữa và bảo dưỡng ô tô với chất lượng cao nhất</p>
         </div>
-        <div class="row g-4">
-            @foreach (var dichVu in dichVus)
-            {
-                <div class="col-lg-4 col-md-6">
-                    <div class="card service-card" style="border: 1px solid #e5e7eb; border-radius: 16px; overflow: hidden; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); transition: all 0.3s ease;">
-                        <div style="position: relative; overflow: hidden; height: 200px;">
-                            <img src="@(string.IsNullOrEmpty(dichVu.HinhAnh) ? "https://images.pexels.com/photos/4489743/pexels-photo-4489743.jpeg" : dichVu.HinhAnh)" 
-                                 class="card-img-top" alt="@dichVu.TenDichVu" style="height: 100%; object-fit: cover; transition: transform 0.5s ease;">
-                            @if (dichVu.TrangThai)
-                            {
-                                <span style="position: absolute; top: 0.75rem; right: 0.75rem; padding: 0.4rem 0.85rem; border-radius: 20px; font-weight: 600; font-size: 0.8rem; background: #10b981; color: white; display: flex; align-items: center; gap: 0.35rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);">
-                                    <i class="fas fa-check" style="font-size: 0.7rem;"></i>Có sẵn
-                                </span>
-                            }
-                        </div>
-                        <div class="card-body d-flex flex-column" style="padding: 1.25rem;">
-                            <h5 class="card-title" style="font-size: 1.1rem; font-weight: 700; color: #1f2937; margin-bottom: 0.5rem; line-height: 1.4; min-height: 2.8em; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">@dichVu.TenDichVu</h5>
-                            <p class="card-text flex-grow-1" style="color: #6b7280; font-size: 0.85rem; line-height: 1.5; margin-bottom: 1rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.5em;">@dichVu.MoTa</p>
-                            <div class="d-flex justify-content-between align-items-center" style="padding-top: 0.75rem; border-top: 1px solid #f3f4f6;">
-                                <span style="font-size: 1.4rem; font-weight: 800; color: #06b6d4;">@dichVu.Gia.ToString("N0") ₫</span>
-                                <a href="@Url.Action("DatDichVu", "DichVu", new { id = dichVu.Id })" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 600; border-radius: 8px; background: #06b6d4; border: none; display: flex; align-items: center; gap: 0.4rem;">
-                                    <i class="fas fa-calendar-check"></i>Đặt ngay
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+        <div class="services-grid">
+            <div class="service-luxury-card">
+                <div class="service-icon">
+                    <i class="fas fa-oil-can"></i>
                 </div>
-            }
-        </div>
-        <div class="text-center mt-5">
-            <a href="@Url.Action("Index", "DichVu")" class="btn btn-outline-primary btn-lg">
-                Xem tất cả dịch vụ <i class="fas fa-arrow-right ms-2"></i>
-            </a>
+                <h4>Thay dầu & Bảo dưỡng</h4>
+                <p>Dịch vụ thay dầu định kỳ và bảo dưỡng toàn diện cho xe của bạn</p>
+                <a href="@Url.Action("Index", "DichVu")" class="service-link">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-luxury-card">
+                <div class="service-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h4>Sửa chữa động cơ</h4>
+                <p>Chẩn đoán và sửa chữa các vấn đề động cơ với thiết bị hiện đại</p>
+                <a href="@Url.Action("Index", "DichVu")" class="service-link">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-luxury-card">
+                <div class="service-icon">
+                    <i class="fas fa-car-crash"></i>
+                </div>
+                <h4>Sửa chữa thân vỏ</h4>
+                <p>Phục hồi và sửa chữa thân vỏ xe sau va chạm, tai nạn</p>
+                <a href="@Url.Action("Index", "DichVu")" class="service-link">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-luxury-card">
+                <div class="service-icon">
+                    <i class="fas fa-spray-can"></i>
+                </div>
+                <h4>Sơn xe chuyên nghiệp</h4>
+                <p>Dịch vụ sơn xe với công nghệ tiên tiến, màu sắc chuẩn xác</p>
+                <a href="@Url.Action("Index", "DichVu")" class="service-link">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-luxury-card">
+                <div class="service-icon">
+                    <i class="fas fa-snowflake"></i>
+                </div>
+                <h4>Điều hòa & Điện lạnh</h4>
+                <p>Bảo trì và sửa chữa hệ thống điều hòa, điện lạnh ô tô</p>
+                <a href="@Url.Action("Index", "DichVu")" class="service-link">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-luxury-card">
+                <div class="service-icon">
+                    <i class="fas fa-tire"></i>
+                </div>
+                <h4>Lốp & Phanh</h4>
+                <p>Kiểm tra, thay thế lốp xe và hệ thống phanh an toàn</p>
+                <a href="@Url.Action("Index", "DichVu")" class="service-link">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Products Section -->
-<section class="py-5 bg-light">
+<!-- Contact Us Section -->
+<section class="contact-luxury">
     <div class="container">
-        <div class="section-title">
-            <h2>Sản phẩm nổi bật</h2>
-            <p>Phụ tùng và phụ kiện ô tô chính hãng, chất lượng cao</p>
+        <div class="row align-items-center">
+            <div class="col-lg-5">
+                <div class="contact-info-luxury">
+                    <h2 class="section-label">LIÊN HỆ VỚI CHÚNG TÔI</h2>
+                    <h3 class="contact-title">Bạn cần hỗ trợ?</h3>
+                    <p class="contact-desc">Đội ngũ tư vấn viên của chúng tôi luôn sẵn sàng hỗ trợ bạn 24/7. Hãy liên hệ ngay để được tư vấn miễn phí!</p>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <span class="label">Địa chỉ</span>
+                                <span class="value">Ngã 4 An Dương Vương, Trần Phú, Quảng Ngãi</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <span class="label">Hotline</span>
+                                <span class="value">038 442 4567</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <span class="label">Email</span>
+                                <span class="value">contact@mtproauto.vn</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <span class="label">Giờ làm việc</span>
+                                <span class="value">7:00 - 18:00 (Thứ 2 - Chủ nhật)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="contact-image-grid">
+                    <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600" alt="Service 1" class="grid-img img-1">
+                    <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600" alt="Service 2" class="grid-img img-2">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600" alt="Service 3" class="grid-img img-3">
+                    <img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=600" alt="Service 4" class="grid-img img-4">
+                </div>
+            </div>
         </div>
-        <div class="row g-4">
-            @foreach (var sanPham in sanPhams.Take(3))
+    </div>
+</section>
+
+<!-- Our Team Section -->
+<section class="team-luxury">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-label">ĐỘI NGŨ CỦA CHÚNG TÔI</h2>
+            <h3 class="section-title">Gặp gỡ chuyên gia</h3>
+            <p class="section-desc">Đội ngũ kỹ thuật viên giàu kinh nghiệm, được đào tạo chuyên nghiệp</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400" alt="Team Member">
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h4>Nguyễn Văn A</h4>
+                    <span>Giám đốc kỹ thuật</span>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400" alt="Team Member">
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h4>Trần Văn B</h4>
+                    <span>Kỹ thuật viên cao cấp</span>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400" alt="Team Member">
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h4>Lê Văn C</h4>
+                    <span>Chuyên gia động cơ</span>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400" alt="Team Member">
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h4>Phạm Văn D</h4>
+                    <span>Chuyên gia điện ô tô</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Products Section -->
+<section class="products-luxury" id="products">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-label">SẢN PHẨM NỔI BẬT</h2>
+            <h3 class="section-title">Phụ tùng chính hãng</h3>
+            <p class="section-desc">Phụ tùng và phụ kiện ô tô chính hãng, chất lượng cao với giá cả cạnh tranh</p>
+        </div>
+        <div class="products-grid">
+            @foreach (var sanPham in sanPhams.Take(4))
             {
-                <div class="col-lg-4 col-md-6">
-                    <div class="card product-card" style="border: 1px solid #e5e7eb; border-radius: 16px; overflow: hidden; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); transition: all 0.3s ease;">
-                        <div style="position: relative; overflow: hidden; height: 200px;">
-                            <img src="@(string.IsNullOrEmpty(sanPham.HinhAnh) ? "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg" : sanPham.HinhAnh)" 
-                                 class="card-img-top" alt="@sanPham.TenSanPham" style="height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                <div class="product-luxury-card">
+                    <div class="product-image">
+                        <img src="@(string.IsNullOrEmpty(sanPham.HinhAnh) ? "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400" : sanPham.HinhAnh)" alt="@sanPham.TenSanPham">
+                        @if (sanPham.SoLuongTon > 0)
+                        {
+                            <span class="product-badge in-stock"><i class="fas fa-check"></i> Còn hàng</span>
+                        }
+                        else
+                        {
+                            <span class="product-badge out-stock"><i class="fas fa-times"></i> Hết hàng</span>
+                        }
+                        <div class="product-overlay">
+                            <button class="quick-view" onclick="addToCart(@sanPham.Id)">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                            <a href="@Url.Action("ChiTiet", "SanPham", new { id = sanPham.Id })" class="quick-view">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h4>@sanPham.TenSanPham</h4>
+                        <p>@sanPham.MoTa</p>
+                        <div class="product-footer">
+                            <span class="price">@sanPham.Gia.ToString("N0") ₫</span>
                             @if (sanPham.SoLuongTon > 0)
                             {
-                                <span style="position: absolute; top: 0.75rem; right: 0.75rem; padding: 0.4rem 0.85rem; border-radius: 20px; font-weight: 600; font-size: 0.8rem; background: #10b981; color: white; display: flex; align-items: center; gap: 0.35rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);">
-                                    <i class="fas fa-check" style="font-size: 0.7rem;"></i>Còn @sanPham.SoLuongTon
-                                </span>
+                                <button class="btn-add-cart" onclick="addToCart(@sanPham.Id)">
+                                    <i class="fas fa-shopping-cart"></i> Thêm
+                                </button>
                             }
-                            else
-                            {
-                                <span style="position: absolute; top: 0.75rem; right: 0.75rem; padding: 0.4rem 0.85rem; border-radius: 20px; font-weight: 600; font-size: 0.8rem; background: #f59e0b; color: white; display: flex; align-items: center; gap: 0.35rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);">
-                                    <i class="fas fa-exclamation" style="font-size: 0.7rem;"></i>Hết hàng
-                                </span>
-                            }
-                        </div>
-                        <div class="card-body d-flex flex-column" style="padding: 1.25rem;">
-                            <h5 class="card-title" style="font-size: 1.1rem; font-weight: 700; color: #1f2937; margin-bottom: 0.5rem; line-height: 1.4; min-height: 2.8em; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">@sanPham.TenSanPham</h5>
-                            <p class="card-text flex-grow-1" style="color: #6b7280; font-size: 0.85rem; line-height: 1.5; margin-bottom: 1rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.5em;">@sanPham.MoTa</p>
-                            <div class="d-flex justify-content-between align-items-center" style="padding-top: 0.75rem; border-top: 1px solid #f3f4f6;">
-                                <span style="font-size: 1.4rem; font-weight: 800; color: #06b6d4;">@sanPham.Gia.ToString("N0") ₫</span>
-                                @if (sanPham.SoLuongTon > 0)
-                                {
-                                    <button class="btn btn-primary" onclick="addToCart(@sanPham.Id)" style="padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 600; border-radius: 8px; background: #06b6d4; border: none; display: flex; align-items: center; gap: 0.4rem;">
-                                        <i class="fas fa-cart-plus"></i>Thêm
-                                    </button>
-                                }
-                                else
-                                {
-                                    <button class="btn btn-secondary" disabled style="padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 600; border-radius: 8px; background: #9ca3af; border: none; display: flex; align-items: center; gap: 0.4rem;">
-                                        <i class="fas fa-times"></i>Hết
-                                    </button>
-                                }
-                            </div>
                         </div>
                     </div>
                 </div>
             }
         </div>
         <div class="text-center mt-5">
-            <a href="@Url.Action("Index", "SanPham")" class="btn btn-outline-primary btn-lg">
+            <a href="@Url.Action("Index", "SanPham")" class="btn-luxury primary">
                 Xem tất cả sản phẩm <i class="fas fa-arrow-right ms-2"></i>
             </a>
         </div>
     </div>
 </section>
 
+<!-- Services List Section -->
+@if (dichVus.Any())
+{
+<section class="services-list-luxury">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-label">DỊCH VỤ HIỆN CÓ</h2>
+            <h3 class="section-title">Đặt lịch dịch vụ</h3>
+            <p class="section-desc">Chọn dịch vụ phù hợp và đặt lịch ngay hôm nay</p>
+        </div>
+        <div class="services-list-grid">
+            @foreach (var dichVu in dichVus.Take(6))
+            {
+                <div class="service-list-card">
+                    <div class="service-list-image">
+                        <img src="@(string.IsNullOrEmpty(dichVu.HinhAnh) ? "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400" : dichVu.HinhAnh)" alt="@dichVu.TenDichVu">
+                        @if (dichVu.TrangThai)
+                        {
+                            <span class="service-badge"><i class="fas fa-check"></i> Có sẵn</span>
+                        }
+                    </div>
+                    <div class="service-list-info">
+                        <h4>@dichVu.TenDichVu</h4>
+                        <p>@dichVu.MoTa</p>
+                        <div class="service-list-footer">
+                            <span class="price">@dichVu.Gia.ToString("N0") ₫</span>
+                            <a href="@Url.Action("DatDichVu", "DichVu", new { id = dichVu.Id })" class="btn-book">
+                                <i class="fas fa-calendar-check"></i> Đặt ngay
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="text-center mt-5">
+            <a href="@Url.Action("Index", "DichVu")" class="btn-luxury primary">
+                Xem tất cả dịch vụ <i class="fas fa-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+}
+
 <!-- CTA Section -->
-<section class="cta-section">
+<section class="cta-luxury">
+    <div class="cta-overlay"></div>
     <div class="container">
         <div class="cta-content">
-            <h2>Cần tư vấn hoặc hỗ trợ?</h2>
-            <p>Liên hệ với chúng tôi ngay hôm nay để được tư vấn miễn phí và nhận ưu đãi đặc biệt</p>
-            <div class="d-flex gap-3 justify-content-center flex-wrap">
-                <a href="@Url.Action("Index", "LienHe")" class="btn btn-hero btn-hero-primary">
-                    <i class="fas fa-phone-alt me-2"></i>Liên hệ ngay
+            <h2>Sẵn sàng trải nghiệm dịch vụ?</h2>
+            <p>Liên hệ ngay để được tư vấn miễn phí và nhận ưu đãi đặc biệt dành cho khách hàng mới</p>
+            <div class="cta-buttons">
+                <a href="@Url.Action("Index", "LienHe")" class="btn-luxury light">
+                    <i class="fas fa-phone-alt"></i> Liên hệ ngay
                 </a>
-                <a href="tel:0384424567" class="btn btn-hero btn-hero-outline">
-                    <i class="fas fa-headset me-2"></i>Hotline: 038 442 4567
+                <a href="tel:0384424567" class="btn-luxury outline-light">
+                    <i class="fas fa-headset"></i> Hotline: 038 442 4567
                 </a>
             </div>
         </div>
@@ -658,24 +445,66 @@
 </section>
 
 @section Scripts {
-    <!-- Revolution Slider JS -->
-    <script src="~/js/revolution-slider-custom.js" asp-append-version="true"></script>
-    
     <script>
-        // Initialize Revolution Slider
-        document.addEventListener('DOMContentLoaded', function() {
-            const revSlider = new RevolutionSlider('#revSlider', {
-                autoplay: true,
-                delay: 6000,
-                transitionSpeed: 1000,
-                navigation: true,
-                pagination: true
+        // Hero Slider
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.querySelector('.slider-nav.prev');
+        const nextBtn = document.querySelector('.slider-nav.next');
+        let currentSlide = 0;
+        let slideInterval;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                dots[i].classList.remove('active');
             });
-            
-            // Add loading class removal
-            document.getElementById('revSlider').classList.add('loaded');
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function startSlider() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function stopSlider() {
+            clearInterval(slideInterval);
+        }
+
+        prevBtn.addEventListener('click', () => {
+            stopSlider();
+            prevSlide();
+            startSlider();
         });
 
+        nextBtn.addEventListener('click', () => {
+            stopSlider();
+            nextSlide();
+            startSlider();
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                stopSlider();
+                currentSlide = index;
+                showSlide(currentSlide);
+                startSlider();
+            });
+        });
+
+        startSlider();
+
+        // Add to cart function
         function addToCart(sanPhamId) {
             $.post('@Url.Action("ThemVaoGioHang", "SanPham")', {
                 sanPhamId: sanPhamId,
@@ -689,5 +518,23 @@
                 }
             });
         }
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-luxury-card, .team-card, .product-luxury-card, .service-list-card').forEach(el => {
+            observer.observe(el);
+        });
     </script>
 }

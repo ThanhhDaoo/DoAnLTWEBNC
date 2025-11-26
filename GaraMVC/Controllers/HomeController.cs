@@ -2,7 +2,6 @@
 using GaraMVC.Services;
 using GaraMVC.ViewModels;
 using System.Diagnostics;
-using System.Threading.Tasks;
 
 namespace GaraMVC.Controllers
 {
@@ -17,21 +16,19 @@ namespace GaraMVC.Controllers
 
         public async Task<IActionResult> Index()
         {
-            TongQuanViewModel model;
+            DashboardViewModel model;
 
             try
             {
-                model = await _thongKeService.GetTongQuanAsync();
+                model = await _thongKeService.GetDashboardDataAsync();
 
-                // Nếu service trả về null, khởi tạo object mặc định
                 if (model == null)
-                    model = new TongQuanViewModel();
+                    model = new DashboardViewModel();
             }
             catch (Exception ex)
             {
-                // Nếu có lỗi, vẫn trả về object rỗng, tránh null reference
                 TempData["ErrorMessage"] = $"Không thể tải dữ liệu: {ex.Message}";
-                model = new TongQuanViewModel();
+                model = new DashboardViewModel();
             }
 
             return View(model);
