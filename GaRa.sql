@@ -268,8 +268,8 @@ INSERT INTO USERS (Username, Password, Email, Role) VALUES
 
 -- Khách hàng
 INSERT INTO KHACHHANG (TenKH, SDT, DiaChi, Email, UserId) VALUES
-(N'Nguyễn Văn A', '0901234567', N'Hà Nội', 'customer1@gmail.com', 2),
-(N'Trần Thị B', '0912345678', N'TP.HCM', 'customer2@gmail.com', 3);
+(N'Nguyễn Văn Anh', '0901234567', N'Hà Nội', 'customer1@gmail.com', 2),
+(N'Trần Thị Bê', '0912345678', N'TP.HCM', 'customer2@gmail.com', 3);
 
 -- Xe
 INSERT INTO XE (BienSo, HangXe, DoiXe, MauXe, MaKH) VALUES

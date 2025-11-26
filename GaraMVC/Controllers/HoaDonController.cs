@@ -2,9 +2,11 @@
 using GaraMVC.Services;
 using GaraMVC.Models;
 using GaraMVC.ViewModels;
+using GaraMVC.Filters;
 
 namespace GaraMVC.Controllers
 {
+    [AuthorizeAdmin]
     public class HoaDonController : Controller
     {
         private readonly IHoaDonService _hoaDonService;
@@ -120,6 +122,74 @@ namespace GaraMVC.Controllers
         {
             var xes = await _xeService.GetByKhachHangAsync(maKH);
             return Json(xes);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ExportExcel()
+        {
+            try
+            {
+                var hoaDons = await _hoaDonService.GetAllAsync();
+
+                using (var workbook = new ClosedXML.Excel.XLWorkbook())
+                {
+                    var worksheet = workbook.Worksheets.Add("Hóa đơn");
+
+                    // Header
+                    worksheet.Cell(1, 1).Value = "Mã HĐ";
+                    worksheet.Cell(1, 2).Value = "Khách hàng";
+                    worksheet.Cell(1, 3).Value = "Số điện thoại";
+                    worksheet.Cell(1, 4).Value = "Biển số xe";
+                    worksheet.Cell(1, 5).Value = "Ngày lập";
+                    worksheet.Cell(1, 6).Value = "Tổng tiền";
+                    worksheet.Cell(1, 7).Value = "Hình thức TT";
+                    worksheet.Cell(1, 8).Value = "Trạng thái";
+
+                    // Style header
+                    var headerRange = worksheet.Range(1, 1, 1, 8);
+                    headerRange.Style.Font.Bold = true;
+                    headerRange.Style.Fill.BackgroundColor = ClosedXML.Excel.XLColor.FromHtml("#4e73df");
+                    headerRange.Style.Font.FontColor = ClosedXML.Excel.XLColor.White;
+                    headerRange.Style.Alignment.Horizontal = ClosedXML.Excel.XLAlignmentHorizontalValues.Center;
+
+                    // Data
+                    int row = 2;
+                    foreach (var hd in hoaDons)
+                    {
+                        worksheet.Cell(row, 1).Value = hd.MaHD;
+                        worksheet.Cell(row, 2).Value = hd.KhachHang?.TenKH ?? "N/A";
+                        worksheet.Cell(row, 3).Value = hd.KhachHang?.SDT ?? "N/A";
+                        worksheet.Cell(row, 4).Value = hd.Xe?.BienSo ?? "N/A";
+                        worksheet.Cell(row, 5).Value = hd.NgayLap.ToString("dd/MM/yyyy HH:mm");
+                        worksheet.Cell(row, 6).Value = hd.TongTien;
+                        worksheet.Cell(row, 6).Style.NumberFormat.Format = "#,##0 ₫";
+                        worksheet.Cell(row, 7).Value = hd.HinhThucTT ?? "Chưa TT";
+                        worksheet.Cell(row, 8).Value = hd.TrangThai ?? "Mới";
+                        row++;
+                    }
+
+                    // Auto-fit columns
+                    worksheet.Columns().AdjustToContents();
+
+                    // Add borders
+                    var dataRange = worksheet.Range(1, 1, row - 1, 8);
+                    dataRange.Style.Border.OutsideBorder = ClosedXML.Excel.XLBorderStyleValues.Thin;
+                    dataRange.Style.Border.InsideBorder = ClosedXML.Excel.XLBorderStyleValues.Thin;
+
+                    using (var stream = new System.IO.MemoryStream())
+                    {
+                        workbook.SaveAs(stream);
+                        var content = stream.ToArray();
+                        var fileName = $"HoaDon_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
+                        return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = $"Lỗi khi xuất Excel: {ex.Message}";
+                return RedirectToAction(nameof(Index));
+            }
         }
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GaraAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+effe28c67a53f2d6e1e0c5dea579a980d54a5a15")]
 [assembly: System.Reflection.AssemblyProductAttribute("GaraAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GaraAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

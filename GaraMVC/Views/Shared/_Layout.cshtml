@@ -148,9 +148,13 @@
                     
                     <div class="header-user dropdown">
                         <div class="dropdown-toggle" data-bs-toggle="dropdown">
-                            <img src="https://ui-avatars.com/api/?name=Admin&background=2377FC&color=fff&size=40" alt="Admin">
+                            @{
+                                var username = Context.Session.GetString("Username") ?? "Admin";
+                                var email = Context.Session.GetString("Email") ?? "";
+                            }
+                            <img src="https://ui-avatars.com/api/?name=@username&background=2377FC&color=fff&size=40" alt="@username">
                             <div class="user-info">
-                                <span class="user-name">Admin</span>
+                                <span class="user-name">@username</span>
                                 <span class="user-role">Quản trị viên</span>
                             </div>
                         </div>
@@ -158,7 +162,7 @@
                             <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Hồ sơ</a></li>
                             <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Cài đặt</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-sign-out-alt me-2"></i>Đăng xuất</a></li>
+                            <li><a class="dropdown-item text-danger" asp-controller="Auth" asp-action="Logout"><i class="fas fa-sign-out-alt me-2"></i>Đăng xuất</a></li>
                         </ul>
                     </div>
                 </div>
@@ -173,7 +177,7 @@
             
             <!-- Footer -->
             <footer class="footer-dashboard">
-                Copyright © 2024 MTProAuto. Design with <i class="fas fa-heart text-danger"></i> by <a href="#">ThemesFlat</a>. All rights reserved.
+                Copyright © 2025 MTProAuto. Design with <i class="fas fa-heart text-danger"></i> by <a href="#">ThemesFlat</a>. All rights reserved.
             </footer>
         </div>
     </div>

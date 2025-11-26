@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using GaraMVC.Services;
 using GaraMVC.Models;
+using GaraMVC.Filters;
 
 namespace GaraMVC.Controllers
 {
+    [AuthorizeAdmin]
     public class KhachHangController : Controller
     {
         private readonly IKhachHangService _khachHangService;

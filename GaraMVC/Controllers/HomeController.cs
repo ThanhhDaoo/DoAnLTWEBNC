@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using GaraMVC.Services;
 using GaraMVC.ViewModels;
+using GaraMVC.Filters;
 using System.Diagnostics;
 
 namespace GaraMVC.Controllers
 {
+    [AuthorizeAdmin]
     public class HomeController : Controller
     {
         private readonly IThongKeService _thongKeService;

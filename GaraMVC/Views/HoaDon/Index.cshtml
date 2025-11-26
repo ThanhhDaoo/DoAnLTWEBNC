@@ -40,8 +40,8 @@
                 <input type="text" id="searchInput" placeholder="Tìm kiếm hóa đơn..." onkeyup="filterTable()">
             </div>
         </div>
-        <a class="tf-button" style="background:#f0f0f0;color:#333;padding:12px 16px;border-radius:8px;margin-right:8px;">
-            <i class="fas fa-file-export"></i> Xuất Excel
+        <a asp-action="ExportExcel" class="tf-button" style="background:#28a745;color:white;padding:12px 16px;border-radius:8px;margin-right:8px;text-decoration:none;">
+            <i class="fas fa-file-excel"></i> Xuất Excel
         </a>
         <a asp-action="Create" class="btn-add tf-button style-1">
             <i class="fas fa-plus"></i> Tạo hóa đơn

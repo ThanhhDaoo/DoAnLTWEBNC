@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using GaraMVC.Services;
 using GaraMVC.ViewModels;
+using GaraMVC.Filters;
 
 namespace GaraMVC.Controllers
 {
+    [AuthorizeAdmin]
     public class ThongKeController : Controller
     {
         private readonly IThongKeService _thongKeService;

@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 using GaraMVC.Services;
 using GaraMVC.Models;
 using GaraMVC.ViewModels;
+using GaraMVC.Filters;
 
 namespace GaraMVC.Controllers
 {
+    [AuthorizeAdmin]
     public class XeController : Controller
     {
         private readonly IXeService _xeService;

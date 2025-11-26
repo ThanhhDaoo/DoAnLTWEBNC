@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GaraMVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e437baa189da83484076102a92cd2de3d6de3e25")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+effe28c67a53f2d6e1e0c5dea579a980d54a5a15")]
 [assembly: System.Reflection.AssemblyProductAttribute("GaraMVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GaraMVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

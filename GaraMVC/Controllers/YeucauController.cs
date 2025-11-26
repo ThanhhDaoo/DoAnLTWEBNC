@@ -1,9 +1,11 @@
 using GaraMVC.Models;
 using GaraMVC.Services;
 using Microsoft.AspNetCore.Mvc;
+using GaraMVC.Filters;
 
 namespace GaraMVC.Controllers
 {
+    [AuthorizeAdmin]
     public class YeucauController : Controller
     {
         private readonly IYeucauService _yeucauService;

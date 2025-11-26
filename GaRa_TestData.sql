@@ -24,14 +24,14 @@ INSERT INTO USERS (Username, Password, Email, Role, IsActive) VALUES
 -- 2. THÊM KHÁCH HÀNG
 -- =============================================
 INSERT INTO KHACHHANG (TenKH, SDT, DiaChi, Email, UserId) VALUES
-(N'Lê Văn C', '0923456789', N'123 Nguyễn Trãi, Thanh Xuân, Hà Nội', 'khach3@gmail.com', 6),
-(N'Phạm Thị D', '0934567890', N'456 Lê Lợi, Quận 1, TP.HCM', 'khach4@gmail.com', 7),
-(N'Hoàng Văn E', '0945678901', N'789 Trần Phú, Hải Châu, Đà Nẵng', 'khach5@gmail.com', 8),
-(N'Ngô Thị F', '0956789012', N'321 Hùng Vương, Ninh Kiều, Cần Thơ', 'khach6@gmail.com', 9),
-(N'Đặng Văn G', '0967890123', N'654 Lý Thường Kiệt, Hồng Bàng, Hải Phòng', 'khach7@gmail.com', 10),
-(N'Vũ Thị H', '0978901234', N'987 Nguyễn Huệ, Quận 3, TP.HCM', 'khach8@gmail.com', 11),
-(N'Bùi Văn I', '0989012345', N'147 Điện Biên Phủ, Ba Đình, Hà Nội', NULL, NULL),
-(N'Trịnh Thị K', '0990123456', N'258 Võ Văn Tần, Quận 10, TP.HCM', NULL, NULL);
+(N'Lê Văn Chung', '0923456789', N'123 Nguyễn Trãi, Thanh Xuân, Hà Nội', 'khach3@gmail.com', 6),
+(N'Phạm Thị Duyên', '0934567890', N'456 Lê Lợi, Quận 1, TP.HCM', 'khach4@gmail.com', 7),
+(N'Hoàng Văn Em', '0945678901', N'789 Trần Phú, Hải Châu, Đà Nẵng', 'khach5@gmail.com', 8),
+(N'Ngô Thị Bắp', '0956789012', N'321 Hùng Vương, Ninh Kiều, Cần Thơ', 'khach6@gmail.com', 9),
+(N'Đặng Văn Giàu', '0967890123', N'654 Lý Thường Kiệt, Hồng Bàng, Hải Phòng', 'khach7@gmail.com', 10),
+(N'Vũ Thị Hương', '0978901234', N'987 Nguyễn Huệ, Quận 3, TP.HCM', 'khach8@gmail.com', 11),
+(N'Bùi Văn Huấn', '0989012345', N'147 Điện Biên Phủ, Ba Đình, Hà Nội', NULL, NULL),
+(N'Trịnh Thị Khanh', '0990123456', N'258 Võ Văn Tần, Quận 10, TP.HCM', NULL, NULL);
 
 -- =============================================
 -- 3. THÊM XE
@@ -53,16 +53,16 @@ INSERT INTO XE (BienSo, HangXe, DoiXe, MauXe, MaKH) VALUES
 -- 4. THÊM YÊU CẦU DỊCH VỤ (Nhiều trạng thái khác nhau)
 -- =============================================
 INSERT INTO YEUCAU_DICHVU (TenKhachHang, SoDienThoai, DiaChi, MaDV, GhiChu, NgayYeuCau, TrangThai, NgayHen, GioHen) VALUES
-(N'Nguyễn Văn A', '0901234567', N'Hà Nội', 1, N'Xe chạy được 10,000km, cần thay dầu', DATEADD(DAY, -5, GETDATE()), N'Hoàn thành', DATEADD(DAY, -4, GETDATE()), '09:00'),
-(N'Trần Thị B', '0912345678', N'TP.HCM', 2, N'Rửa xe và hút bụi', DATEADD(DAY, -3, GETDATE()), N'Hoàn thành', DATEADD(DAY, -2, GETDATE()), '14:00'),
-(N'Lê Văn C', '0923456789', N'Hà Nội', 3, N'Bảo dưỡng định kỳ 20,000km', DATEADD(DAY, -2, GETDATE()), N'Đang xử lý', DATEADD(DAY, -1, GETDATE()), '10:00'),
-(N'Phạm Thị D', '0934567890', N'TP.HCM', 4, N'Lốp bị xì hơi', DATEADD(DAY, -1, GETDATE()), N'Đang xử lý', GETDATE(), '08:30'),
-(N'Hoàng Văn E', '0945678901', N'Đà Nẵng', 5, N'Vệ sinh nội thất toàn bộ', GETDATE(), N'Mới', DATEADD(DAY, 1, GETDATE()), '15:00'),
-(N'Ngô Thị F', '0956789012', N'Cần Thơ', 6, N'Xe bị xước nhẹ cần đánh bóng', GETDATE(), N'Mới', DATEADD(DAY, 2, GETDATE()), '09:30'),
-(N'Đặng Văn G', '0967890123', N'Hải Phòng', 7, N'Ắc quy yếu, khó khởi động', GETDATE(), N'Mới', DATEADD(DAY, 1, GETDATE()), '11:00'),
-(N'Vũ Thị H', '0978901234', N'TP.HCM', 8, N'Phanh kêu khi đạp', DATEADD(DAY, -7, GETDATE()), N'Đã hủy', NULL, NULL),
-(N'Bùi Văn I', '0989012345', N'Hà Nội', 9, N'Khoang máy bẩn', DATEADD(DAY, -4, GETDATE()), N'Hoàn thành', DATEADD(DAY, -3, GETDATE()), '16:00'),
-(N'Trịnh Thị K', '0990123456', N'TP.HCM', 1, N'Thay dầu định kỳ', DATEADD(DAY, -10, GETDATE()), N'Hoàn thành', DATEADD(DAY, -9, GETDATE()), '10:30'),
+(N'Nguyễn Văn An', '0901234567', N'Hà Nội', 1, N'Xe chạy được 10,000km, cần thay dầu', DATEADD(DAY, -5, GETDATE()), N'Hoàn thành', DATEADD(DAY, -4, GETDATE()), '09:00'),
+(N'Trần Thị Bình', '0912345678', N'TP.HCM', 2, N'Rửa xe và hút bụi', DATEADD(DAY, -3, GETDATE()), N'Hoàn thành', DATEADD(DAY, -2, GETDATE()), '14:00'),
+(N'Lê Văn Chiến', '0923456789', N'Hà Nội', 3, N'Bảo dưỡng định kỳ 20,000km', DATEADD(DAY, -2, GETDATE()), N'Đang xử lý', DATEADD(DAY, -1, GETDATE()), '10:00'),
+(N'Phạm Thị Duyên', '0934567890', N'TP.HCM', 4, N'Lốp bị xì hơi', DATEADD(DAY, -1, GETDATE()), N'Đang xử lý', GETDATE(), '08:30'),
+(N'Hoàng Văn Em', '0945678901', N'Đà Nẵng', 5, N'Vệ sinh nội thất toàn bộ', GETDATE(), N'Mới', DATEADD(DAY, 1, GETDATE()), '15:00'),
+(N'Ngô Thị Lúa', '0956789012', N'Cần Thơ', 6, N'Xe bị xước nhẹ cần đánh bóng', GETDATE(), N'Mới', DATEADD(DAY, 2, GETDATE()), '09:30'),
+(N'Đặng Văn Tài', '0967890123', N'Hải Phòng', 7, N'Ắc quy yếu, khó khởi động', GETDATE(), N'Mới', DATEADD(DAY, 1, GETDATE()), '11:00'),
+(N'Vũ Thị Hương', '0978901234', N'TP.HCM', 8, N'Phanh kêu khi đạp', DATEADD(DAY, -7, GETDATE()), N'Đã hủy', NULL, NULL),
+(N'Bùi Văn Huấn', '0989012345', N'Hà Nội', 9, N'Khoang máy bẩn', DATEADD(DAY, -4, GETDATE()), N'Hoàn thành', DATEADD(DAY, -3, GETDATE()), '16:00'),
+(N'Trịnh Thị Kim', '0990123456', N'TP.HCM', 1, N'Thay dầu định kỳ', DATEADD(DAY, -10, GETDATE()), N'Hoàn thành', DATEADD(DAY, -9, GETDATE()), '10:30'),
 (N'Khách vãng lai 1', '0911111111', N'Quận 7, TP.HCM', 2, N'Rửa xe nhanh', GETDATE(), N'Mới', DATEADD(DAY, 1, GETDATE()), '13:00'),
 (N'Khách vãng lai 2', '0922222222', N'Cầu Giấy, Hà Nội', 3, N'Kiểm tra tổng quát xe', GETDATE(), N'Mới', DATEADD(DAY, 3, GETDATE()), '08:00');
 

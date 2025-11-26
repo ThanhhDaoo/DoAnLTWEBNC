@@ -41,10 +41,10 @@
             </div>
         </div>
         <div class="filter-buttons" style="display:flex;gap:8px;">
-            <button class="tf-button" style="background:#E8F1FF;color:#2377FC;padding:10px 16px;border-radius:8px;border:none;">Tất cả</button>
-            <button class="tf-button" style="background:#f0f0f0;color:#333;padding:10px 16px;border-radius:8px;border:none;">Mới</button>
-            <button class="tf-button" style="background:#f0f0f0;color:#333;padding:10px 16px;border-radius:8px;border:none;">Đang xử lý</button>
-            <button class="tf-button" style="background:#f0f0f0;color:#333;padding:10px 16px;border-radius:8px;border:none;">Hoàn thành</button>
+            <button class="tf-button filter-btn active" data-status="all" onclick="filterByStatus('all', this)">Tất cả</button>
+            <button class="tf-button filter-btn" data-status="Mới" onclick="filterByStatus('Mới', this)">Mới</button>
+            <button class="tf-button filter-btn" data-status="Đang xử lý" onclick="filterByStatus('Đang xử lý', this)">Đang xử lý</button>
+            <button class="tf-button filter-btn" data-status="Hoàn thành" onclick="filterByStatus('Hoàn thành', this)">Hoàn thành</button>
         </div>
     </div>
 
@@ -153,7 +153,31 @@
 </div>
 
 @section Scripts {
+<style>
+.filter-btn {
+    background: #f0f0f0;
+    color: #333;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn:hover {
+    background: #e0e0e0;
+}
+
+.filter-btn.active {
+    background: #E8F1FF;
+    color: #2377FC;
+    font-weight: 600;
+}
+</style>
+
 <script>
+var currentStatus = 'all';
+
 function filterTable() {
     var input = document.getElementById("searchInput");
     var filter = input.value.toLowerCase();
@@ -163,6 +187,8 @@ function filterTable() {
     for (var i = 1; i < tr.length; i++) {
         var td = tr[i].getElementsByTagName("td");
         var found = false;
+        
+        // Kiểm tra search text
         for (var j = 0; j < td.length; j++) {
             if (td[j]) {
                 var txtValue = td[j].textContent || td[j].innerText;
@@ -172,7 +198,81 @@ function filterTable() {
                 }
             }
         }
+        
+        // Kiểm tra status filter
+        if (found && currentStatus !== 'all') {
+            var statusCell = td[5]; // Cột trạng thái
+            if (statusCell) {
+                var statusText = statusCell.textContent.trim();
+                found = statusText === currentStatus;
+            }
+        }
+        
         tr[i].style.display = found ? "" : "none";
+    }
+    
+    updateCount();
+}
+
+function filterByStatus(status, button) {
+    currentStatus = status;
+    
+    // Update active button
+    var buttons = document.querySelectorAll('.filter-btn');
+    buttons.forEach(function(btn) {
+        btn.classList.remove('active');
+    });
+    button.classList.add('active');
+    
+    // Filter table
+    var table = document.getElementById("dataTable");
+    var tr = table.getElementsByTagName("tr");
+    var searchFilter = document.getElementById("searchInput").value.toLowerCase();
+    
+    for (var i = 1; i < tr.length; i++) {
+        var td = tr[i].getElementsByTagName("td");
+        var statusCell = td[5]; // Cột trạng thái
+        
+        if (statusCell) {
+            var statusText = statusCell.textContent.trim();
+            var matchStatus = (status === 'all' || statusText === status);
+            
+            // Kiểm tra cả search filter
+            var matchSearch = true;
+            if (searchFilter) {
+                matchSearch = false;
+                for (var j = 0; j < td.length; j++) {
+                    if (td[j]) {
+                        var txtValue = td[j].textContent || td[j].innerText;
+                        if (txtValue.toLowerCase().indexOf(searchFilter) > -1) {
+                            matchSearch = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            
+            tr[i].style.display = (matchStatus && matchSearch) ? "" : "none";
+        }
+    }
+    
+    updateCount();
+}
+
+function updateCount() {
+    var table = document.getElementById("dataTable");
+    var tr = table.getElementsByTagName("tr");
+    var count = 0;
+    
+    for (var i = 1; i < tr.length; i++) {
+        if (tr[i].style.display !== "none") {
+            count++;
+        }
+    }
+    
+    var countText = document.querySelector('.text-tiny');
+    if (countText) {
+        countText.textContent = 'Hiển thị ' + count + ' yêu cầu';
     }
 }
 </script>

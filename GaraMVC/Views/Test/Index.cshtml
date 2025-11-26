@@ -1,0 +1,118 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Login</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Test Login Debug</h1>
+        
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Test Form</h5>
+                <form method="post" asp-action="TestLogin">
+                    <div class="mb-3">
+                        <label>Username:</label>
+                        <input type="text" name="username" class="form-control" value="admin" />
+                    </div>
+                    <div class="mb-3">
+                        <label>Password:</label>
+                        <input type="text" name="password" class="form-control" value="123456" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Test Login</button>
+                </form>
+            </div>
+        </div>
+
+        @if (ViewBag.Username != null)
+        {
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">Test Results</h5>
+                    
+                    <table class="table">
+                        <tr>
+                            <th>Username:</th>
+                            <td>@ViewBag.Username</td>
+                        </tr>
+                        <tr>
+                            <th>Password:</th>
+                            <td>@ViewBag.Password</td>
+                        </tr>
+                        <tr>
+                            <th>Hashed Password:</th>
+                            <td><code>@ViewBag.HashedPassword</code></td>
+                        </tr>
+                        <tr>
+                            <th>Expected Hash:</th>
+                            <td><code>@ViewBag.ExpectedHash</code></td>
+                        </tr>
+                        <tr>
+                            <th>Hash Match:</th>
+                            <td>
+                                @if (ViewBag.HashMatch)
+                                {
+                                    <span class="badge bg-success">✓ MATCH</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger">✗ NO MATCH</span>
+                                }
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>API URL:</th>
+                            <td>@ViewBag.ApiUrl</td>
+                        </tr>
+                        <tr>
+                            <th>API Status:</th>
+                            <td>@ViewBag.StatusCode</td>
+                        </tr>
+                        <tr>
+                            <th>API Response:</th>
+                            <td><pre>@ViewBag.ResponseContent</pre></td>
+                        </tr>
+                        <tr>
+                            <th>Success:</th>
+                            <td>
+                                @if (ViewBag.Success == true)
+                                {
+                                    <span class="badge bg-success">✓ SUCCESS</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger">✗ FAILED</span>
+                                }
+                            </td>
+                        </tr>
+                        @if (ViewBag.Error != null)
+                        {
+                            <tr>
+                                <th>Error:</th>
+                                <td class="text-danger">@ViewBag.Error</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        }
+        
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Instructions</h5>
+                <ol>
+                    <li>Đảm bảo API đang chạy tại <code>https://localhost:7002</code></li>
+                    <li>Kiểm tra database có user admin với password hash đúng</li>
+                    <li>Nhấn "Test Login" để kiểm tra</li>
+                    <li>Nếu thành công, thử đăng nhập tại <a href="/Auth/Login">/Auth/Login</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

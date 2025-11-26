@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\DoAnLTWEBNC\\GaraMVC\\GaraMVC.csproj": {}
+    "D:\\LTWNC\\DoAnLTWEBNC\\GaraMVC\\GaraMVC.csproj": {}
   },
   "projects": {
-    "E:\\DoAnLTWEBNC\\GaraMVC\\GaraMVC.csproj": {
+    "D:\\LTWNC\\DoAnLTWEBNC\\GaraMVC\\GaraMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\DoAnLTWEBNC\\GaraMVC\\GaraMVC.csproj",
+        "projectUniqueName": "D:\\LTWNC\\DoAnLTWEBNC\\GaraMVC\\GaraMVC.csproj",
         "projectName": "GaraMVC",
-        "projectPath": "E:\\DoAnLTWEBNC\\GaraMVC\\GaraMVC.csproj",
-        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "E:\\DoAnLTWEBNC\\GaraMVC\\obj\\",
+        "projectPath": "D:\\LTWNC\\DoAnLTWEBNC\\GaraMVC\\GaraMVC.csproj",
+        "packagesPath": "C:\\Users\\Cam Tien\\.nuget\\packages\\",
+        "outputPath": "D:\\LTWNC\\DoAnLTWEBNC\\GaraMVC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Cam Tien\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -44,12 +44,16 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.105.0, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[8.0.7, )"
@@ -74,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
